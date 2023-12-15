@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clone MKTR</title>
+    <script
+      src="https://kit.fontawesome.com/ba965b16bb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Nunito:wght@300;400&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        font-family: "Roboto", sans-serif;
+      }
+      body {
+        background-color: black;
+      }
+      header {
+        width: 100%;
+        height: 50px;
+        background-color: #01440a;
+        display: flex;
+        justify-content: flex-end;
+      }
+      header .header {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+      }
+      .header form {
+        /* border: 1px solid black; */
+        display: flex;
+      }
+      .header form button {
+        background: transparent;
+        border: none;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+      }
+      header form input {
+        width: 150px;
+        padding: 5px 20px;
+        box-sizing: border-box;
+        background: transparent;
+        border: none;
+        color: #49bb49;
+        font-size: 100%;
+        font-weight: 600;
+      }
+      header form input::placeholder {
+        color: rgba(255, 255, 255, 0.219);
+      }
+      header form input:focus {
+        outline: none;
+      }
+      header .language {
+        /* border: 1px solid black; */
+        width: 50%;
+        height: 20px;
+        display: flex;
+        gap: 10px;
+      }
+      .language a img {
+        width: 100%;
+        height: 100%;
+      }
+
+      nav {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      nav .logo {
+        width: 255px;
+        box-sizing: border-box;
+        /* border: 1px solid black; */
+        font-size: 12px;
+        font-weight: 600;
+        color: #01440a;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      nav .logo img {
+        width: 47px;
+      }
+      nav .logo details {
+        text-align: center;
+      }
+      nav .logo details summary {
+        list-style: none;
+      }
+      nav .logo details summary div {
+        width: 23px;
+        height: 4px;
+        background-color: goldenrod;
+        border-radius: 50px;
+        margin-block: 3px;
+      }
+      nav .logo details[open] summary div:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      nav .logo details[open] summary div:nth-child(2) {
+        display: none;
+      }
+      nav .logo details[open] summary div:nth-child(3) {
+        transform: rotate(135deg);
+        margin-top: -7px;
+      }
+      nav .logo details .hamburger-menu {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        margin-top: 20px;
+        padding-block: 15px;
+        background-color: white;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      nav .logo details .hamburger-menu a {
+        text-decoration: none;
+        color: black;
+      }
+      nav .logo details .hamburger-menu a:hover {
+        color: goldenrod;
+      }
+      nav .logo .hamburger-menu ul li {
+        list-style: none;
+        padding-block: 12px;
+      }
+      nav .nav-desktop {
+        height: 68px;
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+        margin-left: 80px;
+      }
+      .nav-desktop a {
+        text-decoration: none;
+        color: black;
+      }
+      .nav-desktop a:hover {
+        color: goldenrod;
+      }
+      nav .nav-desktop details {
+        /* border: 1px solid black; */
+        position: relative;
+        z-index: 99;
+      }
+      .nav-desktop details summary {
+        list-style: none;
+        margin-inline: 5px;
+      }
+      .hamburger-menu details:hover summary,
+      .nav-desktop details:hover summary {
+        color: goldenrod;
+      }
+      .nav-desktop details summary::-webkit-details-marker {
+        display: none;
+      }
+      .hamburger-menu details summary::after,
+      .nav-desktop details summary::after {
+        content: " ►";
+      }
+      .hamburger-menu details[open] summary,
+      .nav-desktop details[open] summary {
+        color: goldenrod;
+      }
+      .hamburger-menu details[open] summary:after,
+      .nav-desktop details[open] summary:after {
+        content: " ▼";
+      }
+      .nav-desktop details ul {
+        position: absolute;
+        width: 220px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding-left: 25px;
+        margin-top: 17px;
+      }
+      .nav-desktop details ul li {
+        list-style: none;
+        font-size: 15px;
+        font-weight: 600;
+        padding-block: 10px;
+      }
+      nav .saham {
+        width: 100px;
+        margin-left: 60px;
+      }
+      /* grafik */
+      @keyframes tonext {
+        75% {
+          left: 0;
+        }
+        95% {
+          left: 100%;
+        }
+        98% {
+          left: 100%;
+        }
+        99% {
+          left: 0;
+        }
+      }
+
+      @keyframes tostart {
+        75% {
+          left: 0;
+        }
+        95% {
+          left: -300%;
+        }
+        98% {
+          left: -300%;
+        }
+        99% {
+          left: 0;
+        }
+      }
+
+      @keyframes snap {
+        96% {
+          scroll-snap-align: center;
+        }
+        97% {
+          scroll-snap-align: none;
+        }
+        99% {
+          scroll-snap-align: none;
+        }
+        100% {
+          scroll-snap-align: center;
+        }
+      }
+      /* * {
+        box-sizing: border-box;
+        scrollbar-color: transparent transparent;
+        scrollbar-width: 0px;
+      }
+
+      *::-webkit-scrollbar {
+        width: 0;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background: transparent;
+        border: none;
+      }
+
+      * {
+        -ms-overflow-style: none;
+      } */
+
+      ol,
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .carousel {
+        position: relative;
+        padding-top: 75%;
+        filter: drop-shadow(0 0 10px #0003);
+        perspective: 100px;
+      }
+
+      .carousel__viewport {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        overflow-x: scroll;
+        counter-reset: item;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+      }
+
+      .carousel__slide {
+        position: relative;
+        flex: 0 0 100%;
+        width: 100%;
+        background-image: url(./kebun1.jpg);
+        background-size: cover;
+        /* background-color: #f99; */
+        counter-increment: item;
+      }
+
+      .carousel__slide:nth-child(even) {
+        background-color: #99f;
+      }
+
+      .carousel__slide:before {
+        /* content: counter(item); */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -40%, 70px);
+        color: #fff;
+        font-size: 2em;
+      }
+
+      .carousel__snapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        scroll-snap-align: center;
+      }
+
+      @media (hover: hover) {
+        .carousel__snapper {
+          animation-name: tonext, snap;
+          animation-timing-function: ease;
+          animation-duration: 4s;
+          animation-iteration-count: infinite;
+        }
+
+        .carousel__slide:last-child .carousel__snapper {
+          animation-name: tostart, snap;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .carousel__snapper {
+          animation-name: none;
+        }
+      }
+
+      .carousel:hover .carousel__snapper,
+      .carousel:focus-within .carousel__snapper {
+        animation-name: none;
+      }
+
+      .carousel__navigation {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+      }
+
+      .carousel__navigation-list,
+      .carousel__navigation-item {
+        display: none;
+      }
+
+      .carousel__navigation-button {
+        display: none;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: #333;
+        background-clip: content-box;
+        border: 0.25rem solid transparent;
+        border-radius: 50%;
+        font-size: 0;
+        transition: transform 0.1s;
+      }
+
+      .carousel::before,
+      .carousel::after,
+      .carousel__prev,
+      .carousel__next {
+        position: absolute;
+        top: 0;
+        margin-top: 37.5%;
+        width: 4rem;
+        height: 4rem;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        font-size: 0;
+        outline: 0;
+      }
+
+      .carousel::before,
+      .carousel__prev {
+        left: 1rem;
+      }
+
+      .carousel::after,
+      .carousel__next {
+        right: 1rem;
+      }
+
+      .carousel::before,
+      .carousel::after {
+        content: "";
+        z-index: 1;
+        background-color: #333;
+        background-size: 1.5rem 1.5rem;
+        background-repeat: no-repeat;
+        background-position: center center;
+        color: #fff;
+        font-size: 2.5rem;
+        line-height: 4rem;
+        text-align: center;
+        pointer-events: none;
+      }
+
+      .carousel::before {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+      }
+
+      .carousel::after {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+      }
+      /* about */
+      .about {
+        width: 100%;
+        height: 70vh;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+      .about .about-img {
+        width: 50%;
+        height: 362px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      .about .about-img .about-img1 {
+        width: 190px;
+        height: 190px;
+      }
+      .about .about-img .about-img2 {
+        width: 360px;
+        height: 190px;
+      }
+      .about .about-img .about-img3 {
+        width: 300px;
+        height: 160px;
+      }
+      .about .about-img .about-img4 {
+        width: 250px;
+        height: 160px;
+      }
+      .about .about-img img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+      .about .about-detail {
+        width: 50%;
+        color: #01440a;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 45px;
+      }
+      .about .about-detail div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+      }
+      .about .about-detail a {
+        width: 200px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #01440a;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Grafik */
+      .grafik {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+      }
+      .grafik div {
+        width: 50%;
+        text-align: center;
+      }
+      .grafik div h1 {
+        margin-bottom: 25px;
+        font-size: 24px;
+        color: #01440a;
+      }
+      .grafik div img {
+        width: 400px;
+      }
+
+      /* Responsif */
+      /* mobile */
+      @media (max-width: 768px) {
+        header .header {
+          width: 75%;
+        }
+        nav .logo {
+          width: 75%;
+          justify-content: space-between;
+        }
+        nav .saham {
+          width: 80%;
+          margin-left: 0px;
+        }
+      }
+      /* tablet */
+      @media (max-width: 1000px) {
+        nav {
+          flex-direction: column;
+        }
+        nav .nav-desktop {
+          display: none;
+        }
+      }
+      /* desktop */
+      @media (min-width: 1000px) {
+        nav .logo details {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <form action="" method="get">
+          <input type="text" class="searchbar" placeholder="Search..." />
+          <button><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+        <div class="language">
+          <a href="" class="lang-IDN"
+            ><img
+              src="https://mktr.co.id/wp-content/plugins/gtranslate/flags/svg/id.svg"
+              alt="idn"
+          /></a>
+          <a href="" class="lang-ENG"
+            ><img
+              src="https://mktr.co.id/wp-content/plugins/gtranslate/flags/svg/en.svg"
+              alt="eng"
+          /></a>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <div class="logo">
+        <img
+          src="https://mktr.co.id/wp-content/uploads/2023/10/cropped-logo_mktr-300x300-removebg-preview-q11eqomlzg4qm8ucs04smovieczeshlewxua3mhrvc.png"
+          alt="logo"
+        />
+        <span>PT Menthobi Karyatama Raya Tbk</span>
+        <details>
+          <summary>
+            <div></div>
+            <div></div>
+            <div></div>
+          </summary>
+          <div class="hamburger-menu">
+            <a href="" class="beranda">BERANDA</a>
+            <details>
+              <summary>TENTANG KAMI</summary>
+              <ul>
+                <a href="">
+                  <li>Sekilas Perusahaan</li>
+                </a>
+                <a href="">
+                  <li>Visi Misi & Budaya Kerja</li>
+                </a>
+                <li>Manajemen Organisasi</li>
+                <li>Tata Kelola Perusahaan</li>
+              </ul>
+            </details>
+            <details>
+              <summary>BERKELANJUTAN</summary>
+              <ul>
+                <a href=""><li>Konservasi Hutan</li></a>
+                <a href=""><li>Standar dan Sertifikasi</li></a>
+                <a href=""><li>CSR</li></a>
+                <a href=""><li>Rantai Pasok</li></a>
+                <a href=""><li>Plasma</li></a>
+              </ul>
+            </details>
+            <details>
+              <summary>HUBUNGAN INVESTOR</summary>
+              <ul>
+                <li>Informasi Pemegang Saham</li>
+                <li>Informasi Keuangan</li>
+              </ul>
+            </details>
+            <details>
+              <summary>AKTIFITAS BISNIS</summary>
+              <ul>
+                <a href=""><li>PT Menthobi Makmur Lestari</li></a>
+                <a href=""><li>PT Menthobi Hijau Lestari</li></a>
+                <a href=""><li>PT Menthobi Transitian Raya</li></a>
+                <a href=""><li>PT Menthobi Agro Raya</li></a>
+              </ul>
+            </details>
+            <details>
+              <summary>BERITA & GALLERY</summary>
+              <ul>
+                <a href=""><li>Berita</li></a>
+                <a href=""><li>Foto & Video Aktifitas</li></a>
+              </ul>
+            </details>
+            <a href="">KARIR</a>
+          </div>
+        </details>
+      </div>
+      <div class="nav-desktop">
+        <a href="" class="beranda">BERANDA</a>
+        <details>
+          <summary>TENTANG KAMI</summary>
+          <ul>
+            <a href="">
+              <li>Sekilas Perusahaan</li>
+            </a>
+            <a href="">
+              <li>Visi Misi & Budaya Kerja</li>
+            </a>
+            <li>Manajemen Organisasi</li>
+            <li>Tata Kelola Perusahaan</li>
+          </ul>
+        </details>
+        <details>
+          <summary>BERKELANJUTAN</summary>
+          <ul>
+            <a href=""><li>Konservasi Hutan</li></a>
+            <a href=""><li>Standar dan Sertifikasi</li></a>
+            <a href=""><li>CSR</li></a>
+            <a href=""><li>Rantai Pasok</li></a>
+            <a href=""><li>Plasma</li></a>
+          </ul>
+        </details>
+        <details>
+          <summary>HUBUNGAN INVESTOR</summary>
+          <ul>
+            <li>Informasi Pemegang Saham</li>
+            <li>Informasi Keuangan</li>
+          </ul>
+        </details>
+        <details>
+          <summary>AKTIFITAS BISNIS</summary>
+          <ul>
+            <a href=""><li>PT Menthobi Makmur Lestari</li></a>
+            <a href=""><li>PT Menthobi Hijau Lestari</li></a>
+            <a href=""><li>PT Menthobi Transitian Raya</li></a>
+            <a href=""><li>PT Menthobi Agro Raya</li></a>
+          </ul>
+        </details>
+        <details>
+          <summary>BERITA & GALLERY</summary>
+          <ul>
+            <a href=""><li>Berita</li></a>
+            <a href=""><li>Foto & Video Aktifitas</li></a>
+          </ul>
+        </details>
+        <a href="">KARIR</a>
+      </div>
+      <div class="saham">
+        <iframe
+          scrolling="no"
+          allowtransparency="true"
+          frameborder="0"
+          src="https://www.tradingview-widget.com/embed-widget/ticker-tape/?locale=id#%7B%22symbols%22%3A%5B%7B%22description%22%3A%22%22%2C%22proName%22%3A%22IDX%3AMKTR%22%7D%5D%2C%22showSymbolLogo%22%3Afalse%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Atrue%2C%22displayMode%22%3A%22regular%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A44%2C%22utm_source%22%3A%22mktr.co.id%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22mktr.co.id%2Findex.php%2Ffoto-video-aktifitas%2F%22%7D"
+          title="ticker tape TradingView widget"
+          lang="en"
+          style="
+            user-select: none;
+            box-sizing: border-box;
+            display: block;
+            height: 44px;
+            width: 100%;
+          "
+        ></iframe>
+      </div>
+      <div class="nav-mobile"></div>
+    </nav>
+    <div class="slider">
+      <section class="carousel" aria-label="Gallery">
+        <ol class="carousel__viewport">
+          <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+            <div class="carousel__snapper">
+              <a href="#carousel__slide4" class="carousel__prev"
+                >Go to last slide</a
+              >
+              <a href="#carousel__slide2" class="carousel__next"
+                >Go to next slide</a
+              >
+            </div>
+          </li>
+          <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+            <div class="carousel__snapper"></div>
+            <a href="#carousel__slide1" class="carousel__prev"
+              >Go to previous slide</a
+            >
+            <a href="#carousel__slide3" class="carousel__next"
+              >Go to next slide</a
+            >
+          </li>
+          <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+            <div class="carousel__snapper"></div>
+            <a href="#carousel__slide2" class="carousel__prev"
+              >Go to previous slide</a
+            >
+            <a href="#carousel__slide4" class="carousel__next"
+              >Go to next slide</a
+            >
+          </li>
+          <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+            <div class="carousel__snapper"></div>
+            <a href="#carousel__slide3" class="carousel__prev"
+              >Go to previous slide</a
+            >
+            <a href="#carousel__slide1" class="carousel__next"
+              >Go to first slide</a
+            >
+          </li>
+        </ol>
+        <aside class="carousel__navigation">
+          <ol class="carousel__navigation-list">
+            <li class="carousel__navigation-item">
+              <a href="#carousel__slide1" class="carousel__navigation-button"
+                >Go to slide 1</a
+              >
+            </li>
+            <li class="carousel__navigation-item">
+              <a href="#carousel__slide2" class="carousel__navigation-button"
+                >Go to slide 2</a
+              >
+            </li>
+            <li class="carousel__navigation-item">
+              <a href="#carousel__slide3" class="carousel__navigation-button"
+                >Go to slide 3</a
+              >
+            </li>
+            <li class="carousel__navigation-item">
+              <a href="#carousel__slide4" class="carousel__navigation-button"
+                >Go to slide 4</a
+              >
+            </li>
+          </ol>
+        </aside>
+      </section>
+    </div>
+    <div class="about">
+      <div class="about-img">
+        <div class="about-img1"><img src="./image1.jpg" alt="about 1" /></div>
+        <div class="about-img2"><img src="./image2.jpg" alt="about 2" /></div>
+        <div class="about-img3"><img src="./image3.jpg" alt="about 3" /></div>
+        <div class="about-img4"><img src="./image4.jpg" alt="about 4" /></div>
+      </div>
+      <div class="about-detail">
+        <div>
+          <h1>Tentang Kami</h1>
+          <p>
+            PT. Menthobi Karyatama Raya Tbk ( MKTR ) merupakan perusahaan
+            perkebunan yang berpusat di Jakarta. MKTR adalah bagian dari Maktour
+            Group, perusahaan biro haji dan umroh terkemuka di Indonesia yang
+            dipimpin oleh <b>Fuad Hasan Masyhur.</b>
+          </p>
+          <p>
+            Saat ini, MKTR memiliki usaha di industri kelapa sawit dan mempunyai
+            area perkebunan serta pabrik kelapa sawit di Kalimantan Tengah. MKTR
+            mengedepankan prinsip tata kelola perusahaan terbaik dengan konsep
+            integrasi antara hasil perkebunan, pengolahan, dan pemanfaatan
+            limbah. Didukung standar pengelolaan dan hasil perkebunan yang
+            tinggi, transport manajemen yang baik, dan menjunjung konsep ramah
+            lingkungan serta berkesinambungan.
+          </p>
+        </div>
+        <a href="">BACA SELENGKAPNYA</a>
+      </div>
+    </div>
+    <div class="grafik">
+      <div class="investor">
+        <h1>HUBUNGAN INVESTOR</h1>
+        <img src="./grafik1.png" alt="investor" />
+      </div>
+      <div class="comodity">
+        <h1>PALM COMODITY MARKET</h1>
+        <img src="./grafik2.png" alt="comodity" />
+      </div>
+    </div>
+  </body>
+</html>
