@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container-bg {
+        background: #f5f5f5;
+        width: 100%;
+        height: 450px;
+        padding: 10px;
+      }
+      .container {
+        display: flex;
+        width: 70%;
+        margin: auto;
+        padding-top: 30px;
+      }
+      .text-h1 {
+        display: flex;
+        justify-content: center;
+      }
+      h1 {
+        font-size: xx-large;
+        font-weight: bolder;
+        letter-spacing: 7px;
+        width: max-content;
+        color: #01440a;
+      }
+      p {
+        font-size: 14px;
+      }
+      .line {
+        display: flex;
+        justify-content: center;
+      }
+      .line-text {
+        height: 2px;
+        margin: 8px 0 20px 0;
+        width: 30%;
+        display: flex;
+        justify-content: center;
+      }
+      .video {
+        margin-left: 10px;
+      }
+      .struktur-perusahaan {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .struktur-h1 {
+        margin-top: 20px;
+      }
+      .hr {
+        width: 15%;
+        margin: 20px 0;
+      }
+      .anak-perusahaan {
+        background-color: #f5f5f5;
+      }
+      .anak-h1 {
+        display: flex;
+        justify-content: center;
+        padding: 15px 0 90px 0;
+      }
+      .anaks {
+        display: flex;
+        justify-content: space-around;
+      }
+      .list-anaks {
+        border: 1px solid #f1f1f1;
+        border-radius: 8px;
+        width: 350px;
+        margin: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+      }
+      .contentan {
+        text-align: center;
+        padding: 5px;
+      }
+      .deskri {
+        margin-bottom: 20px;
+      }
+      .img-anak {
+        height: 80px;
+        width: 110px;
+      }
+      .img-anak img {
+        padding: 5px;
+        background-color: #fff;
+        border: none;
+        width: 100%;
+        height: auto;
+        left: 83%;
+        position: relative;
+        transform: translateY(-69%);
+      }
+      .selengkapnya {
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+      }
+      .btnS {
+        background-color: #01440a;
+        color: #fff;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      /* Extra small devices (phones, 600px and down) */
+      @media only screen and (max-width: 600px) {
+        .example {
+          background: red;
+        }
+      }
+
+      /* Small devices (portrait tablets and large phones, 600px and up) */
+      @media only screen and (min-width: 600px) {
+        /* .container-bg {
+          width: 100%;
+          height: auto;
+        }
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .video iframe {
+          width: 450px;
+          height: 247px;
+        } */
+      }
+
+      /* Medium devices (landscape tablets, 768px and up) */
+      @media only screen and (min-width: 768px) {
+        .example {
+          background: blue;
+        }
+      }
+
+      /* Large devices (laptops/desktops, 992px and up) */
+      @media only screen and (min-width: 992px) {
+        .example {
+          background: orange;
+        }
+      }
+
+      /* Extra large devices (large laptops and desktops, 1200px and up) */
+      @media only screen and (min-width: 1200px) {
+        .example {
+          background: pink;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-bg">
+      <div class="container">
+        <div class="text">
+          <div class="text-head">
+            <div class="text-h1"><h1>SEKILAS PERUSAHAAN</h1></div>
+            <div class="line"><hr class="line-text" color="rgb(13, 75, 13)" /></div>
+          </div>
+          <div class="p-text">
+            <p>
+              PT. Menthobi Karyatama Raya (MKTR) Tbk merupakan perusahaan perkebunan yang berpusat di Jakarta. MKTR adalah bagian dari Maktour Group, perusahaan biro haji dan umroh terkemuka di Indonesia yang dipimpin oleh Fuad Hasan
+              Masyhur.
+            </p>
+            &nbsp;
+            <p>
+              Saat ini, MKTR memiliki usaha di industri kelapa sawit dan mempunyai area perkebunan serta pabrik kelapa sawit di Kalimantan Tengah. MKTR mengedepankan prinsip tata kelola perusahaan terbaik dengan konsep integrasi antara
+              hasil perkebunan, pengolahan, dan pemanfaatan limbah. Didukung standar pengelolaan dan hasil perkebunan yang tinggi, transport manajemen yang baik, dan menjunjung konsep ramah lingkungan serta berkesinambungan.
+            </p>
+            &nbsp;
+            <p>
+              Melalui anak perusahaannya, MKTR mengelola perkebunan kelapa sawit sekitar 6.000 hektar dan pabrik kelapa sawit kapasitas 30 ton per jam. Salah satu wujud peduli lingkungan, MKTR melalui anak perusahaannya telah mengalokasikan
+              lahan 50 hektar sebagai area high conservation value (HCV).
+            </p>
+            &nbsp;
+            <p>
+              Pada awalnya, perseroan bernama PT Accinvest Bangun Lestari, kemudian diubah menjadi PT Menthobi Karyatama Raya berdasarkan Akta Pernyataan Keputusan Rapat No. 36 tanggal 31 Desember 2020, yang dibuat di hadapan Notaris
+              Andhika Mayrizal Amir, SH., M.Kn., Notaris di Tangerang.
+            </p>
+          </div>
+        </div>
+        <div class="video">
+          <iframe
+            width="600"
+            height="347"
+            src="https://www.youtube.com/embed/eK-MgzRsC3s?si=AyjsGJ9XuHx-lN5H"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="struktur-perusahaan">
+      <div class="struktur-h1"><h1>STRUKTUR PERUSAHAAN</h1></div>
+      <hr class="line-text hr" color="rgb(13, 75, 13)" />
+      <div class="struktur-img"><img src="./img/StrukTur-Organisasi-mkt.png" alt="struktur-perusahaan" /></div>
+    </div>
+    <div class="anak-perusahaan">
+      <div class="anak-h1">
+        <h1>ANAK PERUSAHAAN</h1>
+      </div>
+      <div class="anaks">
+        <div class="list-anaks">
+          <div class="img-anak"><img src="./img/MAR-fix-1-300x300-1.png" alt="" class="list-anaks" /></div>
+          <div class="contentan">
+            <h4 class="deskri">PT. Menthobi Agro Raya</h4>
+            <p>Bergerak di bidang pembibitan dan penjualan CPO</p>
+          </div>
+          <div class="selengkapnya">
+            <button class="btnS">selengkapya</button>
+          </div>
+        </div>
+        <div class="list-anaks">
+          <div class="img-anak"><img src="./img/MTTR-New-2-275x300-1.png" alt="" class="list-anaks" /></div>
+          <div class="contentan">
+            <h4 class="deskri">PT. Menthobi Transitian Raya</h4>
+            <p>Bergerak di bidang transportasi dan logistik</p>
+          </div>
+          <div class="selengkapnya">
+            <button class="btnS">selengkapya</button>
+          </div>
+        </div>
+        <div class="list-anaks">
+          <div class="img-anak"><img src="./img/mml-300x300-1.png" alt="" class="list-anaks" /></div>
+          <div class="contentan">
+            <h4 class="deskri">PT. Menthobi Makmur Lestari</h4>
+            <p>Kebun kelapa sawit di lamandau, kalimantan tengah</p>
+          </div>
+          <div class="selengkapnya">
+            <button class="btnS">selengkapya</button>
+          </div>
+        </div>
+        <div class="list-anaks">
+          <div class="img-anak"><img src="./img/mhl.png" alt="" class="list-anaks" /></div>
+          <div class="contentan">
+            <h4 class="deskri">PT. Menthobi Hijau Lestari</h4>
+            <p>Bergerak di bidang pengolahan limbah</p>
+          </div>
+          <div class="selengkapnya">
+            <button class="btnS">selengkapya</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
