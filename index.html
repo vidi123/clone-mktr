@@ -21,7 +21,7 @@
         font-family: "Roboto", sans-serif;
       }
       body {
-        background-color: black;
+        background-color: #01440a;
       }
       header {
         width: 100%;
@@ -447,6 +447,10 @@
         justify-content: flex-end;
         gap: 10px;
       }
+      .about .about-img div:hover {
+        filter: brightness(50%);
+        transition: 0.5s;
+      }
       .about .about-img .about-img1 {
         width: 190px;
         height: 190px;
@@ -513,9 +517,172 @@
         width: 400px;
       }
 
+      /* berita */
+      .berita {
+        width: 100%;
+        padding-block: 35px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+      }
+      .berita h1 {
+        color: #01440a;
+      }
+      .berita .cards {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+      .berita .cards .card {
+        width: 27%;
+        border-radius: 5px;
+        overflow: hidden;
+        background-color: #203b22;
+        color: white;
+        text-decoration: none;
+        box-shadow: 0px 0px 15px rgb(206, 206, 206);
+      }
+      .berita .cards .card:hover img {
+        filter: brightness(100%);
+      }
+      .berita .cards .card img {
+        width: 100%;
+        height: 250px;
+        filter: brightness(90%);
+        transition: 0.2s;
+      }
+      .cards .card .deskripsi {
+        height: 190px;
+        padding-inline: 30px;
+        padding-top: 35px;
+        box-sizing: border-box;
+        /* background-color: #49bb49; */
+        border-bottom: 1px solid white;
+      }
+      .cards .card .deskripsi h2 {
+        font-size: 21px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .cards .card .deskripsi span {
+        display: block;
+        margin-top: 25px;
+        font-size: 12px;
+      }
+      .cards .card .tanggal {
+        font-size: 13px;
+        padding-left: 30px;
+        padding-block: 15px;
+      }
+
+      /* lokasi */
+      .lokasi {
+        padding-block: 35px;
+        background-color: #01440a;
+        display: flex;
+        justify-content: center;
+        gap: 35px;
+      }
+      .lokasi .tentang {
+        width: 37%;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      .lokasi .tentang img {
+        width: 60px;
+        height: 60px;
+        margin-inline: auto;
+        margin-bottom: 10px;
+      }
+      .lokasi .tentang h2 {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .lokasi .tentang p {
+        text-align: justify;
+        line-height: 21px;
+      }
+      .lokasi .map {
+        width: 450px;
+        height: 450px;
+      }
+      .lokasi .map iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+
+      /* footer */
+      footer {
+        background-color: #01440a;
+        color: white;
+      }
+      footer .wrapper {
+        width: 70%;
+        margin: auto;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      footer .wrapper img {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        margin-right: 100px;
+        margin-block: 25px;
+      }
+      footer .wrapper ul {
+        display: flex;
+      }
+      footer .wrapper ul li {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      footer .wrapper ul li h3 {
+        font-size: 15px;
+        margin-bottom: 15px;
+      }
+      footer .wrapper ul li a {
+        color: white;
+        text-decoration: none;
+      }
+      footer .wrapper ul li .sosmed {
+        margin: auto;
+        display: flex;
+        gap: 10px;
+      }
+      footer .wrapper ul li .sosmed a {
+        width: 35px;
+        height: 35px;
+        background-color: white;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      footer .copyright {
+        background-color: #073a0b;
+        height: 70px;
+        padding-inline: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
       /* Responsif */
       /* mobile */
-      @media (max-width: 768px) {
+      @media (max-width: 767px) {
         header .header {
           width: 75%;
         }
@@ -527,6 +694,15 @@
           width: 80%;
           margin-left: 0px;
         }
+
+        body .berita .cards .card {
+          width: 90%;
+        }
+
+        .lokasi .map {
+          width: 70%;
+          height: 300px;
+        }
       }
       /* tablet */
       @media (max-width: 1000px) {
@@ -536,7 +712,40 @@
         nav .nav-desktop {
           display: none;
         }
+
+        .berita .cards {
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+        }
+        .berita .cards .card {
+          width: 70%;
+        }
+
+        .lokasi {
+          flex-direction: column;
+          align-items: center;
+        }
+        .lokasi .tentang {
+          width: 70%;
+        }
+        footer .wrapper {
+          width: 60%;
+          align-items: center;
+        }
+        footer .wrapper img {
+          margin-right: 0px;
+          margin-block: 30px;
+        }
+        footer .wrapper ul {
+          flex-direction: column;
+          gap: 25px;
+        }
+        footer .wrapper ul li {
+          width: 100%;
+        }
       }
+
       /* desktop */
       @media (min-width: 1000px) {
         nav .logo details {
@@ -806,5 +1015,142 @@
         <img src="./grafik2.png" alt="comodity" />
       </div>
     </div>
+    <div class="berita">
+      <h1>BERITA</h1>
+      <div class="cards">
+        <a href="" class="card">
+          <img src="./berita1.jpeg" alt="berita1" />
+          <div class="deskripsi">
+            <h2>
+              Emiten Kelapa Sawit Menthobi Karyatama (MKTR) Bidik Pendapatan
+              Tembus Rp986,9 Miliar
+            </h2>
+            <span>READ MORE »</span>
+          </div>
+          <div class="tanggal">
+            <span>November 27, 2023 • No Comments</span>
+          </div>
+        </a>
+        <a href="" class="card">
+          <img src="./berita2.jpeg" alt="berita2" />
+          <div class="deskripsi">
+            <h2>
+              Ini Alasan MKTR Tbk Optimistis Menjalankan Bisnis Sawit Yang
+              Berkelanjutan
+            </h2>
+            <span>READ MORE »</span>
+          </div>
+          <div class="tanggal">
+            <span>June 7, 2023 • No Comments</span>
+          </div>
+        </a>
+        <a href="" class="card">
+          <img src="./berita3.jpeg" alt="berita3" />
+          <div class="deskripsi">
+            <h2>Mendapat Sambutan Hangat Pemodal, Ini Kata Bos MKTR Tb</h2>
+            <span>READ MORE »</span>
+          </div>
+          <div class="tanggal">
+            <span>June 7, 2023 • No Comments</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="lokasi">
+      <div class="tentang">
+        <img
+          src="https://mktr.co.id/wp-content/uploads/2023/10/cropped-logo_mktr-300x300-removebg-preview-q11eqomlzg4qm8ucs04smovieczeshlewxua3mhrvc.png"
+          alt="logo"
+        />
+        <h2>PT. Menthobi Karyatama Raya Tbk</h2>
+        <p>
+          PT. Menthobi Karyatama Raya Tbk ( MKTR ) merupakan perusahaan
+          perkebunan yang berpusat di Jakarta. MKTR adalah bagian dari Maktour
+          Group, perusahaan biro haji dan umroh terkemuka di Indonesia yang
+          dipimpin oleh Fuad Hasan Masyhur.
+        </p>
+        <p>
+          Saat ini, MKTR memiliki usaha di industri kelapa sawit dan mempunyai
+          area perkebunan serta pabrik kelapa sawit di Kalimantan Tengah. MKTR
+          mengedepankan prinsip tata kelola perusahaan terbaik dengan konsep
+          integrasi antara hasil perkebunan, pengolahan, dan pemanfaatan limbah.
+        </p>
+        <p>
+          Didukung standar pengelolaan dan hasil perkebunan yang tinggi,
+          transport manajemen yang baik, dan menjunjung konsep ramah lingkungan
+          serta berkesinambungan.
+        </p>
+      </div>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15864.777850076103!2d106.868431!3d-6.2380809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f30b1b085c3d%3A0x39a0362946f91bfd!2sPT.%20Menthobi%20Makmur%20Lestari%20(Head%20Office)!5e0!3m2!1sid!2sid!4v1702748174529!5m2!1sid!2sid"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+    <footer>
+      <div class="wrapper">
+        <img
+          src="https://mktr.co.id/wp-content/uploads/2023/10/cropped-logo_mktr-300x300-removebg-preview-q11eqomlzg4qm8ucs04smovieczeshlewxua3mhrvc.png"
+          alt="logo"
+        />
+        <ul>
+          <li>
+            <h3>INFORMASI PEMEGANG SAHAM</h3>
+            <a href="">Struktur Kepemilikan</a>
+            <a href="">Dividen</a>
+            <a href="">Rups</a>
+            <a href="">Penunjang Pasar Modal</a>
+          </li>
+          <li>
+            <h3>LAPORAN KEUANGAN</h3>
+            <a href="">Laporan Kuartalan</a>
+            <a href="">Laporan Tahunan</a>
+            <a href="">Prospektus</a>
+          </li>
+          <li>
+            <h3>BERKELANJUTAN</h3>
+            <a href="">Konservasi Hutan</a>
+            <a href="">Standar dan Sertifikasi</a>
+            <a href="">CSR</a>
+            <a href="">Rantai Pasok</a>
+            <a href="">Plasma</a>
+          </li>
+          <li>
+            <h3>PT. Menthobi Karyatama Raya Tbk</h3>
+            <p>
+              Wisma Maktour Lt. 4 Jalan Otista Raya No.80 Jakarta Timur 13330
+              Indonesia
+            </p>
+            <span>Ikuti Kami :</span>
+            <div class="sosmed">
+              <a href=""
+                ><i class="fa-brands fa-facebook" style="color: #4267b2"></i
+              ></a>
+              <a href=""
+                ><i class="fa-brands fa-instagram" style="color: orangered"></i
+              ></a>
+              <a href=""
+                ><i class="fa-brands fa-linkedin" style="color: #4267b2"></i
+              ></a>
+              <a href=""
+                ><i class="fa-brands fa-youtube" style="color: red"></i
+              ></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <span
+          >PT. Menthobi Karyatama Raya Tbk @Copyright 2023 All Right
+          Reserved</span
+        >
+      </div>
+    </footer>
   </body>
 </html>
