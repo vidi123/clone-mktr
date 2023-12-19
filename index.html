@@ -305,7 +305,7 @@
         position: relative;
         flex: 0 0 100%;
         width: 100%;
-        background-image: url(./kebun1.jpg);
+        background-image: url(./img/kebun1.jpg);
         background-size: cover;
         /* background-color: #f99; */
         counter-increment: item;
@@ -447,9 +447,11 @@
         justify-content: flex-end;
         gap: 10px;
       }
+      .about .about-img div {
+        transition: 0.5s;
+      }
       .about .about-img div:hover {
         filter: brightness(50%);
-        transition: 0.5s;
       }
       .about .about-img .about-img1 {
         width: 190px;
@@ -513,8 +515,18 @@
         font-size: 24px;
         color: #01440a;
       }
-      .grafik div img {
-        width: 400px;
+      .grafik .investor {
+        /* width: 400px; */
+        width: 35%;
+        height: 450px;
+      }
+      .grafik .comodity div {
+        width: 100%;
+      }
+      .grafik .comodity span {
+        font-size: 19px;
+        font-weight: 600;
+        color: #01440a;
       }
 
       /* berita */
@@ -558,7 +570,6 @@
         padding-inline: 30px;
         padding-top: 35px;
         box-sizing: border-box;
-        /* background-color: #49bb49; */
         border-bottom: 1px solid white;
       }
       .cards .card .deskripsi h2 {
@@ -695,6 +706,72 @@
           margin-left: 0px;
         }
 
+        .about {
+          flex-direction: column;
+          height: fit-content;
+          padding-block: 25px;
+        }
+        body .about .about-img {
+          width: 97%;
+          height: fit-content;
+          justify-content: center;
+        }
+        .about .about-img .about-img1 {
+          width: 36%;
+          height: 138px;
+        }
+        .about .about-img .about-img2 {
+          width: 55%;
+          height: 138px;
+        }
+        .about .about-img .about-img3 {
+          width: 40%;
+          height: 150px;
+        }
+        .about .about-img .about-img4 {
+          width: 51%;
+          height: 150px;
+        }
+        .about .about-detail {
+          width: 75%;
+        }
+        .about .about-detail p:nth-child(3) {
+          /* display: none; */
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .grafik {
+          flex-direction: column;
+          align-items: center;
+          gap: 100px;
+          overflow: hidden;
+        }
+        .grafik .investor {
+          width: 80%;
+          height: 380px;
+        }
+        body .grafik .comodity {
+          height: 85vh;
+        }
+        .grafik .comodity div {
+          position: relative;
+        }
+        .grafik .comodity .palms {
+          flex-direction: column;
+        }
+        .grafik .comodity .palm-kernel {
+          margin-top: 350px;
+        }
+        .grafik-harga svg {
+          scale: 0.7;
+          position: absolute;
+          top: -65px;
+          left: -130px;
+        }
+
         body .berita .cards .card {
           width: 90%;
         }
@@ -711,6 +788,73 @@
         }
         nav .nav-desktop {
           display: none;
+        }
+
+        .about {
+          flex-direction: column;
+          height: fit-content;
+          padding-block: 25px;
+        }
+        .about .about-img {
+          width: 80%;
+          height: fit-content;
+          justify-content: center;
+        }
+        .about .about-img .about-img1 {
+          width: 36%;
+          height: 138px;
+        }
+        .about .about-img .about-img2 {
+          width: 55%;
+          height: 138px;
+        }
+        .about .about-img .about-img3 {
+          width: 40%;
+          height: 150px;
+        }
+        .about .about-img .about-img4 {
+          width: 51%;
+          height: 150px;
+        }
+        .about .about-detail {
+          width: 75%;
+        }
+        .about .about-detail p:nth-child(3) {
+          /* display: none; */
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .grafik {
+          flex-direction: column;
+          align-items: center;
+          gap: 100px;
+          overflow: hidden;
+        }
+        .grafik .investor {
+          width: 80%;
+          height: 380px;
+        }
+        .grafik .comodity {
+          width: 80%;
+          height: 32vh;
+        }
+        .grafik .comodity div {
+          position: relative;
+        }
+        .grafik .comodity .palms {
+          display: flex;
+        }
+        .grafik .comodity .palm-kernel svg {
+          left: -135px;
+        }
+        .grafik-harga svg {
+          scale: 0.7;
+          position: absolute;
+          top: -65px;
+          left: -130px;
         }
 
         .berita .cards {
@@ -978,10 +1122,18 @@
     </div>
     <div class="about">
       <div class="about-img">
-        <div class="about-img1"><img src="./image1.jpg" alt="about 1" /></div>
-        <div class="about-img2"><img src="./image2.jpg" alt="about 2" /></div>
-        <div class="about-img3"><img src="./image3.jpg" alt="about 3" /></div>
-        <div class="about-img4"><img src="./image4.jpg" alt="about 4" /></div>
+        <div class="about-img1">
+          <img src="./img/image1.jpg" alt="about 1" />
+        </div>
+        <div class="about-img2">
+          <img src="./img/image2.jpg" alt="about 2" />
+        </div>
+        <div class="about-img3">
+          <img src="./img/image3.jpg" alt="about 3" />
+        </div>
+        <div class="about-img4">
+          <img src="./img/image4.jpg" alt="about 4" />
+        </div>
       </div>
       <div class="about-detail">
         <div>
@@ -1008,18 +1160,723 @@
     <div class="grafik">
       <div class="investor">
         <h1>HUBUNGAN INVESTOR</h1>
-        <img src="./grafik1.png" alt="investor" />
+        <iframe
+          title="advanced chart TradingView widget"
+          lang="en"
+          id="tradingview_ae249"
+          frameborder="0"
+          allowtransparency="true"
+          scrolling="no"
+          allowfullscreen="true"
+          src="https://s.tradingview.com/widgetembed/?hideideas=1&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=en#%7B%22symbol%22%3A%22MKTR%22%2C%22frameElementId%22%3A%22tradingview_ae249%22%2C%22interval%22%3A%22D%22%2C%22hide_top_toolbar%22%3A%221%22%2C%22hide_side_toolbar%22%3A%221%22%2C%22allow_symbol_change%22%3A%221%22%2C%22save_image%22%3A%221%22%2C%22studies%22%3A%22%5B%5D%22%2C%22theme%22%3A%22Grey%22%2C%22style%22%3A%222%22%2C%22timezone%22%3A%22Asia%2FBangkok%22%2C%22hideideasbutton%22%3A%221%22%2C%22studies_overrides%22%3A%22%7B%7D%22%2C%22no_referral_id%22%3A%221%22%2C%22utm_source%22%3A%22mktr.co.id%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22chart%22%2C%22utm_term%22%3A%22MKTR%22%2C%22page-uri%22%3A%22mktr.co.id%2F%22%7D"
+          style="
+            width: 100%;
+            height: 100%;
+            margin: 0px !important;
+            padding: 0px !important;
+          "
+        ></iframe>
       </div>
       <div class="comodity">
         <h1>PALM COMODITY MARKET</h1>
-        <img src="./grafik2.png" alt="comodity" />
+        <div class="palms">
+          <div class="palm-oil">
+            <span>PALM OIL</span>
+            <div class="grafik-harga">
+              <svg
+                width="550"
+                height="400"
+                aria-label="A chart."
+                style="overflow: hidden"
+              >
+                <defs id="_ABSTRACT_RENDERER_ID_2">
+                  <clipPath id="_ABSTRACT_RENDERER_ID_3">
+                    <rect x="105" y="77" width="340" height="247"></rect>
+                  </clipPath>
+                </defs>
+                <rect
+                  x="0"
+                  y="0"
+                  width="550"
+                  height="400"
+                  stroke="none"
+                  stroke-width="0"
+                  fill="#ffffff"
+                ></rect>
+                <g>
+                  <rect
+                    x="457"
+                    y="77"
+                    width="81"
+                    height="31"
+                    stroke="none"
+                    stroke-width="0"
+                    fill-opacity="0"
+                    fill="#ffffff"
+                  ></rect>
+                  <g>
+                    <rect
+                      x="457"
+                      y="77"
+                      width="81"
+                      height="12"
+                      stroke="none"
+                      stroke-width="0"
+                      fill-opacity="0"
+                      fill="#ffffff"
+                    ></rect>
+                    <g>
+                      <text
+                        text-anchor="start"
+                        x="486"
+                        y="87.2"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        Price
+                      </text>
+                    </g>
+                    <path
+                      d="M457,83L481,83"
+                      stroke="#3366cc"
+                      stroke-width="2"
+                      fill-opacity="1"
+                      fill="none"
+                    ></path>
+                  </g>
+                  <g>
+                    <rect
+                      x="457"
+                      y="96"
+                      width="81"
+                      height="12"
+                      stroke="none"
+                      stroke-width="0"
+                      fill-opacity="0"
+                      fill="#ffffff"
+                    ></rect>
+                    <g>
+                      <text
+                        text-anchor="start"
+                        x="486"
+                        y="106.2"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        Change
+                      </text>
+                    </g>
+                    <path
+                      d="M457,102L481,102"
+                      stroke="#dc3912"
+                      stroke-width="2"
+                      fill-opacity="1"
+                      fill="none"
+                    ></path>
+                  </g>
+                </g>
+                <g>
+                  <rect
+                    x="105"
+                    y="77"
+                    width="340"
+                    height="247"
+                    stroke="none"
+                    stroke-width="0"
+                    fill-opacity="0"
+                    fill="#ffffff"
+                  ></rect>
+                  <g
+                    clip-path="url(https://mktr.co.id/#_ABSTRACT_RENDERER_ID_3)"
+                  >
+                    <g>
+                      <rect
+                        x="105"
+                        y="323"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="282"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="241"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="200"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="159"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="118"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="77"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                    </g>
+                    <g>
+                      <rect
+                        x="105"
+                        y="282"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      ></rect>
+                    </g>
+                    <g>
+                      <path
+                        d="M162,100.25705000000002L275,88.6233L388,89.72005000000001"
+                        stroke="#3366cc"
+                        stroke-width="2"
+                        fill-opacity="1"
+                        fill="none"
+                      ></path>
+                      <path
+                        d="M162,282.9592L275,281.1921L388,282.61685"
+                        stroke="#dc3912"
+                        stroke-width="2"
+                        fill-opacity="1"
+                        fill="none"
+                      ></path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g>
+                    <g>
+                      <text
+                        text-anchor="middle"
+                        x="162"
+                        y="341.2"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        22-Oct
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="middle"
+                        x="275"
+                        y="341.2"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        22-Nov
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="middle"
+                        x="388"
+                        y="341.2"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        22-Dec
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="327.7"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        -200
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="286.7"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        0
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="245.7"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        200
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="204.7"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        400
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="163.7"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        600
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="122.7"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        800
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="81.7"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        1000
+                      </text>
+                    </g>
+                  </g>
+                </g>
+                <g></g>
+              </svg>
+            </div>
+          </div>
+          <div class="palm-kernel">
+            <span>PALM KERNEL OIL</span>
+            <div class="grafik-harga">
+              <svg
+                width="550"
+                height="400"
+                aria-label="A chart."
+                style="overflow: hidden"
+              >
+                <defs id="_ABSTRACT_RENDERER_ID_0">
+                  <clipPath id="_ABSTRACT_RENDERER_ID_1">
+                    <rect x="105" y="77" width="340" height="247"></rect>
+                  </clipPath>
+                </defs>
+                <rect
+                  x="0"
+                  y="0"
+                  width="550"
+                  height="400"
+                  stroke="none"
+                  stroke-width="0"
+                  fill="#ffffff"
+                ></rect>
+                <g>
+                  <rect
+                    x="457"
+                    y="77"
+                    width="81"
+                    height="31"
+                    stroke="none"
+                    stroke-width="0"
+                    fill-opacity="0"
+                    fill="#ffffff"
+                  ></rect>
+                  <g>
+                    <rect
+                      x="457"
+                      y="77"
+                      width="81"
+                      height="12"
+                      stroke="none"
+                      stroke-width="0"
+                      fill-opacity="0"
+                      fill="#ffffff"
+                    ></rect>
+                    <g>
+                      <text
+                        text-anchor="start"
+                        x="486"
+                        y="87.2"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        Price
+                      </text>
+                    </g>
+                    <path
+                      d="M457,83L481,83"
+                      stroke="#3366cc"
+                      stroke-width="2"
+                      fill-opacity="1"
+                      fill="none"
+                    ></path>
+                  </g>
+                  <g>
+                    <rect
+                      x="457"
+                      y="96"
+                      width="81"
+                      height="12"
+                      stroke="none"
+                      stroke-width="0"
+                      fill-opacity="0"
+                      fill="#ffffff"
+                    ></rect>
+                    <g>
+                      <text
+                        text-anchor="start"
+                        x="486"
+                        y="106.2"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        Change
+                      </text>
+                    </g>
+                    <path
+                      d="M457,102L481,102"
+                      stroke="#dc3912"
+                      stroke-width="2"
+                      fill-opacity="1"
+                      fill="none"
+                    ></path>
+                  </g>
+                </g>
+                <g>
+                  <rect
+                    x="105"
+                    y="77"
+                    width="340"
+                    height="247"
+                    stroke="none"
+                    stroke-width="0"
+                    fill-opacity="0"
+                    fill="#ffffff"
+                  ></rect>
+                  <g
+                    clip-path="url(https://mktr.co.id/#_ABSTRACT_RENDERER_ID_1)"
+                  >
+                    <g>
+                      <rect
+                        x="105"
+                        y="323"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="274"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="225"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="175"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="126"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                      <rect
+                        x="105"
+                        y="77"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#cccccc"
+                      ></rect>
+                    </g>
+                    <g>
+                      <rect
+                        x="105"
+                        y="126"
+                        width="340"
+                        height="1"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      ></rect>
+                    </g>
+                    <g>
+                      <path
+                        d="M162,116.85999999999999L275,116.85999999999999L388,116.85999999999999"
+                        stroke="#3366cc"
+                        stroke-width="2"
+                        fill-opacity="1"
+                        fill="none"
+                      ></path>
+                      <path
+                        d="M162,292.504L275,105.15039999999999L388,121.58319999999999"
+                        stroke="#dc3912"
+                        stroke-width="2"
+                        fill-opacity="1"
+                        fill="none"
+                      ></path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g>
+                    <g>
+                      <text
+                        text-anchor="middle"
+                        x="162"
+                        y="341.2"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        Oct-22
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="middle"
+                        x="275"
+                        y="341.2"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        Nov-22
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="middle"
+                        x="388"
+                        y="341.2"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        Dec-22
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="327.7"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        -20
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="278.5"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        -15
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="229.29999999999998"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        -10
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="180.1"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        -5
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="130.9"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        0
+                      </text>
+                    </g>
+                    <g>
+                      <text
+                        text-anchor="end"
+                        x="93"
+                        y="81.7"
+                        font-family="sans-serif"
+                        font-size="12"
+                        stroke="none"
+                        stroke-width="0"
+                        fill="#000000"
+                      >
+                        5
+                      </text>
+                    </g>
+                  </g>
+                </g>
+                <g></g>
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="berita">
       <h1>BERITA</h1>
       <div class="cards">
         <a href="" class="card">
-          <img src="./berita1.jpeg" alt="berita1" />
+          <img src="./img/berita1.jpeg" alt="berita1" />
           <div class="deskripsi">
             <h2>
               Emiten Kelapa Sawit Menthobi Karyatama (MKTR) Bidik Pendapatan
@@ -1032,7 +1889,7 @@
           </div>
         </a>
         <a href="" class="card">
-          <img src="./berita2.jpeg" alt="berita2" />
+          <img src="./img/berita2.jpeg" alt="berita2" />
           <div class="deskripsi">
             <h2>
               Ini Alasan MKTR Tbk Optimistis Menjalankan Bisnis Sawit Yang
@@ -1045,7 +1902,7 @@
           </div>
         </a>
         <a href="" class="card">
-          <img src="./berita3.jpeg" alt="berita3" />
+          <img src="./img/berita3.jpeg" alt="berita3" />
           <div class="deskripsi">
             <h2>Mendapat Sambutan Hangat Pemodal, Ini Kata Bos MKTR Tb</h2>
             <span>READ MORE »</span>
