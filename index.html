@@ -206,229 +206,79 @@
         width: 100px;
         margin-left: 60px;
       }
-      /* grafik */
-      @keyframes tonext {
-        75% {
-          left: 0;
-        }
-        95% {
-          left: 100%;
-        }
-        98% {
-          left: 100%;
-        }
-        99% {
-          left: 0;
-        }
-      }
-
-      @keyframes tostart {
-        75% {
-          left: 0;
-        }
-        95% {
-          left: -300%;
-        }
-        98% {
-          left: -300%;
-        }
-        99% {
-          left: 0;
-        }
-      }
-
-      @keyframes snap {
-        96% {
-          scroll-snap-align: center;
-        }
-        97% {
-          scroll-snap-align: none;
-        }
-        99% {
-          scroll-snap-align: none;
-        }
-        100% {
-          scroll-snap-align: center;
-        }
-      }
-      /* * {
-        box-sizing: border-box;
-        scrollbar-color: transparent transparent;
-        scrollbar-width: 0px;
-      }
-
-      *::-webkit-scrollbar {
-        width: 0;
-      }
-
-      *::-webkit-scrollbar-track {
-        background: transparent;
-      }
-
-      *::-webkit-scrollbar-thumb {
-        background: transparent;
-        border: none;
-      }
-
-      * {
-        -ms-overflow-style: none;
-      } */
-
-      ol,
-      li {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      .carousel {
-        position: relative;
-        padding-top: 75%;
-        filter: drop-shadow(0 0 10px #0003);
-        perspective: 100px;
-      }
-
-      .carousel__viewport {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        overflow-x: scroll;
-        counter-reset: item;
-        scroll-behavior: smooth;
-        scroll-snap-type: x mandatory;
-      }
-
-      .carousel__slide {
-        position: relative;
-        flex: 0 0 100%;
+      /* slider */
+      .swipper {
         width: 100%;
-        background-image: url(./img/kebun1.jpg);
+        height: 500px;
+        background: transparent;
         background-size: cover;
-        /* background-color: #f99; */
-        counter-increment: item;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 1s;
+        position: relative;
+        overflow: hidden;
       }
-
-      .carousel__slide:nth-child(even) {
-        background-color: #99f;
+      .bg-satu {
+        right: -2685px;
+        transition: 1.3s;
       }
-
-      .carousel__slide:before {
-        /* content: counter(item); */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate3d(-50%, -40%, 70px);
-        color: #fff;
-        font-size: 2em;
+      .bg-dua {
+        right: -1343px;
+        transition: 1.3s;
       }
-
-      .carousel__snapper {
-        position: absolute;
-        top: 0;
-        left: 0;
+      .bg-tiga {
+        right: 0;
+        transition: 1.3s;
+      }
+      .swipper div {
+        width: 50px;
+        height: 100px;
+        background-color: rgba(34, 34, 34, 0.692);
+        cursor: pointer;
+        z-index: 1;
+      }
+      .swipper .slide-button:hover {
+        background-color: rgba(34, 34, 34, 0.849);
+      }
+      .swipper i {
         width: 100%;
         height: 100%;
-        scroll-snap-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 65px;
+        color: #777;
       }
-
-      @media (hover: hover) {
-        .carousel__snapper {
-          animation-name: tonext, snap;
-          animation-timing-function: ease;
-          animation-duration: 4s;
-          animation-iteration-count: infinite;
-        }
-
-        .carousel__slide:last-child .carousel__snapper {
-          animation-name: tostart, snap;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .carousel__snapper {
-          animation-name: none;
-        }
-      }
-
-      .carousel:hover .carousel__snapper,
-      .carousel:focus-within .carousel__snapper {
-        animation-name: none;
-      }
-
-      .carousel__navigation {
+      .swipper .gambar {
+        width: 300%;
+        height: 500px;
         position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        text-align: center;
+        display: flex;
       }
-
-      .carousel__navigation-list,
-      .carousel__navigation-item {
-        display: none;
+      .gambar img {
+        width: 100%;
       }
-
-      .carousel__navigation-button {
-        display: none;
-        width: 1.5rem;
-        height: 1.5rem;
-        background-color: #333;
-        background-clip: content-box;
-        border: 0.25rem solid transparent;
+      .swipper .index {
+        width: 100px;
+        height: 40px;
+        display: flex;
+        align-self: flex-end;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+      }
+      .index .bulat {
+        width: 13px;
+        height: 13px;
         border-radius: 50%;
-        font-size: 0;
-        transition: transform 0.1s;
+        background-color: #555;
+        transition: 0.4s;
       }
-
-      .carousel::before,
-      .carousel::after,
-      .carousel__prev,
-      .carousel__next {
-        position: absolute;
-        top: 0;
-        margin-top: 37.5%;
-        width: 4rem;
-        height: 4rem;
-        transform: translateY(-50%);
-        border-radius: 50%;
-        font-size: 0;
-        outline: 0;
-      }
-
-      .carousel::before,
-      .carousel__prev {
-        left: 1rem;
-      }
-
-      .carousel::after,
-      .carousel__next {
-        right: 1rem;
-      }
-
-      .carousel::before,
-      .carousel::after {
-        content: "";
-        z-index: 1;
-        background-color: #333;
-        background-size: 1.5rem 1.5rem;
-        background-repeat: no-repeat;
-        background-position: center center;
-        color: #fff;
-        font-size: 2.5rem;
-        line-height: 4rem;
-        text-align: center;
-        pointer-events: none;
-      }
-
-      .carousel::before {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
-      }
-
-      .carousel::after {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+      .index .select {
+        width: 45px;
+        border-radius: 50px;
+        background-color: #666;
       }
       /* about */
       .about {
@@ -500,8 +350,220 @@
         align-items: center;
       }
 
+      /* Inisiatif */
+      .inisiatif {
+        padding-block: 50px;
+        background-color: #01440a;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .inisiatif h1 {
+        width: 80%;
+        font-size: 23px;
+      }
+      .inisiatif input {
+        display: none;
+      }
+      .inisiatif .tabs {
+        width: 80%;
+        /* background: #01440a; */
+      }
+      .inisiatif .tabs .labels {
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: -1px;
+      }
+      .inisiatif .tabs .labels label {
+        height: 40px;
+        font-size: 12px;
+        font-weight: 600;
+        padding-inline: 30px;
+        box-sizing: border-box;
+        border: 1px solid transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+      .inisiatif input#inisiatif-1:checked ~ .tabs .labels label.label1 {
+        border: 1px solid white;
+        border-bottom: 1px solid #01440a;
+        color: #ffc050;
+        background-color: #01440a;
+      }
+      .inisiatif input#inisiatif-2:checked ~ .tabs .labels label.label2 {
+        border: 1px solid white;
+        border-bottom: 1px solid #01440a;
+        color: #ffc050;
+        background-color: #01440a;
+      }
+      .inisiatif input#inisiatif-3:checked ~ .tabs .labels label.label3 {
+        border: 1px solid white;
+        border-bottom: 1px solid #01440a;
+        color: #ffc050;
+        background-color: #01440a;
+      }
+      .inisiatif input#inisiatif-4:checked ~ .tabs .labels label.label4 {
+        border: 1px solid white;
+        border-bottom: 1px solid #01440a;
+        color: #ffc050;
+        background-color: #01440a;
+      }
+      .inisiatif input#inisiatif-5:checked ~ .tabs .labels label.label5 {
+        border: 1px solid white;
+        border-bottom: 1px solid #01440a;
+        color: #ffc050;
+        background-color: #01440a;
+      }
+      .inisiatif .tabs .konten {
+        padding: 20px;
+        position: relative;
+        top: 39px;
+        border: 1px solid white;
+      }
+      .inisiatif .tabs .konten .wrapper {
+        width: 100%;
+        height: 410px;
+        background-image: url(./img/kebun1.jpg);
+        background-size: cover;
+        background-position: center;
+        padding-inline: 20px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+      }
+      .inisiatif .tabs .konten .wrapper .konten-detail {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .inisiatif .tabs .konten .wrapper .konten-detail p {
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .inisiatif .tabs .konten .wrapper .konten-detail a {
+        width: 200px;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #01440a;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .inisiatif .tabs .konten .wrapper .konten-img {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+      }
+      .inisiatif .tabs .konten .wrapper .konten-img img {
+        width: 400px;
+        height: 280px;
+      }
+      body .inisiatif .accordion {
+        width: 80%;
+      }
+      .inisiatif .accordion .label-wrap {
+        border: 1px solid white;
+        box-sizing: border-box;
+      }
+      .inisiatif .accordion .label-wrap label {
+        width: 100%;
+        border: 1px solid white;
+        display: flex;
+        box-sizing: border-box;
+      }
+      .inisiatif input#inisiatif-1:checked ~ .accordion .label-wrap .label1 {
+        color: #ffc050;
+      }
+      .inisiatif input#inisiatif-2:checked ~ .accordion .label-wrap .label2 {
+        color: #ffc050;
+      }
+      .inisiatif input#inisiatif-3:checked ~ .accordion .label-wrap .label3 {
+        color: #ffc050;
+      }
+      .inisiatif input#inisiatif-4:checked ~ .accordion .label-wrap .label4 {
+        color: #ffc050;
+      }
+      .inisiatif input#inisiatif-5:checked ~ .accordion .label-wrap .label5 {
+        color: #ffc050;
+      }
+      .inisiatif input#inisiatif-1:checked ~ .accordion .label-wrap #ld-1 {
+        display: block;
+      }
+      .inisiatif input#inisiatif-2:checked ~ .accordion .label-wrap #ld-2 {
+        display: block;
+      }
+      .inisiatif input#inisiatif-3:checked ~ .accordion .label-wrap #ld-3 {
+        display: block;
+      }
+      .inisiatif input#inisiatif-4:checked ~ .accordion .label-wrap #ld-4 {
+        display: block;
+      }
+      .inisiatif input#inisiatif-5:checked ~ .accordion .label-wrap #ld-5 {
+        display: block;
+      }
+      .inisiatif .accordion .label-wrap .label-detail {
+        padding-inline: 12px;
+        padding-block: 10px;
+        box-sizing: border-box;
+        display: none;
+      }
+      .inisiatif .accordion .label-wrap .label-detail .konten-wrapper {
+        background-image: url(./img/kebun1.jpg);
+        background-size: cover;
+        background-position: center;
+        padding-inline: 20px;
+        padding-block: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .inisiatif .accordion .label-wrap .konten-wrapper .konten-detail {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .inisiatif .accordion .label-wrap .konten-wrapper .konten-detail p {
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+      }
+      .inisiatif .accordion .label-wrap .konten-wrapper .konten-detail a {
+        width: 150px;
+        height: 30px;
+        border-radius: 5px;
+        background-color: #01440a;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .inisiatif .accordion .label-wrap .konten-wrapper .konten-img {
+        width: 80%;
+      }
+      .inisiatif .accordion .label-wrap .konten-wrapper .konten-img img {
+        width: 100%;
+      }
+
       /* Grafik */
       .grafik {
+        padding-block: 25px;
         background-color: white;
         display: flex;
         justify-content: center;
@@ -527,6 +589,38 @@
         font-size: 19px;
         font-weight: 600;
         color: #01440a;
+      }
+
+      /* Penghargaan & Sertifikat */
+      .penghargaan-sertifikat {
+        background-color: #01440a;
+        color: white;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+      }
+      .penghargaan-sertifikat .penghargaan,
+      .penghargaan-sertifikat .sertifikasi {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .penghargaan-sertifikat .penghargaan img {
+        width: 100%;
+      }
+      .penghargaan-sertifikat .sertifikasi .sertifikat-img {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .penghargaan-sertifikat .sertifikasi .sertifikat-img img {
+        width: 40%;
+      }
+      .penghargaan-sertifikat .sertifikasi img {
+        width: 100%;
       }
 
       /* berita */
@@ -706,6 +800,16 @@
           margin-left: 0px;
         }
 
+        .swipper .bg-satu {
+          right: -685px;
+        }
+        .swipper .bg-dua {
+          right: 0px;
+        }
+        .swipper .bg-tiga {
+          right: 800px;
+        }
+
         .about {
           flex-direction: column;
           height: fit-content;
@@ -742,6 +846,12 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
         }
+        .inisiatif .tabs {
+          display: none;
+        }
+        body .inisiatif .accordion {
+          display: block;
+        }
 
         .grafik {
           flex-direction: column;
@@ -772,6 +882,25 @@
           left: -130px;
         }
 
+        .penghargaan-sertifikat {
+          padding-block: 45px;
+          flex-direction: column;
+          gap: 35px;
+        }
+        body .penghargaan-sertifikat .penghargaan,
+        body .penghargaan-sertifikat .sertifikasi {
+          width: 100%;
+          text-align: center;
+        }
+        body .penghargaan-sertifikat .sertifikasi .sertifikat-img {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+        body .penghargaan-sertifikat .sertifikasi .sertifikat-img img {
+          width: 100%;
+        }
+
         body .berita .cards .card {
           width: 90%;
         }
@@ -788,6 +917,16 @@
         }
         nav .nav-desktop {
           display: none;
+        }
+
+        .bg-satu {
+          right: -1536px;
+        }
+        .bg-dua {
+          right: -768px;
+        }
+        .bg-tiga {
+          right: 0;
         }
 
         .about {
@@ -825,6 +964,17 @@
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
+        }
+
+        .inisiatif .tabs {
+          width: 100%;
+        }
+        .inisiatif .tabs .konten .wrapper .konten-img img {
+          width: 100%;
+          height: 207px;
+        }
+        .inisiatif .accordion {
+          display: none;
         }
 
         .grafik {
@@ -893,6 +1043,9 @@
       /* desktop */
       @media (min-width: 1000px) {
         nav .logo details {
+          display: none;
+        }
+        .inisiatif .accordion {
           display: none;
         }
       }
@@ -1053,72 +1206,23 @@
       </div>
       <div class="nav-mobile"></div>
     </nav>
-    <div class="slider">
-      <section class="carousel" aria-label="Gallery">
-        <ol class="carousel__viewport">
-          <li id="carousel__slide1" tabindex="0" class="carousel__slide">
-            <div class="carousel__snapper">
-              <a href="#carousel__slide4" class="carousel__prev"
-                >Go to last slide</a
-              >
-              <a href="#carousel__slide2" class="carousel__next"
-                >Go to next slide</a
-              >
-            </div>
-          </li>
-          <li id="carousel__slide2" tabindex="0" class="carousel__slide">
-            <div class="carousel__snapper"></div>
-            <a href="#carousel__slide1" class="carousel__prev"
-              >Go to previous slide</a
-            >
-            <a href="#carousel__slide3" class="carousel__next"
-              >Go to next slide</a
-            >
-          </li>
-          <li id="carousel__slide3" tabindex="0" class="carousel__slide">
-            <div class="carousel__snapper"></div>
-            <a href="#carousel__slide2" class="carousel__prev"
-              >Go to previous slide</a
-            >
-            <a href="#carousel__slide4" class="carousel__next"
-              >Go to next slide</a
-            >
-          </li>
-          <li id="carousel__slide4" tabindex="0" class="carousel__slide">
-            <div class="carousel__snapper"></div>
-            <a href="#carousel__slide3" class="carousel__prev"
-              >Go to previous slide</a
-            >
-            <a href="#carousel__slide1" class="carousel__next"
-              >Go to first slide</a
-            >
-          </li>
-        </ol>
-        <aside class="carousel__navigation">
-          <ol class="carousel__navigation-list">
-            <li class="carousel__navigation-item">
-              <a href="#carousel__slide1" class="carousel__navigation-button"
-                >Go to slide 1</a
-              >
-            </li>
-            <li class="carousel__navigation-item">
-              <a href="#carousel__slide2" class="carousel__navigation-button"
-                >Go to slide 2</a
-              >
-            </li>
-            <li class="carousel__navigation-item">
-              <a href="#carousel__slide3" class="carousel__navigation-button"
-                >Go to slide 3</a
-              >
-            </li>
-            <li class="carousel__navigation-item">
-              <a href="#carousel__slide4" class="carousel__navigation-button"
-                >Go to slide 4</a
-              >
-            </li>
-          </ol>
-        </aside>
-      </section>
+    <div class="swipper">
+      <div class="gambar">
+        <img src="./img/swiper1.jpg" />
+        <img src="./img/swiper2.jpg" />
+        <img src="./img/kebun1.jpg" />
+      </div>
+      <div class="slide-button">
+        <i class="bx bx-chevron-left previous"></i>
+      </div>
+      <div class="index">
+        <span class="bulat"></span>
+        <span class="bulat"></span>
+        <span class="bulat"></span>
+      </div>
+      <div class="slide-button">
+        <i class="bx bx-chevron-right next"></i>
+      </div>
     </div>
     <div class="about">
       <div class="about-img">
@@ -1155,6 +1259,230 @@
           </p>
         </div>
         <a href="">BACA SELENGKAPNYA</a>
+      </div>
+    </div>
+    <div class="inisiatif">
+      <h1>Inisiatif Berkelanjutan</h1>
+      <input
+        type="radio"
+        name="inisiatif"
+        class="input-inisiatif"
+        id="inisiatif-1"
+        checked
+      />
+      <input
+        type="radio"
+        name="inisiatif"
+        class="input-inisiatif"
+        id="inisiatif-2"
+      />
+      <input
+        type="radio"
+        name="inisiatif"
+        class="input-inisiatif"
+        id="inisiatif-3"
+      />
+      <input
+        type="radio"
+        name="inisiatif"
+        class="input-inisiatif"
+        id="inisiatif-4"
+      />
+      <input
+        type="radio"
+        name="inisiatif"
+        class="input-inisiatif"
+        id="inisiatif-5"
+      />
+      <div class="tabs">
+        <div class="labels">
+          <label
+            for="inisiatif-1"
+            class="label1"
+            onclick="handleCheckD(inisiatif1, instfImg1)"
+            >KONSERVASI HUTAN</label
+          >
+          <label
+            for="inisiatif-2"
+            class="label2"
+            onclick="handleCheckD(inisiatif2, instfImg2)"
+            >STANDAR DAN VERIFIKASI</label
+          >
+          <label
+            for="inisiatif-3"
+            class="label3"
+            onclick="handleCheckD(inisiatif3, instfImg3)"
+            >CORPORATE SOCIAL RESPONSIBILITY</label
+          >
+          <label
+            for="inisiatif-4"
+            class="label4"
+            onclick="handleCheckD(inisiatif4, instfImg4)"
+            >RANTAI PASOK</label
+          >
+          <label
+            for="inisiatif-5"
+            class="label5"
+            onclick="handleCheckD(inisiatif5, instfImg5)"
+            >PEMBERDAYAAN MASYARAKAT</label
+          >
+        </div>
+        <div class="konten">
+          <div class="wrapper">
+            <div class="konten-detail">
+              <p class="isi-inisiatif">
+                PT Karyatama Raya Tbk berkembang seiring pembangunan dan
+                perputaran roda ekonomi nasional. bisnis perusahaan berfokus
+                pada pengelolaan hasil perjebunan, MKTR terus berkembang dan
+                saat ini telah menjadi salah satu perusahaan dengan tata kelola
+                terbaik dengan konsep integrasi antara hasil perkebunan,
+                pengolahan dan pemanfaatan limbah.
+              </p>
+              <a href="">LIHAT SELENGKAPNYA</a>
+            </div>
+            <div class="konten-img">
+              <img
+                src="./img/inisiatif-img1.png"
+                alt="Gambar Inisiatif 1"
+                class="img-inisiatif"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="label-wrap">
+          <label for="inisiatif-1" class="label1">KONSERVASI HUTAN</label>
+          <div class="label-detail" id="ld-1">
+            <div class="konten-wrapper">
+              <div class="konten-detail">
+                <p class="isi-inisiatif">
+                  Industri sawit di Indonesia merupakan industri unggulan yang
+                  meyumbang devisa negara. Salah satu peran dan kontribusi
+                  industri sawit di Indonesia adalah sebagai tanaman perkebunan.
+                  Kelapa sawit menghijaukan areal bekas hutan yang berperan
+                  menyerap CO2 dan mengurangi emisi karbon, sehingga berfungsi
+                  memperbaiki lingkungan.
+                </p>
+                <a href="">LIHAT SELENGKAPNYA</a>
+              </div>
+              <div class="konten-img">
+                <img
+                  src="./img/inisiatif-img1.png"
+                  alt="Gambar Inisiatif 1"
+                  class="img-inisiatif"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="label-wrap">
+          <label for="inisiatif-2" class="label2">STANDAR DAN VERIFIKASI</label>
+          <div class="label-detail" id="ld-2">
+            <div class="konten-wrapper">
+              <div class="konten-detail">
+                <p class="isi-inisiatif">
+                  MKTR melalui entitas anak telah mendapatkan sertifikasi ISO
+                  (International Standardization Organization) pada tahun 2022.
+                  Tujuan sertifikasi sistem manajemen mutu ISO 9001 yaitu, untuk
+                  mencegah terjadinya kesalahan dalam proyek. Selain itu juga,
+                  ISO merupakan fungsi kontrol untuk meminimalisir terjadinya
+                  kesalahan setelah produk disampaikan kepada konsumen.
+                </p>
+                <a href="">LIHAT SELENGKAPNYA</a>
+              </div>
+              <div class="konten-img">
+                <img
+                  src="./img/inisiatif-img2.jpg"
+                  alt="Gambar Inisiatif 2"
+                  class="img-inisiatif"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="label-wrap">
+          <label for="inisiatif-3" class="label3"
+            >CORPORATE SOCIAL RESPONSIBILITY</label
+          >
+          <div class="label-detail" id="ld-3">
+            <div class="konten-wrapper">
+              <div class="konten-detail">
+                <p class="isi-inisiatif">
+                  Pelaksanaan CSR (Corporate Social Responsibility) merupakan
+                  komitmen dan langkah strategis Perseroan dalam menjaga
+                  pertumbuhan dan keberlangsungan bisnis Perusahaan. Perseroan
+                  meyakini bahwa dengan pendekatan yang seimbang antara kinerja
+                  ekonomi, kinerja lingkungan, dan kinerja sosial akan mendukung
+                  peran Perusahaan dalam pembangunan yang berkelanjutan.
+                </p>
+                <a href="">LIHAT SELENGKAPNYA</a>
+              </div>
+              <div class="konten-img">
+                <img
+                  src="./img/inisiatif-img3.jpg"
+                  alt="Gambar Inisiatif 3"
+                  class="img-inisiatif"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="label-wrap">
+          <label for="inisiatif-4" class="label4">RANTAI PASOK</label>
+          <div class="label-detail" id="ld-4">
+            <div class="konten-wrapper">
+              <div class="konten-detail">
+                <p class="isi-inisiatif">
+                  Sejak Perseroan berdiri, kegiatan usaha utama Perseroan adalah
+                  di bidang perdagangan minyak kelapa sawit, serta bidang
+                  perkebunan dan PKS melalui Entitas Anak Dalam hal ini,
+                  Perseroan melakukan trading Tanda Buah Segar (TBS) kelapa
+                  sawit yang dibeli dari pengepul, koperasi maupun Kelompok Tani
+                  Masyarakat sekitar lokasi pabrik Menthobi Makmur Lestari
+                  (MMAL).
+                </p>
+                <a href="">LIHAT SELENGKAPNYA</a>
+              </div>
+              <div class="konten-img">
+                <img
+                  src="./img/rantai_pasok.png"
+                  alt="Gambar Inisiatif 4"
+                  class="img-inisiatif"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="label-wrap">
+          <label for="inisiatif-5" class="label5"
+            >PEMBERDAYAAN MASYARAKAT</label
+          >
+          <div class="label-detail" id="ld-5">
+            <div class="konten-wrapper">
+              <div class="konten-detail">
+                <p class="isi-inisiatif">
+                  MKTR berkembang seiring pembangunan dan perputaran roda
+                  ekonomi nasional. Melalui perusahaan entitas anak yang
+                  berfokus pada pengelolaan hasil perkebunan, MKTR terus
+                  bersinergi dan berusaha menjadi salah satu perusahaan dengan
+                  tata kelola terbaik dengan konsep integrasi antara hasil
+                  perkebunan rakyat dan inti, pengolahan dan pemanfaatan limbah.
+                  didukung dengan transport manajemen yang baik dengan konsep
+                  yang ramah lingkungan dan berkesinambungan.
+                </p>
+                <a href="">LIHAT SELENGKAPNYA</a>
+              </div>
+              <div class="konten-img">
+                <img
+                  src="./img/inisiatif-img5.png"
+                  alt="Gambar Inisiatif 5"
+                  class="img-inisiatif"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="grafik">
@@ -1872,6 +2200,20 @@
         </div>
       </div>
     </div>
+    <div class="penghargaan-sertifikat">
+      <div class="penghargaan">
+        <h2>PENGHARGAAN</h2>
+        <img src="./img/berita3.jpeg" alt="penghargaan 1" />
+      </div>
+      <div class="sertifikasi">
+        <h2>SERTIFIKASI</h2>
+        <div class="sertifikat-img">
+          <img src="./img/sertifikat1.jpeg" alt="sertifikat 1" />
+          <img src="./img/sertifikat2.jpeg" alt="sertifikat 2" />
+          <img src="./img/sertifikat3.jpeg" alt="sertifikat 3" />
+        </div>
+      </div>
+    </div>
     <div class="berita">
       <h1>BERITA</h1>
       <div class="cards">
@@ -2009,5 +2351,125 @@
         >
       </div>
     </footer>
+    <script>
+      // slider
+      const swipper = document.querySelector(".swipper");
+      const image = document.querySelector(".gambar");
+      const bulat = document.querySelectorAll(".bulat");
+      let gambar = 1;
+
+      let interval = setInterval(auto_slide, 5000);
+      function auto_slide() {
+        gambar += 1;
+        if (gambar == 0) {
+          gambar = 3;
+        }
+        if (gambar == 4) {
+          gambar = 1;
+        }
+        if (gambar == 1) {
+          image.className = "gambar bg-satu";
+          bulat[0].className = "bulat select";
+          bulat[0].nextElementSibling.className = "bulat";
+          bulat[0].nextElementSibling.nextElementSibling.className = "bulat";
+        }
+        if (gambar == 2) {
+          image.className = "gambar bg-dua";
+          bulat[1].className = "bulat select";
+          bulat[1].previousElementSibling.className = "bulat";
+          bulat[1].nextElementSibling.className = "bulat";
+        }
+        if (gambar == 3) {
+          image.className = "gambar bg-tiga";
+          bulat[2].className = "bulat select";
+          bulat[2].previousElementSibling.className = "bulat";
+          bulat[2].previousElementSibling.previousElementSibling.className =
+            "bulat";
+        }
+      }
+
+      swipper.addEventListener("click", function (e) {
+        if (e.target.classList.contains("previous")) {
+          if (gambar > 0) {
+            gambar -= 1;
+          }
+          if (gambar == 0) {
+            gambar = 3;
+          }
+          clearInterval(interval);
+          interval = setInterval(auto_slide, 5000);
+        }
+        if (e.target.classList.contains("next")) {
+          if (gambar < 4) {
+            gambar += 1;
+          }
+          if (gambar == 4) {
+            gambar = 1;
+          }
+          clearInterval(interval);
+          interval = setInterval(auto_slide, 5000);
+        }
+
+        for (let i = 0; i <= bulat.length; i++) {
+          if (e.target == bulat[i]) {
+            bulat[i].className = "bulat select";
+            gambar = i + 1;
+            clearInterval(interval);
+            interval = setInterval(auto_slide, 5000);
+          }
+        }
+
+        switch (gambar) {
+          case 1:
+            image.className = "gambar bg-satu";
+            bulat[0].className = "bulat select";
+            bulat[0].nextElementSibling.className = "bulat";
+            bulat[0].nextElementSibling.nextElementSibling.className = "bulat";
+            break;
+          case 2:
+            image.className = "gambar bg-dua";
+            bulat[1].className = "bulat select";
+            bulat[1].previousElementSibling.className = "bulat";
+            bulat[1].nextElementSibling.className = "bulat";
+            break;
+          case 3:
+            image.className = "gambar bg-tiga";
+            bulat[2].className = "bulat select";
+            bulat[2].previousElementSibling.className = "bulat";
+            bulat[2].previousElementSibling.previousElementSibling.className =
+              "bulat";
+            break;
+          default:
+            break;
+        }
+      });
+
+      if (gambar == 1) {
+        image.className = "gambar bg-satu";
+        bulat[0].className = "bulat select";
+      }
+      // inisiatif
+      const isiInisiatif = document.querySelector(".isi-inisiatif");
+      const imgInisiatif = document.querySelector(".img-inisiatif");
+      const inisiatif1 =
+        "Industri sawit di Indonesia merupakan industri unggulan yang meyumbang devisa negara. Salah satu peran dan kontribusi industri sawit di Indonesia adalah sebagai tanaman perkebunan. Kelapa sawit menghijaukan areal bekas hutan yang berperan menyerap CO2 dan mengurangi emisi karbon, sehingga berfungsi memperbaiki lingkungan.";
+      const inisiatif2 =
+        "MKTR melalui entitas anak telah mendapatkan sertifikasi ISO (International Standardization Organization) pada tahun 2022. Tujuan sertifikasi sistem manajemen mutu ISO 9001 yaitu, untuk mencegah terjadinya kesalahan dalam proyek. Selain itu juga, ISO merupakan fungsi kontrol untuk meminimalisir terjadinya kesalahan setelah produk disampaikan kepada konsumen.";
+      const inisiatif3 =
+        "Pelaksanaan CSR (Corporate Social Responsibility) merupakan komitmen dan langkah strategis Perseroan dalam menjaga pertumbuhan dan keberlangsungan bisnis Perusahaan. Perseroan meyakini bahwa dengan pendekatan yang seimbang antara kinerja ekonomi, kinerja lingkungan, dan kinerja sosial akan mendukung peran Perusahaan dalam pembangunan yang berkelanjutan.";
+      const inisiatif4 =
+        "Sejak Perseroan berdiri, kegiatan usaha utama Perseroan adalah di bidang perdagangan minyak kelapa sawit, serta bidang perkebunan dan PKS melalui Entitas Anak Dalam hal ini, Perseroan melakukan trading Tanda Buah Segar (TBS) kelapa sawit yang dibeli dari pengepul, koperasi maupun Kelompok Tani Masyarakat sekitar lokasi pabrik Menthobi Makmur Lestari (MMAL).";
+      const inisiatif5 =
+        "MKTR berkembang seiring pembangunan dan perputaran roda ekonomi nasional. Melalui  perusahaan entitas anak yang berfokus pada pengelolaan hasil perkebunan, MKTR terus bersinergi  dan berusaha menjadi salah satu perusahaan dengan tata kelola terbaik dengan konsep integrasi antara hasil perkebunan rakyat dan inti, pengolahan dan pemanfaatan limbah. didukung dengan  transport manajemen yang baik dengan konsep yang ramah lingkungan dan berkesinambungan.";
+      const instfImg1 = "./img/inisiatif-img1.png";
+      const instfImg2 = "./img/inisiatif-img2.jpg";
+      const instfImg3 = "./img/inisiatif-img3.jpg";
+      const instfImg4 = "./img/rantai_pasok.png";
+      const instfImg5 = "./img/inisiatif-img5.png";
+      function handleCheckD(param, img) {
+        isiInisiatif.textContent = `${param}`;
+        imgInisiatif.src = `${img}`;
+      }
+    </script>
   </body>
 </html>
