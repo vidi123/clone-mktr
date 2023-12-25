@@ -15,6 +15,9 @@
       rel="stylesheet"
     />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       * {
         padding: 0px;
         margin: 0px;
@@ -38,7 +41,6 @@
         gap: 25px;
       }
       .header form {
-        /* border: 1px solid black; */
         display: flex;
       }
       .header form button {
@@ -65,7 +67,6 @@
         outline: none;
       }
       header .language {
-        /* border: 1px solid black; */
         width: 50%;
         height: 20px;
         display: flex;
@@ -77,15 +78,20 @@
       }
 
       nav {
+        position: sticky;
+        top: 0px;
+        z-index: 99;
         background-color: white;
         display: flex;
         justify-content: center;
         align-items: center;
       }
+      nav a.beranda {
+        color: #ffc050;
+      }
       nav .logo {
         width: 255px;
         box-sizing: border-box;
-        /* border: 1px solid black; */
         font-size: 12px;
         font-weight: 600;
         color: #01440a;
@@ -139,17 +145,29 @@
       nav .logo details .hamburger-menu a:hover {
         color: goldenrod;
       }
+      nav .logo details .hamburger-menu details[open] > summary {
+        color: goldenrod;
+      }
       nav .logo .hamburger-menu ul li {
         list-style: none;
-        padding-block: 12px;
       }
+      .hamburger-menu details ul > details {
+        margin-bottom: 10px;
+      }
+      .hamburger-menu details ul {
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 15px;
+      }
+      /* navbar desktop */
       nav .nav-desktop {
         height: 68px;
         font-size: 12px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 5px;
+        gap: 10px;
         margin-left: 80px;
       }
       .nav-desktop a {
@@ -159,48 +177,50 @@
       .nav-desktop a:hover {
         color: goldenrod;
       }
-      nav .nav-desktop details {
-        /* border: 1px solid black; */
-        position: relative;
-        z-index: 99;
-      }
-      .nav-desktop details summary {
+      .nav-desktop ul li {
         list-style: none;
-        margin-inline: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        padding-block: 10px;
       }
-      .hamburger-menu details:hover summary,
-      .nav-desktop details:hover summary {
-        color: goldenrod;
+      .nav-desktop ul li:hover {
+        display: flex;
       }
-      .nav-desktop details summary::-webkit-details-marker {
-        display: none;
+      .nav-desktop .drop-wrap {
+        position: relative;
       }
-      .hamburger-menu details summary::after,
-      .nav-desktop details summary::after {
-        content: " ►";
+      .nav-desktop .drop-wrap:hover > span {
+        color: #ffc050;
+        display: block;
+        width: 100%;
       }
-      .hamburger-menu details[open] summary,
-      .nav-desktop details[open] summary {
-        color: goldenrod;
+      .nav-desktop .drop-wrap:hover > ul {
+        display: flex;
       }
-      .hamburger-menu details[open] summary:after,
-      .nav-desktop details[open] summary:after {
-        content: " ▼";
-      }
-      .nav-desktop details ul {
+      .nav-desktop .drop-wrap ul {
+        z-index: 999;
         position: absolute;
         width: 220px;
         background-color: white;
-        display: flex;
+        display: none;
         flex-direction: column;
         padding-left: 25px;
-        margin-top: 17px;
+        padding-top: 17px;
       }
-      .nav-desktop details ul li {
-        list-style: none;
-        font-size: 15px;
-        font-weight: 600;
-        padding-block: 10px;
+      .nav-desktop .drop-wrap ul:hover {
+        display: flex;
+      }
+      .nav-desktop .drop-wrap ul li:hover span {
+        color: #ffc050;
+      }
+      .nav-desktop .drop-wrap ul li ul {
+        width: 250px;
+      }
+      .nav-desktop .drop-wrap ul li:hover ul {
+        display: flex;
+        padding-top: 0;
+        margin-top: -10px;
+        left: 245px;
       }
       nav .saham {
         width: 100px;
@@ -247,8 +267,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 65px;
-        color: #777;
+        font-size: 35px;
+        color: #fff;
       }
       .swipper .gambar {
         width: 300%;
@@ -272,18 +292,18 @@
         width: 13px;
         height: 13px;
         border-radius: 50%;
-        background-color: #555;
+        background-color: #fff;
         transition: 0.4s;
       }
       .index .select {
         width: 45px;
         border-radius: 50px;
-        background-color: #666;
+        background-color: #fff;
       }
       /* about */
       .about {
         width: 100%;
-        height: 70vh;
+        height: 85vh;
         background-color: white;
         display: flex;
         align-items: center;
@@ -785,6 +805,42 @@
         align-items: center;
       }
 
+      /* Sections */
+      .sections {
+        position: fixed;
+        right: 0px;
+        top: 30%;
+        z-index: 999;
+        padding-right: 10px;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+      }
+      .sections a {
+        text-decoration: none;
+        color: #a2a2a2;
+      }
+      .sections a::after {
+        content: "";
+        display: inline-block;
+        height: 10px;
+        padding-inline: 5px;
+        padding-block: 0px;
+        margin-left: 10px;
+        box-sizing: border-box;
+        border-radius: 50px;
+        background-color: #ffc050;
+        opacity: 0;
+        transition: 0.4s;
+      }
+      .sections a.select {
+        color: #ffc050;
+      }
+      .sections a.select::after {
+        opacity: 1;
+      }
+
       /* Responsif */
       /* mobile */
       @media (max-width: 767px) {
@@ -1038,6 +1094,9 @@
         footer .wrapper ul li {
           width: 100%;
         }
+        .sections {
+          display: none;
+        }
       }
 
       /* desktop */
@@ -1045,8 +1104,33 @@
         nav .logo details {
           display: none;
         }
+        .about {
+          padding-top: 90px;
+        }
+        .about .about-detail {
+          width: 35%;
+          text-align: justify;
+        }
+        .inisiatif {
+          padding-block: 90px;
+        }
         .inisiatif .accordion {
           display: none;
+        }
+        .grafik {
+          padding-top: 90px;
+        }
+        .penghargaan-sertifikat {
+          padding-top: 90px;
+        }
+        .berita {
+          padding-top: 90px;
+        }
+        .lokasi {
+          padding-top: 90px;
+        }
+        .sections {
+          display: flex;
         }
       }
     </style>
@@ -1088,7 +1172,7 @@
           <div class="hamburger-menu">
             <a href="" class="beranda">BERANDA</a>
             <details>
-              <summary>TENTANG KAMI</summary>
+              <summary>TENTANG KAMI &#9660;</summary>
               <ul>
                 <a href="">
                   <li>Sekilas Perusahaan</li>
@@ -1096,12 +1180,41 @@
                 <a href="">
                   <li>Visi Misi & Budaya Kerja</li>
                 </a>
-                <li>Manajemen Organisasi</li>
-                <li>Tata Kelola Perusahaan</li>
+                <details>
+                  <summary>Manajemen Organisasi &#9660;</summary>
+                  <ul>
+                    <a href="">
+                      <li>Manajemen</li>
+                    </a>
+                    <a href="">
+                      <li>Komite Audit</li>
+                    </a>
+                    <a href="">
+                      <li>Komite Nominasi dan Renumarasi</li>
+                    </a>
+                    <a href="">
+                      <li>Sekretaris Perusahaan</li>
+                    </a>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Tata Kelola Perusahaan &#9660;</summary>
+                  <ul>
+                    <a href="">
+                      <li>Audit Internal</li>
+                    </a>
+                    <a href="">
+                      <li>Manajemen Resiko</li>
+                    </a>
+                    <a href="">
+                      <li>Pedoman Etika Bisnis & Etika Kerja</li>
+                    </a>
+                  </ul>
+                </details>
               </ul>
             </details>
             <details>
-              <summary>BERKELANJUTAN</summary>
+              <summary>BERKELANJUTAN &#9660;</summary>
               <ul>
                 <a href=""><li>Konservasi Hutan</li></a>
                 <a href=""><li>Standar dan Sertifikasi</li></a>
@@ -1111,14 +1224,43 @@
               </ul>
             </details>
             <details>
-              <summary>HUBUNGAN INVESTOR</summary>
+              <summary>HUBUNGAN INVESTOR &#9660;</summary>
               <ul>
-                <li>Informasi Pemegang Saham</li>
-                <li>Informasi Keuangan</li>
+                <details>
+                  <summary>Informasi Pemegang Saham &#9660;</summary>
+                  <ul>
+                    <a href="">
+                      <li>Struktur Kepemilikan</li>
+                    </a>
+                    <a href="">
+                      <li>Dividen</li>
+                    </a>
+                    <a href="">
+                      <li>RUPS</li>
+                    </a>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Informasi Keuangan &#9660;</summary>
+                  <ul>
+                    <a href="">
+                      <li>Harga Saham</li>
+                    </a>
+                    <a href="">
+                      <li>Laporan Kuartalan</li>
+                    </a>
+                    <a href="">
+                      <li>Laporan Tahunan</li>
+                    </a>
+                    <a href="">
+                      <li>Prospektus</li>
+                    </a>
+                  </ul>
+                </details>
               </ul>
             </details>
             <details>
-              <summary>AKTIFITAS BISNIS</summary>
+              <summary>AKTIFITAS BISNIS &#9660;</summary>
               <ul>
                 <a href=""><li>PT Menthobi Makmur Lestari</li></a>
                 <a href=""><li>PT Menthobi Hijau Lestari</li></a>
@@ -1127,7 +1269,7 @@
               </ul>
             </details>
             <details>
-              <summary>BERITA & GALLERY</summary>
+              <summary>BERITA & GALLERY &#9660;</summary>
               <ul>
                 <a href=""><li>Berita</li></a>
                 <a href=""><li>Foto & Video Aktifitas</li></a>
@@ -1139,8 +1281,8 @@
       </div>
       <div class="nav-desktop">
         <a href="" class="beranda">BERANDA</a>
-        <details>
-          <summary>TENTANG KAMI</summary>
+        <div class="drop-wrap">
+          <span>TENTANG KAMI &#9660;</span>
           <ul>
             <a href="">
               <li>Sekilas Perusahaan</li>
@@ -1148,12 +1290,41 @@
             <a href="">
               <li>Visi Misi & Budaya Kerja</li>
             </a>
-            <li>Manajemen Organisasi</li>
-            <li>Tata Kelola Perusahaan</li>
+            <li>
+              <span>Manajemen Organisasi ►</span>
+              <ul>
+                <a href="">
+                  <li>Manajemen</li>
+                </a>
+                <a href="">
+                  <li>Komite Audit</li>
+                </a>
+                <a href="">
+                  <li>Komite Nominasi dan Renumarasi</li>
+                </a>
+                <a href="">
+                  <li>Sekretaris Perusahaan</li>
+                </a>
+              </ul>
+            </li>
+            <li>
+              <span>Tata Kelola Perusahaan ►</span>
+              <ul>
+                <a href="">
+                  <li>Audit Internal</li>
+                </a>
+                <a href="">
+                  <li>Manajemen Resiko</li>
+                </a>
+                <a href="">
+                  <li>Pedoman Etika Bisnis & Etika Kerja</li>
+                </a>
+              </ul>
+            </li>
           </ul>
-        </details>
-        <details>
-          <summary>BERKELANJUTAN</summary>
+        </div>
+        <div class="drop-wrap">
+          <span>BERKELANJUTAN &#9660;</span>
           <ul>
             <a href=""><li>Konservasi Hutan</li></a>
             <a href=""><li>Standar dan Sertifikasi</li></a>
@@ -1161,30 +1332,59 @@
             <a href=""><li>Rantai Pasok</li></a>
             <a href=""><li>Plasma</li></a>
           </ul>
-        </details>
-        <details>
-          <summary>HUBUNGAN INVESTOR</summary>
+        </div>
+        <div class="drop-wrap">
+          <span>HUBUNGAN INVESTOR &#9660;</span>
           <ul>
-            <li>Informasi Pemegang Saham</li>
-            <li>Informasi Keuangan</li>
+            <li>
+              <span>Informasi Pemegang Saham ►</span>
+              <ul>
+                <a href="">
+                  <li>Struktur Kepemilikan</li>
+                </a>
+                <a href="">
+                  <li>Dividen</li>
+                </a>
+                <a href="">
+                  <li>RUPS</li>
+                </a>
+              </ul>
+            </li>
+            <li>
+              <span>Informasi Keuangan ►</span>
+              <ul>
+                <a href="">
+                  <li>Harga Saham</li>
+                </a>
+                <a href="">
+                  <li>Laporan Kuartalan</li>
+                </a>
+                <a href="">
+                  <li>Laporan Tahunan</li>
+                </a>
+                <a href="">
+                  <li>Prospektus</li>
+                </a>
+              </ul>
+            </li>
           </ul>
-        </details>
-        <details>
-          <summary>AKTIFITAS BISNIS</summary>
+        </div>
+        <div class="drop-wrap">
+          <span>AKTIFITAS BISNIS &#9660;</span>
           <ul>
             <a href=""><li>PT Menthobi Makmur Lestari</li></a>
             <a href=""><li>PT Menthobi Hijau Lestari</li></a>
             <a href=""><li>PT Menthobi Transitian Raya</li></a>
             <a href=""><li>PT Menthobi Agro Raya</li></a>
           </ul>
-        </details>
-        <details>
-          <summary>BERITA & GALLERY</summary>
+        </div>
+        <div class="drop-wrap">
+          <span>BERITA & GALLERY &#9660;</span>
           <ul>
             <a href=""><li>Berita</li></a>
             <a href=""><li>Foto & Video Aktifitas</li></a>
           </ul>
-        </details>
+        </div>
         <a href="">KARIR</a>
       </div>
       <div class="saham">
@@ -1204,7 +1404,6 @@
           "
         ></iframe>
       </div>
-      <div class="nav-mobile"></div>
     </nav>
     <div class="swipper">
       <div class="gambar">
@@ -1213,7 +1412,7 @@
         <img src="./img/kebun1.jpg" />
       </div>
       <div class="slide-button">
-        <i class="bx bx-chevron-left previous"></i>
+        <i class="fa-solid fa-chevron-left previous"></i>
       </div>
       <div class="index">
         <span class="bulat"></span>
@@ -1221,10 +1420,10 @@
         <span class="bulat"></span>
       </div>
       <div class="slide-button">
-        <i class="bx bx-chevron-right next"></i>
+        <i class="fa-solid fa-chevron-right next"></i>
       </div>
     </div>
-    <div class="about">
+    <div class="about" id="about">
       <div class="about-img">
         <div class="about-img1">
           <img src="./img/image1.jpg" alt="about 1" />
@@ -1253,15 +1452,13 @@
             area perkebunan serta pabrik kelapa sawit di Kalimantan Tengah. MKTR
             mengedepankan prinsip tata kelola perusahaan terbaik dengan konsep
             integrasi antara hasil perkebunan, pengolahan, dan pemanfaatan
-            limbah. Didukung standar pengelolaan dan hasil perkebunan yang
-            tinggi, transport manajemen yang baik, dan menjunjung konsep ramah
-            lingkungan serta berkesinambungan.
+            limbah.
           </p>
         </div>
         <a href="">BACA SELENGKAPNYA</a>
       </div>
     </div>
-    <div class="inisiatif">
+    <div class="inisiatif" id="inisiatif">
       <h1>Inisiatif Berkelanjutan</h1>
       <input
         type="radio"
@@ -1485,7 +1682,7 @@
         </div>
       </div>
     </div>
-    <div class="grafik">
+    <div class="grafik" id="hub-investor">
       <div class="investor">
         <h1>HUBUNGAN INVESTOR</h1>
         <iframe
@@ -2200,7 +2397,7 @@
         </div>
       </div>
     </div>
-    <div class="penghargaan-sertifikat">
+    <div class="penghargaan-sertifikat" id="penghargaan-sertifikat">
       <div class="penghargaan">
         <h2>PENGHARGAAN</h2>
         <img src="./img/berita3.jpeg" alt="penghargaan 1" />
@@ -2214,7 +2411,7 @@
         </div>
       </div>
     </div>
-    <div class="berita">
+    <div class="berita" id="berita">
       <h1>BERITA</h1>
       <div class="cards">
         <a href="" class="card">
@@ -2255,7 +2452,7 @@
         </a>
       </div>
     </div>
-    <div class="lokasi">
+    <div class="lokasi" id="lokasi">
       <div class="tentang">
         <img
           src="https://mktr.co.id/wp-content/uploads/2023/10/cropped-logo_mktr-300x300-removebg-preview-q11eqomlzg4qm8ucs04smovieczeshlewxua3mhrvc.png"
@@ -2351,6 +2548,15 @@
         >
       </div>
     </footer>
+    <div class="sections">
+      <a href="#top" class="section-1 select">Top</a>
+      <a href="#about" class="section-2">Tengtang Kami</a>
+      <a href="#inisiatif" class="section-3">Inisiatif Berkelanjutan</a>
+      <a href="#hub-investor" class="section-4">Hubungan Investor</a>
+      <a href="#penghargaan-sertifikat" class="section-5">Penghargaan</a>
+      <a href="#berita" class="section-6">Berita</a>
+      <a href="#lokasi" class="section-7">Lokasi</a>
+    </div>
     <script>
       // slider
       const swipper = document.querySelector(".swipper");
@@ -2448,6 +2654,7 @@
         image.className = "gambar bg-satu";
         bulat[0].className = "bulat select";
       }
+
       // inisiatif
       const isiInisiatif = document.querySelector(".isi-inisiatif");
       const imgInisiatif = document.querySelector(".img-inisiatif");
@@ -2470,6 +2677,52 @@
         isiInisiatif.textContent = `${param}`;
         imgInisiatif.src = `${img}`;
       }
+
+      // sesi
+      const sesi1 = document.querySelector(".section-1");
+      const sesi2 = document.querySelector(".section-2");
+      const sesi3 = document.querySelector(".section-3");
+      const sesi4 = document.querySelector(".section-4");
+      const sesi5 = document.querySelector(".section-5");
+      const sesi6 = document.querySelector(".section-6");
+      const sesi7 = document.querySelector(".section-7");
+      window.onscroll = function () {
+        if (this.scrollY < 360) {
+          sesi1.classList.add("select");
+        } else {
+          sesi1.classList.remove("select");
+        }
+        if (this.scrollY > 360 && this.scrollY < 957) {
+          sesi2.classList.add("select");
+        } else {
+          sesi2.classList.remove("select");
+        }
+        if (this.scrollY > 957 && this.scrollY < 1700) {
+          sesi3.classList.add("select");
+        } else {
+          sesi3.classList.remove("select");
+        }
+        if (this.scrollY > 1700 && this.scrollY < 2545) {
+          sesi4.classList.add("select");
+        } else {
+          sesi4.classList.remove("select");
+        }
+        if (this.scrollY > 2545 && this.scrollY < 3178) {
+          sesi5.classList.add("select");
+        } else {
+          sesi5.classList.remove("select");
+        }
+        if (this.scrollY > 3178 && this.scrollY < 3887) {
+          sesi6.classList.add("select");
+        } else {
+          sesi6.classList.remove("select");
+        }
+        if (this.scrollY > 3887) {
+          sesi7.classList.add("select");
+        } else {
+          sesi7.classList.remove("select");
+        }
+      };
     </script>
   </body>
 </html>
