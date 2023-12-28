@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manajemen - Menthobi Karyatama Raya Tbk</title>
+    <title>Informasi Pemegang Saham - Menthobi Karyatama Raya Tbk</title>
     <script
       src="https://kit.fontawesome.com/ba965b16bb.js"
       crossorigin="anonymous"
@@ -19,8 +19,8 @@
         scroll-behavior: smooth;
       }
       * {
-        margin: 0;
-        padding: 0;
+        padding: 0px;
+        margin: 0px;
         font-family: "Roboto", sans-serif;
       }
       header {
@@ -222,100 +222,49 @@
       }
 
       /* container */
-      h1 {
-        text-align: center;
+      .container {
+        width: 100%;
+        background-color: #fff;
+        padding-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      .container h1 {
         color: #01440a;
-        margin-bottom: 40px;
-      }
-      .mana {
-        margin-top: -18px;
-        margin: auto;
-        width: 30%;
-        height: 2px;
-      }
-      .f {
-        margin-top: 30px;
-        display: flex;
-        justify-content: center;
-      }
-      .dewan-kms {
-        width: 100%;
-        border-radius: 8px;
-      }
-      .dewan-imgs {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 20px;
-        gap: 20px;
-      }
-      .dwn-image {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        border: 1px solid #f1f1f1;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: white;
-      }
-      .direktur {
-        margin: 30px 0;
-        padding: 10px;
-      }
-
-      .dir-imgs {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        margin: 50px 0;
-      }
-      .dir-imgs img {
-        padding: 10px;
-        width: 300px;
-        border: 1px solid #f1f1f1;
-        border-radius: 4px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: #f1f1f1;
-      }
-      .komite-audit h1 {
         text-align: center;
+        font-size: 34px;
       }
-      .komite-text {
-        width: 70%;
-        margin: 0 auto;
-      }
-      .komite-paragraph {
-        width: 70%;
-        margin: 0 auto;
-      }
-      .komite-paragraph ol {
-        padding-left: 20px;
-      }
-      .sekretaris-perusahaan {
-        padding: 20px;
-      }
-      .skretaris-text {
+      .container section {
+        width: 90%;
+        padding-top: 90px;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
       }
-      .skretaris-isi {
+      .container section .content {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      .container section .content .content-img {
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
       }
-      .skretaris-isi img {
-        width: 250px;
+      .container section .content .content-img img {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
       }
-      .sekretaris-p {
-        padding: 15px;
-      }
-      h1#manajemen,
-      h1#KA,
-      h1#KNR,
-      h1#SP {
-        padding-top: 90px;
+      .container section .content .deskripsi {
+        text-align: justify;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
       }
 
       /* footer */
@@ -421,12 +370,8 @@
         }
       }
       @media (min-width: 768px) {
-        .dewan-imgs {
-          flex-direction: row;
-        }
-        .dir-imgs {
-          flex-direction: row;
-          flex-wrap: wrap;
+        .container section {
+          width: 75%;
         }
       }
       /* desktop */
@@ -434,8 +379,20 @@
         nav .logo details {
           display: none;
         }
-        .dwn-image {
-          width: 30%;
+        .container section {
+          width: 90%;
+        }
+        .container section .content {
+          flex-direction: row;
+        }
+        .container section .content .content-img {
+          width: 40%;
+        }
+        .container section .content .deskripsi {
+          width: 60%;
+        }
+        .container section .content .content-img img {
+          height: 350px;
         }
       }
     </style>
@@ -715,157 +672,179 @@
       </div>
     </nav>
     <div class="container">
-      <h1 id="manajemen">MANAJEMEN</h1>
-      <hr class="mana" color="rgb(13, 75, 13)" />
-      <div class="f">
-        <div class="dewan-kms" id="dewan-kms">
-          <h1>Dewan Komisaris</h1>
-          <div class="dewan-imgs">
-            <img src="./img/dewan1.jpg" alt="" class="dwn-image 1" />
-            <img src="./img/dewan2.jpg" alt="" class="dwn-image 2" />
+      <section id="konservasi">
+        <h1>Konservasi Hutan</h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/kebun1.jpg" alt="konservasi hutan" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              Industri sawit di Indonesia merupakan industri unggulan yang
+              meyumbang devisa negara. Salah satu peran dan kontribusi industri
+              sawit di Indonesia adalah sebagai tanaman perkebunan. Kelapa sawit
+              menghijaukan areal bekas hutan yang berperan menyerap CO2 dan
+              mengurangi emisi karbon, sehingga berfungsi memperbaiki
+              lingkungan.
+            </p>
+            <p>
+              Pada tahun 2021, pemerintah berkomitmen dalam melakukan peremajaan
+              (replanting) yang bertujuan untuk meningkatkan produktivitas kebun
+              sawit rakyat yang sudah tua. Replanting juga dilakukan agar kebun
+              atau lahan hutan tersebut tetap tumbuh subur dengan
+              tanaman-tanaman baru yang lebih sehat.
+            </p>
+            <p>
+              Dengan semakin suburnya tanaman-tanaman baru tentu akan memberikan
+              dampak positif pada pendapatan Perseroan. PT MKTR Tbk melalui
+              entitas anak memiliki area HCV (High Conservation Value) dengan
+              luasan sekitar 42 Ha. HCV adalah hutan yang bernilai konservasi
+              tinggi meliputi nilai-nilai ekologi, jasa lingkungan, sosial dan
+              budaya. HCV sangat berpotensi menyumbang penurunan emisi di sektor
+              kehutanan, perkebunan, dan pertambangan.
+            </p>
           </div>
         </div>
-      </div>
-      <div class="direktur" id="direktur">
-        <h1>Direktur</h1>
-        <div class="dir-imgs">
-          <img src="./img/dir1.jpg" alt="" />
-          <img src="./img/dir2.jpg" alt="" />
-          <img src="./img/dir3.jpg" alt="" />
-          <img src="./img/dir4.jpg" alt="" />
-        </div>
-      </div>
-      <div class="komite-audit" id="komite-audit">
-        <h1 id="KA">Komite Audit</h1>
-        <div class="komite-text">
-          <p>
-            Komite Audit bertugas membantu dewan komisaris dalam menjalankan
-            fungsi pengawasan. Komite Audit mempunyai tanggung jawab menilai
-            apakah laporan keuangan dan operasional yang dibuat oleh direksi
-            dapat diandalkan. Komite Audit juga memastikan bahwa kebijakan
-            pengendalian, penegakan hukum, dan peraturan telah diterapkan dalam
-            bisnis perusahaan.
-          </p>
-          <p>
-            Komite Audit beranggotakan para profesional independen dan diketuai
-            oleh komisaris independen. Komite Audit bertindak independen dalam
-            melaksanakan tugas dan tanggung jawab sesuai dengan Piagam Komite
-            Audit dan Kode Etik Perseroan.
-          </p>
-          <p>
-            Berdasarkan Surat Keputusan Penunjukan Komite Audit Perseroan No.
-            005/Kom-MKTR/III/2022 tanggal 21 Maret 2022, perseroan telah
-            menyusun Piagam Komite Audit yang telah ditetapkan oleh Dewan
-            Komisaris Perseroan pada tanggal 21 Maret 2022.
-          </p>
-          <p>
-            Berdasarkan surat keputusan Nomor : 012/Kom-MKTR/II/2023 Tentang
-            Pencabutan Komite audit, memutuskan bahwa saudara
-            <b>Memet Hakim Sasradipoera</b> tidak lagi menjadi Anggota Komite
-            Audit sejak tanggal 20 Februari 2023
-          </p>
-          <p>
-            Selanjutnya bedasarkan Surat Keputusan Nomor : 013/Kom-MKTR/II/2023
-            Tentang Penujukan Komite audit, Menunjuk / Mentapkan Saudara
-            <b>Lilik Qusairy</b> sebagai Anggota Komite Audit Sejak Tanggal 20
-            februari 2023.
-          </p>
-          <p>
-            Penyusunan Piagam Komite Audit dilakukan dalam rangka memenuhi
-            Peraturan OJK No. 55/POJK.04/2015 tanggal 23 Desember 2015 tentang
-            Pembentukan dan Pelaksanaan Kerja Komite Audit. Berikut susunan
-            Komite Audit:
-          </p>
-          <p><b>Ketua Komite: Bambang Widodo</b></p>
-          <p><b>Anggota: Lilik Qusairy</b></p>
-          <p><b>Anggota: Tulus Setiawan</b></p>
-        </div>
-      </div>
-      <div class="komite-nominasi" id="komite-nominasi">
-        <h1 id="KNR">Komite Nominasi & Remunerasi</h1>
-        <div class="komite-paragraph">
-          <p>
-            Komite Nominasi dan Remunerasi (KNR) bertanggung jawab memberikan
-            nasihat dan rekomendasi kepada dewan komisaris mengenai nominasi dan
-            remunerasi dari para anggota direksi dan dewan komisaris. KNR
-            diketuai oleh komisaris independen dan bertindak independen dalam
-            menjalankan tugas dan tanggung jawabnya, sesuai dengan Pedoman KNR
-            Perseroan.
-          </p>
-          <p>
-            Berdasarkan Keputusan Dewan Komisaris No. 006/Kom-MKTR/III/2022
-            tanggal 21 Maret 2022 tentang Pembentukan Komite Nominasi dan
-            Remunerasi, diputuskan KNR sebagai berikut:
-          </p>
-          <p><b>Ketua Komite : Bambang Widodo</b></p>
-          <p><b>Anggota : Fandi Yuniawan</b></p>
-          <p><b>Anggota : Rudi Sarwono</b></p>
-          <p>
-            Dalam melaksanakan fungsi nominasi, KNR bertanggung jawab untuk:
-          </p>
-          <div class="list">
-            <ol>
-              <li>
-                Memberikan rekomendasi kepada dewan komisaris terkait dengan
-                komposisi, kebijakan dan kriteria proses nominasi serta
-                kebijakan evaluasi kinerja bagi anggota direksi dan dewan
-                komisaris
-              </li>
-              <li>
-                Membantu dewan komisaris melakukan penilaian kinerja anggota
-                direksi dan dewan komisaris
-              </li>
-              <li>
-                Memberikan rekomendasi kepada dewan komisaris mengenai program
-                pengembangan kemampuan untuk anggota direksi dan dewan komisaris
-              </li>
-              <li>
-                Memberikan usulan calon anggota direksi dan/atau dewan komisaris
-                kepada dewan komisaris untuk disampaikan kepada rapat umum
-                pemegang saham.
-              </li>
-              <li>
-                Dalam melaksanakan fungsi remunerasi, KNR bertanggung jawab
-                untuk:
-              </li>
-              <li>
-                Memberikan rekomendasi kepada dewan komisaris mengenai struktur,
-                kebijakan dan besaran remunerasi anggota direksi dan dewan
-                komisaris
-              </li>
-              <li>
-                Membantu dewan komisaris melakukan penilaian kinerja dengan
-                kesesuaian remunerasi yang diterima anggota direksi dan dewan
-                komisaris.
-              </li>
-            </ol>
+      </section>
+      <section id="SNS">
+        <h1>Standard & Sertifikasi</h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/inisiatif-img2.jpg" alt="SNS" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              MKTR melalui entitas anak sejak tahun 2019 telah tersertifikasi
+              ISPO (Indonesian Sustainable Palm Oil) untuk perizinan umum.
+              Tujuan ISPO adalah untuk meningkatkan kepedulian pentingnya
+              memproduksi kelapa sawit berkelanjutan, meningkatkan tingkat
+              kompetisi minyak kelapa sawit Indonesia di pasar dunia, dan
+              mendukung komitmen Indonesia dalam pelestarian sumber daya alam
+              dan lingkungan.
+            </p>
           </div>
         </div>
-      </div>
-      <div class="sekretaris-perusahaan" id="sekretaris-perusahaan">
-        <h1 id="SP">Sekretaris perusahaan</h1>
-        <div class="skretaris-text">
-          <div class="skretaris-isi">
-            <img src="./img/sekretaris-perusahaan.png" alt="" />
-            <div class="sekretaris-p">
-              <p>
-                Ilhamd Fithriansyah diangkat menjadi Sekretaris Perusahaan
-                berdasarkan keputusan Direksi, yang efektif per tanggal 21 Maret
-                2022. Beliau juga menjabat sebagai Head of Legal & Litigation
-                Perseroan.
-              </p>
-              <p>
-                Beliau lulus dari Universitas Indonesia Fakultas Hukum lulus
-                tahun 1999. Awal berkarir di Law Firm Aji Wijaya Sunarto Yudo &
-                Co sebagai Associate (2009), PT Avrist sebagai Manager Legal
-                (2010), PT Bakrie Sumatera Plantations sebagai Senior Manager
-                Legal, dan saat ini sebagai Senior Manager Legal and Litigation
-                di PT Menthobi Makmur Lestari.
-              </p>
-            </div>
+      </section>
+      <section id="">
+        <h1></h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/ISPO.jpg" alt="ISPO" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              MKTR melalui entitas anak telah mendapatkan sertifikasi ISO
+              (International Standardization Organization) pada tahun 2022.
+              Tujuan sertifikasi sistem manajemen mutu ISO 9001 yaitu, untuk
+              mencegah terjadinya kesalahan dalam proyek. Selain itu juga, ISO
+              merupakan fungsi kontrol untuk meminimalisir terjadinya kesalahan
+              setelah produk disampaikan kepada konsumen.
+            </p>
+            <p>
+              Perseroan menargetkan MMAL (Menthobi Makmur Lestari) untuk dapat
+              tersertifikasi ISO 45001 pada tahun 2023. Tujuannya agar
+              perusahaan dapat mengutamakan kesehatan dan keselamatan pekerja
+              dalam beroperasi dan integrasinya ke dalam proses bisnis.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
+      <section id="CSR">
+        <h1>Corporate Social Responsibility</h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/inisiatif-img3.jpg" alt="CSR" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              Pelaksanaan CSR (Corporate Social Responsibility) merupakan
+              komitmen dan langkah strategis Perseroan dalam menjaga pertumbuhan
+              dan keberlangsungan bisnis Perusahaan. Perseroan meyakini bahwa
+              dengan pendekatan yang seimbang antara kinerja ekonomi, kinerja
+              lingkungan, dan kinerja sosial akan mendukung peran Perusahaan
+              dalam pembangunan yang berkelanjutan.
+            </p>
+            <p>
+              Perseroan secara konsisten melaksanakan kegiatan CSR sebagai wujud
+              kepedulian Perusahaan sekaligus apresiasi kepada masyarakat yang
+              telah memberikan kepercayaan dan dukungan atas proses bisnis
+              Perusahaan.
+            </p>
+            <p>
+              Keberlangsungan bisnis Perseroan tidak lepas dari partisipasi
+              masyarakat dalam menyambut berbagai produk dan layanan yang
+              ditawarkan oleh Perusahaan. Beberapa kontribusi Perseroan yang
+              telah dijalankan antara lain berupa sumbangan kepada masyarakat
+              sekitar seperti sumbangan beasiswa, kegiatan keagamaan dan
+              kegiatan sosial budaya lokal.
+            </p>
+            <p>
+              Perseroan berkomitmen untuk terus berkontribusi kepada masyarakat
+              sekitar, sehingga Perseroan juga mendapatkan dukungan positif
+              dalam menjalankan kegiatan usahanya.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="RP">
+        <h1>Rantai Pasok</h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/rantai_pasok.png" alt="Rantai Pasok" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              Sejak Perseroan berdiri, kegiatan usaha utama Perseroan adalah di
+              bidang perdagangan minyak kelapa sawit, serta bidang perkebunan
+              dan PKS melalui Entitas Anak
+            </p>
+            <p>
+              Dalam hal ini, Perseroan melakukan trading Tanda Buah Segar (TBS)
+              kelapa sawit yang dibeli dari pengepul, koperasi maupun Kelompok
+              Tani Masyarakat sekitar lokasi pabrik Menthobi Makmur Lestari
+              (MMAL).
+            </p>
+            <p>
+              TBS yang dibeli oleh Perseroan selanjutnya dilakukan titip olah di
+              pabrik Entisas Anak (MMAL) untuk diproses menjadi CPO.<br />
+              Hasil produksi CPO dan kernel kemudian dijual oleh Perseroan
+              kepada customer di wilayah Kalimantan Tengah.
+            </p>
+            <p>
+              Customer melakukan pembayaran langsung kepada Perseroan dan
+              berdasarkan invoice titip olah dari MMAL Perseroan melakukan
+              pembayaran kepada MMAL.
+            </p>
+            <p>
+              Perseroan berupaya semaksimal mungkin mengarahkan kegiatan
+              usahanya untuk dapat menghasilkan produk yang berfokus kepada
+              kepuasan konsumen. Melalui produk pelayanan yang dihasilkannya,
+              perseroan menciptakan, membina dan mempertahankan kepercayaan
+              konsumen.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="PM">
+        <h1>Pemberdayaan Masyarakat</h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/inisiatif-img5.png" alt="PM" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              MKTR berkembang seiring pembangunan dan perputaran roda ekonomi
+              nasional. Melalui perusahaan entitas anak yang berfokus pada
+              pengelolaan hasil perkebunan, MKTR terus bersinergi dan berusaha
+              menjadi salah satu perusahaan dengan tata kelola terbaik dengan
+              konsep integrasi antara hasil perkebunan rakyat dan inti,
+              pengolahan dan pemanfaatan limbah. didukung dengan transport
+              manajemen yang baik dengan konsep yang ramah lingkungan dan
+              berkesinambungan.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
     <footer>
       <div class="wrapper">
@@ -876,18 +855,16 @@
         <ul>
           <li>
             <h3>INFORMASI PEMEGANG SAHAM</h3>
-            <a href="./informasi-pemegang-saham.html#struktur"
-              >Struktur Kepemilikan</a
-            >
-            <a href="./informasi-pemegang-saham.html#dividen">Dividen</a>
-            <a href="./informasi-pemegang-saham.html#rups">Rups</a>
-            <a href="./informasi-pemegang-saham.html#">Penunjang Pasar Modal</a>
+            <a href="">Struktur Kepemilikan</a>
+            <a href="">Dividen</a>
+            <a href="">Rups</a>
+            <a href="">Penunjang Pasar Modal</a>
           </li>
           <li>
             <h3>LAPORAN KEUANGAN</h3>
-            <a href="./informasi-keuangan.html#LK">Laporan Kuartalan</a>
-            <a href="./informasi-keuangan.html#LT">Laporan Tahunan</a>
-            <a href="./informasi-keuangan.html#PROSPEKTUS">Prospektus</a>
+            <a href="">Laporan Kuartalan</a>
+            <a href="">Laporan Tahunan</a>
+            <a href="">Prospektus</a>
           </li>
           <li>
             <h3>BERKELANJUTAN</h3>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manajemen - Menthobi Karyatama Raya Tbk</title>
+    <title>Informasi Pemegang Saham - Menthobi Karyatama Raya Tbk</title>
     <script
       src="https://kit.fontawesome.com/ba965b16bb.js"
       crossorigin="anonymous"
@@ -19,8 +19,8 @@
         scroll-behavior: smooth;
       }
       * {
-        margin: 0;
-        padding: 0;
+        padding: 0px;
+        margin: 0px;
         font-family: "Roboto", sans-serif;
       }
       header {
@@ -207,6 +207,9 @@
       .nav-desktop .drop-wrap ul li:hover span {
         color: #ffc050;
       }
+      .nav-desktop .drop-wrap ul li span.info-keuangan {
+        color: #ffc050;
+      }
       .nav-desktop .drop-wrap ul li ul {
         width: 250px;
       }
@@ -221,101 +224,84 @@
         margin-left: 60px;
       }
 
-      /* container */
-      h1 {
-        text-align: center;
+      /* CONTAINER */
+      .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        padding-bottom: 90px;
+      }
+      .container h1 {
         color: #01440a;
-        margin-bottom: 40px;
-      }
-      .mana {
-        margin-top: -18px;
-        margin: auto;
-        width: 30%;
-        height: 2px;
-      }
-      .f {
-        margin-top: 30px;
-        display: flex;
-        justify-content: center;
-      }
-      .dewan-kms {
-        width: 100%;
-        border-radius: 8px;
-      }
-      .dewan-imgs {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 20px;
-        gap: 20px;
-      }
-      .dwn-image {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        border: 1px solid #f1f1f1;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: white;
-      }
-      .direktur {
-        margin: 30px 0;
-        padding: 10px;
-      }
-
-      .dir-imgs {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        margin: 50px 0;
-      }
-      .dir-imgs img {
-        padding: 10px;
-        width: 300px;
-        border: 1px solid #f1f1f1;
-        border-radius: 4px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: #f1f1f1;
-      }
-      .komite-audit h1 {
         text-align: center;
+        font-size: 34px;
       }
-      .komite-text {
-        width: 70%;
-        margin: 0 auto;
-      }
-      .komite-paragraph {
-        width: 70%;
-        margin: 0 auto;
-      }
-      .komite-paragraph ol {
-        padding-left: 20px;
-      }
-      .sekretaris-perusahaan {
-        padding: 20px;
-      }
-      .skretaris-text {
+      .container section {
+        width: 90%;
+        padding-top: 90px;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        gap: 25px;
       }
-      .skretaris-isi {
+      .container section .content {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      .container section .content > .grafik iframe {
         width: 100%;
+        height: 400px;
+      }
+      .container section .content table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .container section .content table thead tr {
+        background-color: #01440a;
+        color: white;
+        border: 1px solid #01440a;
+      }
+      .container section .content table tr td {
+        text-align: center;
+        padding: 5px;
+      }
+      .container section .content table tbody td {
+        border: 1px solid black;
+      }
+      .container section .content table tbody td a {
+        color: black;
+      }
+      .container section .content .deskripsi {
+        text-align: justify;
+      }
+      .container section .content .file {
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 15px;
       }
-      .skretaris-isi img {
-        width: 250px;
+      .container section .content .file .file-img {
+        width: 50%;
       }
-      .sekretaris-p {
-        padding: 15px;
+      .container section .content .file .file-img img {
+        width: 100%;
       }
-      h1#manajemen,
-      h1#KA,
-      h1#KNR,
-      h1#SP {
-        padding-top: 90px;
+      .container section .content .file a > i {
+        font-size: 30px;
+        color: black;
+      }
+      .container section#PROSPEKTUS .content .file a {
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #01440a;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       /* footer */
@@ -421,12 +407,11 @@
         }
       }
       @media (min-width: 768px) {
-        .dewan-imgs {
-          flex-direction: row;
+        .container section {
+          width: 75%;
         }
-        .dir-imgs {
-          flex-direction: row;
-          flex-wrap: wrap;
+        .container section#LT .content .file .file-img {
+          width: 25%;
         }
       }
       /* desktop */
@@ -434,8 +419,11 @@
         nav .logo details {
           display: none;
         }
-        .dwn-image {
-          width: 30%;
+        .container section#LT .content .file .file-img {
+          width: 10%;
+        }
+        .container section#PROSPEKTUS .content .file .file-img {
+          width: 25%;
         }
       }
     </style>
@@ -521,11 +509,13 @@
             <details>
               <summary>BERKELANJUTAN &#9660;</summary>
               <ul>
-                <a href="#konservasi"><li>Konservasi Hutan</li></a>
-                <a href="#SNS"><li>Standar dan Sertifikasi</li></a>
-                <a href="#CSR"><li>CSR</li></a>
-                <a href="#RP"><li>Rantai Pasok</li></a>
-                <a href="#PM"><li>Plasma</li></a>
+                <a href="./konservasi-hutan.html"><li>Konservasi Hutan</li></a>
+                <a href="./konservasi-hutan.html"
+                  ><li>Standar dan Sertifikasi</li></a
+                >
+                <a href="./konservasi-hutan.html"><li>CSR</li></a>
+                <a href="./konservasi-hutan.html"><li>Rantai Pasok</li></a>
+                <a href="./konservasi-hutan.html"><li>Plasma</li></a>
               </ul>
             </details>
             <details>
@@ -548,16 +538,16 @@
                 <details>
                   <summary>Informasi Keuangan &#9660;</summary>
                   <ul>
-                    <a href="./informasi-keuangan.html#harga">
+                    <a href="#harga">
                       <li>Harga Saham</li>
                     </a>
-                    <a href="./informasi-keuangan.html#LK">
+                    <a href="#LK">
                       <li>Laporan Kuartalan</li>
                     </a>
-                    <a href="./informasi-keuangan.html#LT">
+                    <a href="#LT">
                       <li>Laporan Tahunan</li>
                     </a>
-                    <a href="./informasi-keuangan.html#PROSPEKTUS">
+                    <a href="#PROSPEKTUS">
                       <li>Prospektus</li>
                     </a>
                   </ul>
@@ -576,8 +566,8 @@
             <details>
               <summary>BERITA & GALLERY &#9660;</summary>
               <ul>
-                <a href="./berita.html"><li>Berita</li></a>
-                <a href="./foto-video-aktifitas.html" class="foto-video"
+                <a href=""><li>Berita</li></a>
+                <a href="" class="foto-video"
                   ><li>Foto & Video Aktifitas</li></a
                 >
               </ul>
@@ -633,11 +623,13 @@
         <div class="drop-wrap">
           <span>BERKELANJUTAN &#9660;</span>
           <ul>
-            <a href="#konservasi"><li>Konservasi Hutan</li></a>
-            <a href="#SNS"><li>Standar dan Sertifikasi</li></a>
-            <a href="#CSR"><li>CSR</li></a>
-            <a href="#RP"><li>Rantai Pasok</li></a>
-            <a href="#PM"><li>Plasma</li></a>
+            <a href="./konservasi-hutan.html#"><li>Konservasi Hutan</li></a>
+            <a href="./konservasi-hutan.html#"
+              ><li>Standar dan Sertifikasi</li></a
+            >
+            <a href="./konservasi-hutan.html#"><li>CSR</li></a>
+            <a href="./konservasi-hutan.html#"><li>Rantai Pasok</li></a>
+            <a href="./konservasi-hutan.html#"><li>Plasma</li></a>
           </ul>
         </div>
         <div class="drop-wrap">
@@ -658,18 +650,18 @@
               </ul>
             </li>
             <li>
-              <span>Informasi Keuangan ►</span>
+              <span class="info-keuangan">Informasi Keuangan ►</span>
               <ul>
-                <a href="./informasi-keuangan.html#harga">
+                <a href="#harga">
                   <li>Harga Saham</li>
                 </a>
-                <a href="./informasi-keuangan.html#LK">
+                <a href="#LK">
                   <li>Laporan Kuartalan</li>
                 </a>
-                <a href="./informasi-keuangan.html#LT">
+                <a href="#LT">
                   <li>Laporan Tahunan</li>
                 </a>
-                <a href="./informasi-keuangan.html#PROSPEKTUS">
+                <a href="#PROSPEKTUS">
                   <li>Prospektus</li>
                 </a>
               </ul>
@@ -715,157 +707,94 @@
       </div>
     </nav>
     <div class="container">
-      <h1 id="manajemen">MANAJEMEN</h1>
-      <hr class="mana" color="rgb(13, 75, 13)" />
-      <div class="f">
-        <div class="dewan-kms" id="dewan-kms">
-          <h1>Dewan Komisaris</h1>
-          <div class="dewan-imgs">
-            <img src="./img/dewan1.jpg" alt="" class="dwn-image 1" />
-            <img src="./img/dewan2.jpg" alt="" class="dwn-image 2" />
+      <section id="harga">
+        <h1>Harga Saham</h1>
+        <div class="content">
+          <div class="grafik">
+            <iframe
+              scrolling="no"
+              allowtransparency="true"
+              frameborder="0"
+              src="https://www.tradingview-widget.com/embed-widget/symbol-overview/?locale=id#%7B%22symbols%22%3A%5B%5B%22Kelapa%20Sawit%22%2C%22IDX%3AMKTR%7C3M%22%5D%5D%2C%22chartOnly%22%3Afalse%2C%22width%22%3A1050%2C%22height%22%3A400%2C%22colorTheme%22%3A%22light%22%2C%22showVolume%22%3Afalse%2C%22showMA%22%3Afalse%2C%22hideDateRanges%22%3Atrue%2C%22hideMarketStatus%22%3Afalse%2C%22hideSymbolLogo%22%3Afalse%2C%22scalePosition%22%3A%22right%22%2C%22scaleMode%22%3A%22Normal%22%2C%22fontFamily%22%3A%22Arial%2C%20sans-serif%22%2C%22fontSize%22%3A%2214%22%2C%22noTimeScale%22%3Afalse%2C%22valuesTracking%22%3A%221%22%2C%22changeMode%22%3A%22price-and-percent%22%2C%22chartType%22%3A%22candlesticks%22%2C%22backgroundColor%22%3A%22rgba(255%2C%20255%2C%20255%2C%201)%22%2C%22upColor%22%3A%22rgba(27%2C%2094%2C%2032%2C%201)%22%2C%22downColor%22%3A%22rgba(255%2C%20167%2C%2038%2C%201)%22%2C%22borderUpColor%22%3A%22rgba(27%2C%2094%2C%2032%2C%201)%22%2C%22borderDownColor%22%3A%22rgba(255%2C%20167%2C%2038%2C%201)%22%2C%22wickUpColor%22%3A%22rgba(27%2C%2094%2C%2032%2C%201)%22%2C%22wickDownColor%22%3A%22rgba(255%2C%20167%2C%2038%2C%201)%22%2C%22utm_source%22%3A%22mktr.co.id%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22symbol-overview%22%2C%22page-uri%22%3A%22mktr.co.id%2Findex.php%2Finformasi-keuangan%2F%23HARGASAHAM%22%7D"
+              title="symbol overview TradingView widget"
+              lang="en"
+              style="user-select: none; box-sizing: border-box; display: block"
+            ></iframe>
           </div>
         </div>
-      </div>
-      <div class="direktur" id="direktur">
-        <h1>Direktur</h1>
-        <div class="dir-imgs">
-          <img src="./img/dir1.jpg" alt="" />
-          <img src="./img/dir2.jpg" alt="" />
-          <img src="./img/dir3.jpg" alt="" />
-          <img src="./img/dir4.jpg" alt="" />
+      </section>
+      <section id="LK">
+        <h1>Laporan Kuartalan</h1>
+        <div class="content">
+          <table>
+            <thead>
+              <tr>
+                <td>Tahun</td>
+                <td>Unduh</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2021</td>
+                <td>
+                  <a
+                    href="https://mktr.co.id/wp-content/uploads/2023/10/Robi_Navicula.pdf"
+                    ><i class="fa-solid fa-download"></i
+                  ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
-      <div class="komite-audit" id="komite-audit">
-        <h1 id="KA">Komite Audit</h1>
-        <div class="komite-text">
-          <p>
-            Komite Audit bertugas membantu dewan komisaris dalam menjalankan
-            fungsi pengawasan. Komite Audit mempunyai tanggung jawab menilai
-            apakah laporan keuangan dan operasional yang dibuat oleh direksi
-            dapat diandalkan. Komite Audit juga memastikan bahwa kebijakan
-            pengendalian, penegakan hukum, dan peraturan telah diterapkan dalam
-            bisnis perusahaan.
-          </p>
-          <p>
-            Komite Audit beranggotakan para profesional independen dan diketuai
-            oleh komisaris independen. Komite Audit bertindak independen dalam
-            melaksanakan tugas dan tanggung jawab sesuai dengan Piagam Komite
-            Audit dan Kode Etik Perseroan.
-          </p>
-          <p>
-            Berdasarkan Surat Keputusan Penunjukan Komite Audit Perseroan No.
-            005/Kom-MKTR/III/2022 tanggal 21 Maret 2022, perseroan telah
-            menyusun Piagam Komite Audit yang telah ditetapkan oleh Dewan
-            Komisaris Perseroan pada tanggal 21 Maret 2022.
-          </p>
-          <p>
-            Berdasarkan surat keputusan Nomor : 012/Kom-MKTR/II/2023 Tentang
-            Pencabutan Komite audit, memutuskan bahwa saudara
-            <b>Memet Hakim Sasradipoera</b> tidak lagi menjadi Anggota Komite
-            Audit sejak tanggal 20 Februari 2023
-          </p>
-          <p>
-            Selanjutnya bedasarkan Surat Keputusan Nomor : 013/Kom-MKTR/II/2023
-            Tentang Penujukan Komite audit, Menunjuk / Mentapkan Saudara
-            <b>Lilik Qusairy</b> sebagai Anggota Komite Audit Sejak Tanggal 20
-            februari 2023.
-          </p>
-          <p>
-            Penyusunan Piagam Komite Audit dilakukan dalam rangka memenuhi
-            Peraturan OJK No. 55/POJK.04/2015 tanggal 23 Desember 2015 tentang
-            Pembentukan dan Pelaksanaan Kerja Komite Audit. Berikut susunan
-            Komite Audit:
-          </p>
-          <p><b>Ketua Komite: Bambang Widodo</b></p>
-          <p><b>Anggota: Lilik Qusairy</b></p>
-          <p><b>Anggota: Tulus Setiawan</b></p>
-        </div>
-      </div>
-      <div class="komite-nominasi" id="komite-nominasi">
-        <h1 id="KNR">Komite Nominasi & Remunerasi</h1>
-        <div class="komite-paragraph">
-          <p>
-            Komite Nominasi dan Remunerasi (KNR) bertanggung jawab memberikan
-            nasihat dan rekomendasi kepada dewan komisaris mengenai nominasi dan
-            remunerasi dari para anggota direksi dan dewan komisaris. KNR
-            diketuai oleh komisaris independen dan bertindak independen dalam
-            menjalankan tugas dan tanggung jawabnya, sesuai dengan Pedoman KNR
-            Perseroan.
-          </p>
-          <p>
-            Berdasarkan Keputusan Dewan Komisaris No. 006/Kom-MKTR/III/2022
-            tanggal 21 Maret 2022 tentang Pembentukan Komite Nominasi dan
-            Remunerasi, diputuskan KNR sebagai berikut:
-          </p>
-          <p><b>Ketua Komite : Bambang Widodo</b></p>
-          <p><b>Anggota : Fandi Yuniawan</b></p>
-          <p><b>Anggota : Rudi Sarwono</b></p>
-          <p>
-            Dalam melaksanakan fungsi nominasi, KNR bertanggung jawab untuk:
-          </p>
-          <div class="list">
-            <ol>
-              <li>
-                Memberikan rekomendasi kepada dewan komisaris terkait dengan
-                komposisi, kebijakan dan kriteria proses nominasi serta
-                kebijakan evaluasi kinerja bagi anggota direksi dan dewan
-                komisaris
-              </li>
-              <li>
-                Membantu dewan komisaris melakukan penilaian kinerja anggota
-                direksi dan dewan komisaris
-              </li>
-              <li>
-                Memberikan rekomendasi kepada dewan komisaris mengenai program
-                pengembangan kemampuan untuk anggota direksi dan dewan komisaris
-              </li>
-              <li>
-                Memberikan usulan calon anggota direksi dan/atau dewan komisaris
-                kepada dewan komisaris untuk disampaikan kepada rapat umum
-                pemegang saham.
-              </li>
-              <li>
-                Dalam melaksanakan fungsi remunerasi, KNR bertanggung jawab
-                untuk:
-              </li>
-              <li>
-                Memberikan rekomendasi kepada dewan komisaris mengenai struktur,
-                kebijakan dan besaran remunerasi anggota direksi dan dewan
-                komisaris
-              </li>
-              <li>
-                Membantu dewan komisaris melakukan penilaian kinerja dengan
-                kesesuaian remunerasi yang diterima anggota direksi dan dewan
-                komisaris.
-              </li>
-            </ol>
+      </section>
+      <section id="LT">
+        <h1>Laporan Tahunan</h1>
+        <div class="content">
+          <div class="deskripsi">
+            <p>
+              Sebagai perusahaan yang menjunjung tinggi prinsip-prinsip
+              keterbukaan dan akuntabilitas, kami memiliki fokus untuk membangun
+              pelaporan perusahaan yang transparan dan efektif. Laporan tahunan
+              kami bertujuan untuk mengungkapkan kinerja, tujuan, serta rencana
+              kami untuk mencapai target dan komitmen dalam mewujudkan potensi
+              minyak kelapa sawit dalam satu tahun terakhir. Kami menyediakan
+              pandangan bagaimana nilai-nilai kami mendorong tujuan strategis
+              dan kemudian, bagaimana tindakan kami menciptakan nilai untuk
+              perusahaan dan berbagai pemangku kepentingan. Laporan berikut ini
+              mencakup informasi dan data mengenai aktivitas perusahaan untuk
+              setiap periode yang disajikan.
+            </p>
           </div>
-        </div>
-      </div>
-      <div class="sekretaris-perusahaan" id="sekretaris-perusahaan">
-        <h1 id="SP">Sekretaris perusahaan</h1>
-        <div class="skretaris-text">
-          <div class="skretaris-isi">
-            <img src="./img/sekretaris-perusahaan.png" alt="" />
-            <div class="sekretaris-p">
-              <p>
-                Ilhamd Fithriansyah diangkat menjadi Sekretaris Perusahaan
-                berdasarkan keputusan Direksi, yang efektif per tanggal 21 Maret
-                2022. Beliau juga menjabat sebagai Head of Legal & Litigation
-                Perseroan.
-              </p>
-              <p>
-                Beliau lulus dari Universitas Indonesia Fakultas Hukum lulus
-                tahun 1999. Awal berkarir di Law Firm Aji Wijaya Sunarto Yudo &
-                Co sebagai Associate (2009), PT Avrist sebagai Manager Legal
-                (2010), PT Bakrie Sumatera Plantations sebagai Senior Manager
-                Legal, dan saat ini sebagai Senior Manager Legal and Litigation
-                di PT Menthobi Makmur Lestari.
-              </p>
+          <div class="file">
+            <div class="file-img">
+              <img
+                src="https://mktr.co.id/wp-content/uploads/2023/10/cropped-logo_mktr-300x300-removebg-preview-q11eqomlzg4qm8ucs04smovieczeshlewxua3mhrvc.png"
+                alt="logo"
+              />
             </div>
+            <span>Laporan Keuangan Tahun 2022</span>
+            <a
+              href="https://mktr.co.id/dokumen/Report-PT-Menthobi-Karyatama-Raya-Tbk-dan-Entitas-Anak.pdf"
+              ><i class="fa-solid fa-download"></i
+            ></a>
           </div>
         </div>
-      </div>
+      </section>
+      <section id="PROSPEKTUS">
+        <h1>Prospektus</h1>
+        <div class="content">
+          <div class="deskripsi"></div>
+          <div class="file">
+            <div class="file-img">
+              <img src="./img/prospektus.png" alt="Prospektus" />
+            </div>
+            <a
+              href="https://mktr.bayuperkasatrans.com/wp-content/uploads/2023/02/LOCK-Prospektus-MKTR-FINAL.pdf"
+              >Download</a
+            >
+          </div>
+        </div>
+      </section>
     </div>
     <footer>
       <div class="wrapper">
@@ -876,26 +805,24 @@
         <ul>
           <li>
             <h3>INFORMASI PEMEGANG SAHAM</h3>
-            <a href="./informasi-pemegang-saham.html#struktur"
-              >Struktur Kepemilikan</a
-            >
-            <a href="./informasi-pemegang-saham.html#dividen">Dividen</a>
-            <a href="./informasi-pemegang-saham.html#rups">Rups</a>
-            <a href="./informasi-pemegang-saham.html#">Penunjang Pasar Modal</a>
+            <a href="">Struktur Kepemilikan</a>
+            <a href="">Dividen</a>
+            <a href="">Rups</a>
+            <a href="">Penunjang Pasar Modal</a>
           </li>
           <li>
             <h3>LAPORAN KEUANGAN</h3>
-            <a href="./informasi-keuangan.html#LK">Laporan Kuartalan</a>
-            <a href="./informasi-keuangan.html#LT">Laporan Tahunan</a>
-            <a href="./informasi-keuangan.html#PROSPEKTUS">Prospektus</a>
+            <a href="">Laporan Kuartalan</a>
+            <a href="">Laporan Tahunan</a>
+            <a href="">Prospektus</a>
           </li>
           <li>
             <h3>BERKELANJUTAN</h3>
-            <a href="#konservasi">Konservasi Hutan</a>
-            <a href="#SNS">Standar dan Sertifikasi</a>
-            <a href="#CSR">CSR</a>
-            <a href="#RP">Rantai Pasok</a>
-            <a href="#PM">Plasma</a>
+            <a href="">Konservasi Hutan</a>
+            <a href="">Standar dan Sertifikasi</a>
+            <a href="">CSR</a>
+            <a href="">Rantai Pasok</a>
+            <a href="">Plasma</a>
           </li>
           <li>
             <h3>PT. Menthobi Karyatama Raya Tbk</h3>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manajemen - Menthobi Karyatama Raya Tbk</title>
+    <title>Tata Kelola Perusahaan - Menthobi Karyatama Raya Tbk</title>
     <script
       src="https://kit.fontawesome.com/ba965b16bb.js"
       crossorigin="anonymous"
@@ -223,98 +223,74 @@
 
       /* container */
       h1 {
-        text-align: center;
         color: #01440a;
-        margin-bottom: 40px;
+        margin-bottom: 35px;
+        text-align: center;
       }
-      .mana {
-        margin-top: -18px;
-        margin: auto;
-        width: 30%;
-        height: 2px;
-      }
-      .f {
-        margin-top: 30px;
+      .audit-internal {
         display: flex;
         justify-content: center;
       }
-      .dewan-kms {
-        width: 100%;
-        border-radius: 8px;
+      .audit-wrap {
+        width: 85%;
       }
-      .dewan-imgs {
+      .audit-body {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        padding: 20px;
+        justify-content: center;
         gap: 20px;
       }
-      .dwn-image {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        border: 1px solid #f1f1f1;
+      .audit-body img {
         border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: white;
+        width: 100%;
       }
-      .direktur {
+      .audit-text {
+        display: flex;
+        align-items: center;
+        text-align: justify;
+      }
+      .audit-img {
+        width: 100%;
+      }
+      .manajemen-resiko {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(240, 240, 240);
         margin: 30px 0;
-        padding: 10px;
       }
-
-      .dir-imgs {
+      .manajemen-wrap {
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
-        margin: 50px 0;
       }
-      .dir-imgs img {
-        padding: 10px;
-        width: 300px;
-        border: 1px solid #f1f1f1;
-        border-radius: 4px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: #f1f1f1;
+      .manajemen-body {
+        width: 80%;
+        text-align: justify;
       }
-      .komite-audit h1 {
-        text-align: center;
-      }
-      .komite-text {
-        width: 70%;
-        margin: 0 auto;
-      }
-      .komite-paragraph {
-        width: 70%;
-        margin: 0 auto;
-      }
-      .komite-paragraph ol {
-        padding-left: 20px;
-      }
-      .sekretaris-perusahaan {
+      .manajemen-body ol {
         padding: 20px;
       }
-      .skretaris-text {
+      .pedoman-etika-bisnis {
         display: flex;
         justify-content: center;
       }
-      .skretaris-isi {
+      .pedoman-wrap {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
       }
-      .skretaris-isi img {
-        width: 250px;
+      .pedoman-body {
+        width: 80%;
+        text-align: justify;
       }
-      .sekretaris-p {
-        padding: 15px;
+      .pedoman-body ol {
+        padding: 20px;
       }
-      h1#manajemen,
-      h1#KA,
-      h1#KNR,
-      h1#SP {
+      #audit-internal,
+      #manajemen-resiko,
+      #pedoman-etika-bisnis {
         padding-top: 90px;
       }
 
@@ -421,21 +397,18 @@
         }
       }
       @media (min-width: 768px) {
-        .dewan-imgs {
-          flex-direction: row;
-        }
-        .dir-imgs {
-          flex-direction: row;
-          flex-wrap: wrap;
-        }
       }
       /* desktop */
       @media (min-width: 1000px) {
         nav .logo details {
           display: none;
         }
-        .dwn-image {
-          width: 30%;
+
+        .audit-body {
+          flex-direction: row;
+        }
+        .audit-body > div {
+          width: 50%;
         }
       }
     </style>
@@ -715,154 +688,108 @@
       </div>
     </nav>
     <div class="container">
-      <h1 id="manajemen">MANAJEMEN</h1>
-      <hr class="mana" color="rgb(13, 75, 13)" />
-      <div class="f">
-        <div class="dewan-kms" id="dewan-kms">
-          <h1>Dewan Komisaris</h1>
-          <div class="dewan-imgs">
-            <img src="./img/dewan1.jpg" alt="" class="dwn-image 1" />
-            <img src="./img/dewan2.jpg" alt="" class="dwn-image 2" />
+      <div class="audit-internal" id="audit-internal">
+        <div class="audit-wrap">
+          <h1>AUDIT INTERNAL</h1>
+          <!-- <hr class="audit-line"> -->
+          <div class="audit-body">
+            <div class="audit-text">
+              <p>
+                PT MKTR Tbk telah membentuk pengawas internal untuk memenuhi
+                Peraturan OJK No. 56/2015. Satuan Pengawas Internal telah
+                ditetapkan berdasarkan Surat Keputusan Direksi PT Menthobi
+                Karyatama Raya Tbk Nomor 07/Dir-MKTR/VII/2022 tanggal 15 Juli
+                2022 tentang Penunjukan Ketua Internal Audit yang menunjuk
+                Achmad Romadhoni sebagai Ketua Satuan Pengawas Internal Audit
+                Perseroan. Audit internal akan melakukan pemeriksaan dan
+                mengevaluasi atas proses operasi dan pengendalian internal
+                perseroan. Selanjutnya, hasilnya akan dituangkan dalam laporan
+                audit beserta rekomendasi dan saran perbaikan yang diperlukan
+                dan dilaporkan kepada direktur utama dan dewan komisaris.
+              </p>
+            </div>
+            <div class="audit-img">
+              <img src="./img/audit.jpg" alt="" />
+            </div>
           </div>
         </div>
       </div>
-      <div class="direktur" id="direktur">
-        <h1>Direktur</h1>
-        <div class="dir-imgs">
-          <img src="./img/dir1.jpg" alt="" />
-          <img src="./img/dir2.jpg" alt="" />
-          <img src="./img/dir3.jpg" alt="" />
-          <img src="./img/dir4.jpg" alt="" />
-        </div>
-      </div>
-      <div class="komite-audit" id="komite-audit">
-        <h1 id="KA">Komite Audit</h1>
-        <div class="komite-text">
-          <p>
-            Komite Audit bertugas membantu dewan komisaris dalam menjalankan
-            fungsi pengawasan. Komite Audit mempunyai tanggung jawab menilai
-            apakah laporan keuangan dan operasional yang dibuat oleh direksi
-            dapat diandalkan. Komite Audit juga memastikan bahwa kebijakan
-            pengendalian, penegakan hukum, dan peraturan telah diterapkan dalam
-            bisnis perusahaan.
-          </p>
-          <p>
-            Komite Audit beranggotakan para profesional independen dan diketuai
-            oleh komisaris independen. Komite Audit bertindak independen dalam
-            melaksanakan tugas dan tanggung jawab sesuai dengan Piagam Komite
-            Audit dan Kode Etik Perseroan.
-          </p>
-          <p>
-            Berdasarkan Surat Keputusan Penunjukan Komite Audit Perseroan No.
-            005/Kom-MKTR/III/2022 tanggal 21 Maret 2022, perseroan telah
-            menyusun Piagam Komite Audit yang telah ditetapkan oleh Dewan
-            Komisaris Perseroan pada tanggal 21 Maret 2022.
-          </p>
-          <p>
-            Berdasarkan surat keputusan Nomor : 012/Kom-MKTR/II/2023 Tentang
-            Pencabutan Komite audit, memutuskan bahwa saudara
-            <b>Memet Hakim Sasradipoera</b> tidak lagi menjadi Anggota Komite
-            Audit sejak tanggal 20 Februari 2023
-          </p>
-          <p>
-            Selanjutnya bedasarkan Surat Keputusan Nomor : 013/Kom-MKTR/II/2023
-            Tentang Penujukan Komite audit, Menunjuk / Mentapkan Saudara
-            <b>Lilik Qusairy</b> sebagai Anggota Komite Audit Sejak Tanggal 20
-            februari 2023.
-          </p>
-          <p>
-            Penyusunan Piagam Komite Audit dilakukan dalam rangka memenuhi
-            Peraturan OJK No. 55/POJK.04/2015 tanggal 23 Desember 2015 tentang
-            Pembentukan dan Pelaksanaan Kerja Komite Audit. Berikut susunan
-            Komite Audit:
-          </p>
-          <p><b>Ketua Komite: Bambang Widodo</b></p>
-          <p><b>Anggota: Lilik Qusairy</b></p>
-          <p><b>Anggota: Tulus Setiawan</b></p>
-        </div>
-      </div>
-      <div class="komite-nominasi" id="komite-nominasi">
-        <h1 id="KNR">Komite Nominasi & Remunerasi</h1>
-        <div class="komite-paragraph">
-          <p>
-            Komite Nominasi dan Remunerasi (KNR) bertanggung jawab memberikan
-            nasihat dan rekomendasi kepada dewan komisaris mengenai nominasi dan
-            remunerasi dari para anggota direksi dan dewan komisaris. KNR
-            diketuai oleh komisaris independen dan bertindak independen dalam
-            menjalankan tugas dan tanggung jawabnya, sesuai dengan Pedoman KNR
-            Perseroan.
-          </p>
-          <p>
-            Berdasarkan Keputusan Dewan Komisaris No. 006/Kom-MKTR/III/2022
-            tanggal 21 Maret 2022 tentang Pembentukan Komite Nominasi dan
-            Remunerasi, diputuskan KNR sebagai berikut:
-          </p>
-          <p><b>Ketua Komite : Bambang Widodo</b></p>
-          <p><b>Anggota : Fandi Yuniawan</b></p>
-          <p><b>Anggota : Rudi Sarwono</b></p>
-          <p>
-            Dalam melaksanakan fungsi nominasi, KNR bertanggung jawab untuk:
-          </p>
-          <div class="list">
+      <div class="manajemen-resiko" id="manajemen-resiko">
+        <div class="manajemen-wrap">
+          <h1>MANAJEMEN RISIKO</h1>
+          <div class="manajemen-body">
+            <p>
+              Risiko-risiko utama perseroan adalah risiko fluktuasi harga pasar
+              minyak kelapa sawit dan minyak inti kelapa sawit. Manajemen telah
+              menelaah dan mengeluarkan kebijakan untuk mengelola masing-masing
+              risiko. Perseroan menerapkan kebijakan manajemen risiko yang
+              bertujuan untuk meminimalkan pengaruh ketidakpastian pasar
+              terhadap kinerja keuangan perseroan. Berikut ini ringkasan
+              kebijakan dan pengelolaan manajemen risiko tersebut:
+            </p>
             <ol>
               <li>
-                Memberikan rekomendasi kepada dewan komisaris terkait dengan
-                komposisi, kebijakan dan kriteria proses nominasi serta
-                kebijakan evaluasi kinerja bagi anggota direksi dan dewan
-                komisaris
+                Risiko utama yang mempunyai pengaruh signifikan terhadap
+                kelangsungan usaha perseroan.
               </li>
               <li>
-                Membantu dewan komisaris melakukan penilaian kinerja anggota
-                direksi dan dewan komisaris
+                Risiko usaha yang berhubungan dengan kegiatan usaha perseroan
               </li>
-              <li>
-                Memberikan rekomendasi kepada dewan komisaris mengenai program
-                pengembangan kemampuan untuk anggota direksi dan dewan komisaris
-              </li>
-              <li>
-                Memberikan usulan calon anggota direksi dan/atau dewan komisaris
-                kepada dewan komisaris untuk disampaikan kepada rapat umum
-                pemegang saham.
-              </li>
-              <li>
-                Dalam melaksanakan fungsi remunerasi, KNR bertanggung jawab
-                untuk:
-              </li>
-              <li>
-                Memberikan rekomendasi kepada dewan komisaris mengenai struktur,
-                kebijakan dan besaran remunerasi anggota direksi dan dewan
-                komisaris
-              </li>
-              <li>
-                Membantu dewan komisaris melakukan penilaian kinerja dengan
-                kesesuaian remunerasi yang diterima anggota direksi dan dewan
-                komisaris.
-              </li>
+              <li>Risiko umum</li>
             </ol>
           </div>
         </div>
       </div>
-      <div class="sekretaris-perusahaan" id="sekretaris-perusahaan">
-        <h1 id="SP">Sekretaris perusahaan</h1>
-        <div class="skretaris-text">
-          <div class="skretaris-isi">
-            <img src="./img/sekretaris-perusahaan.png" alt="" />
-            <div class="sekretaris-p">
-              <p>
-                Ilhamd Fithriansyah diangkat menjadi Sekretaris Perusahaan
-                berdasarkan keputusan Direksi, yang efektif per tanggal 21 Maret
-                2022. Beliau juga menjabat sebagai Head of Legal & Litigation
-                Perseroan.
-              </p>
-              <p>
-                Beliau lulus dari Universitas Indonesia Fakultas Hukum lulus
-                tahun 1999. Awal berkarir di Law Firm Aji Wijaya Sunarto Yudo &
-                Co sebagai Associate (2009), PT Avrist sebagai Manager Legal
-                (2010), PT Bakrie Sumatera Plantations sebagai Senior Manager
-                Legal, dan saat ini sebagai Senior Manager Legal and Litigation
-                di PT Menthobi Makmur Lestari.
-              </p>
-            </div>
+      <div class="pedoman-etika-bisnis" id="pedoman-etika-bisnis">
+        <div class="pedoman-wrap">
+          <h1>PEDOMAN ETIKA BISNIS</h1>
+          <div class="pedoman-body">
+            <p>
+              PT MKTR memiliki pedoman etika bisnis dan etika kerja yang terus
+              dijalankan sesuai dengan prinsip-prinsip good coorporate
+              governance (GCG) dan budaya kerja perusahaan. Berikut pedoman
+              etika yang menjadi pegangan:
+            </p>
+            <ol>
+              <li>Kepatuhan terhadap peraturan perundang-undangan.</li>
+              <li>
+                Menghindari praktik-praktik yang tidak mengindahkan norma dan
+                bertentangan dengan peraturan hukum.
+              </li>
+              <li>
+                Setiap SDM tidak dibenarkan menerima gratifikasi yang dapat
+                mempengaruhi pengambilan keputusan atau terkait dengan
+                jabatannya.
+              </li>
+              <li>
+                Setiap SDM tidak dibenarkan menawarkan atau menerima suap atau
+                secara langsung menyuruh orang lain untuk melakukannya demi
+                kepentingan orang yang bersangkutan
+              </li>
+              <li>
+                Setiap SDM tidak dibenarkan melakukan praktik-praktik pembayaran
+                tidak wajar kepada pihak-pihak di luar perusahaan atau secara
+                langsung menyuruh orang lain untuk melakukannya demi kepentingan
+                pihak yang bersangkutan.
+              </li>
+              <li>
+                Peduli terhadap prinsip keselamatan dan kesehatan kerja serta
+                lingkungan hidup (K3LH).
+              </li>
+              <li>Memberikan nilai keadilan kepada seluruh SDM.</li>
+              <li>
+                Menjunjung tinggi prinsip keadilan, kesetaraan dan tanpa
+                diskriminasi.
+              </li>
+              <li>
+                Menegakkan hukum dan peraturan perusahaan dengan konsisten tanpa
+                membedakan ras, gender, agama dan jabatan.
+              </li>
+              <li>
+                Menjaga hubungan dan komunikasi yang baik dengan berbagai
+                pemangku kepentingan.
+              </li>
+            </ol>
           </div>
         </div>
       </div>
