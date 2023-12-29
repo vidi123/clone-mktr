@@ -3,24 +3,248 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sekilas Perusahaan - Menthobi Karyatama Raya Tbk</title>
+    <script
+      src="https://kit.fontawesome.com/ba965b16bb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Nunito:wght@300;400&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://mktr.co.id/wp-content/uploads/2023/10/cropped-logo_mktr-300x300-removebg-preview-q11eqomlzg4qm8ucs04smovieczeshlewxua3mhrvc.png"
+      type="image/x-icon"
+    />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       * {
         margin: 0;
         padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Roboto", sans-serif;
       }
+      header {
+        width: 100%;
+        height: 50px;
+        background-color: #01440a;
+        display: flex;
+        justify-content: flex-end;
+      }
+      header .header {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+      }
+      .header form {
+        display: flex;
+      }
+      .header form button {
+        background: transparent;
+        border: none;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+      }
+      header form input {
+        width: 150px;
+        padding: 5px 20px;
+        box-sizing: border-box;
+        background: transparent;
+        border: none;
+        color: #49bb49;
+        font-size: 100%;
+        font-weight: 600;
+      }
+      header form input::placeholder {
+        color: rgba(255, 255, 255, 0.219);
+      }
+      header form input:focus {
+        outline: none;
+      }
+      header .language {
+        width: 50%;
+        height: 20px;
+        display: flex;
+        gap: 10px;
+      }
+      .language a img {
+        width: 100%;
+        height: 100%;
+      }
+
+      nav {
+        position: sticky;
+        top: 0px;
+        z-index: 99;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      nav .logo {
+        width: 255px;
+        box-sizing: border-box;
+        font-size: 12px;
+        font-weight: 600;
+        color: #01440a;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      nav .logo img {
+        width: 47px;
+      }
+      nav .logo details {
+        text-align: center;
+      }
+      nav .logo details summary {
+        list-style: none;
+      }
+      nav .logo details summary div {
+        width: 23px;
+        height: 4px;
+        background-color: goldenrod;
+        border-radius: 50px;
+        margin-block: 3px;
+      }
+      nav .logo details[open] summary div:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      nav .logo details[open] summary div:nth-child(2) {
+        display: none;
+      }
+      nav .logo details[open] summary div:nth-child(3) {
+        transform: rotate(135deg);
+        margin-top: -7px;
+      }
+      nav .logo details .hamburger-menu {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        margin-top: 20px;
+        padding-block: 15px;
+        background-color: white;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      nav .logo details .hamburger-menu a {
+        text-decoration: none;
+        color: black;
+      }
+      nav .logo details .hamburger-menu a:hover {
+        color: goldenrod;
+      }
+      nav .logo details .hamburger-menu details[open] > summary {
+        color: goldenrod;
+      }
+      nav .logo .hamburger-menu ul li {
+        list-style: none;
+      }
+      .hamburger-menu details ul > details {
+        margin-bottom: 10px;
+      }
+      .hamburger-menu details ul {
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 15px;
+      }
+      /* navbar desktop */
+      nav .nav-desktop {
+        height: 68px;
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-left: 80px;
+      }
+      .nav-desktop a {
+        text-decoration: none;
+        color: black;
+      }
+      .nav-desktop a:hover {
+        color: goldenrod;
+      }
+      .nav-desktop ul li {
+        list-style: none;
+        font-size: 14px;
+        font-weight: 600;
+        padding-block: 10px;
+      }
+      .nav-desktop ul li:hover {
+        display: flex;
+      }
+      .nav-desktop .drop-wrap {
+        position: relative;
+      }
+      .nav-desktop .drop-wrap:hover > span {
+        color: #ffc050;
+        display: block;
+        width: 100%;
+      }
+      .nav-desktop .drop-wrap:hover > ul {
+        display: flex;
+      }
+      .nav-desktop .drop-wrap ul {
+        z-index: 999;
+        position: absolute;
+        width: 220px;
+        background-color: white;
+        display: none;
+        flex-direction: column;
+        padding-left: 25px;
+        padding-top: 17px;
+      }
+      .nav-desktop .drop-wrap ul:hover {
+        display: flex;
+      }
+      .nav-desktop .drop-wrap ul li:hover span {
+        color: #ffc050;
+      }
+      .nav-desktop .drop-wrap ul li ul {
+        width: 250px;
+      }
+      .nav-desktop .drop-wrap ul li:hover ul {
+        display: flex;
+        padding-top: 0;
+        margin-top: -10px;
+        left: 245px;
+      }
+      nav .saham {
+        width: 100px;
+        margin-left: 60px;
+      }
+      .SEKPER {
+        color: #ffc050;
+      }
+
+      /* container */
       .container-bg {
         background: #f5f5f5;
         width: 100%;
-        height: 450px;
-        padding: 10px;
+        padding-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
       }
       .container {
         display: flex;
+        flex-direction: column;
         width: 70%;
         margin: auto;
         padding-top: 30px;
+        gap: 25px;
       }
       .text-h1 {
         display: flex;
@@ -29,7 +253,6 @@
       h1 {
         font-size: xx-large;
         font-weight: bolder;
-        letter-spacing: 7px;
         width: max-content;
         color: #01440a;
       }
@@ -48,12 +271,21 @@
         justify-content: center;
       }
       .video {
-        margin-left: 10px;
+        width: 100%;
+      }
+      .video iframe {
+        width: 100%;
       }
       .struktur-perusahaan {
         display: flex;
         flex-direction: column;
         align-items: center;
+      }
+      .struktur-perusahaan .struktur-img {
+        width: 80%;
+      }
+      .struktur-perusahaan .struktur-img img {
+        width: 100%;
       }
       .struktur-h1 {
         margin-top: 20px;
@@ -72,15 +304,20 @@
       }
       .anaks {
         display: flex;
+        flex-direction: column;
         justify-content: space-around;
+        align-items: center;
+        gap: 145px;
       }
       .list-anaks {
+        width: 350px;
         border: 1px solid #f1f1f1;
         border-radius: 8px;
-        width: 350px;
-        margin: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .contentan {
         text-align: center;
@@ -99,7 +336,7 @@
         border: none;
         width: 100%;
         height: auto;
-        left: 83%;
+        /* left: 83%; */
         position: relative;
         transform: translateY(-69%);
       }
@@ -116,85 +353,480 @@
         border-radius: 4px;
         cursor: pointer;
       }
-      /* Extra small devices (phones, 600px and down) */
-      @media only screen and (max-width: 600px) {
-        .example {
-          background: red;
-        }
+
+      /* footer */
+      footer {
+        background-color: #01440a;
+        color: white;
+      }
+      footer .wrapper {
+        width: 70%;
+        margin: auto;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      footer .wrapper img {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        margin-right: 100px;
+        margin-block: 25px;
+      }
+      footer .wrapper ul {
+        display: flex;
+      }
+      footer .wrapper ul li {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      footer .wrapper ul li h3 {
+        font-size: 15px;
+        margin-bottom: 15px;
+      }
+      footer .wrapper ul li a {
+        color: white;
+        text-decoration: none;
+      }
+      footer .wrapper ul li .sosmed {
+        margin: auto;
+        display: flex;
+        gap: 10px;
+      }
+      footer .wrapper ul li .sosmed a {
+        width: 35px;
+        height: 35px;
+        background-color: white;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      footer .copyright {
+        background-color: #073a0b;
+        height: 70px;
+        padding-inline: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
-      /* Small devices (portrait tablets and large phones, 600px and up) */
-      @media only screen and (min-width: 600px) {
-        /* .container-bg {
-          width: 100%;
-          height: auto;
+      /* Responsif */
+      /* mobile */
+      @media (max-width: 767px) {
+        header .header {
+          width: 75%;
         }
-        .container {
-          display: flex;
-          flex-wrap: wrap;
+        nav .logo {
+          width: 75%;
+          justify-content: space-between;
+        }
+        nav .saham {
+          width: 80%;
+          margin-left: 0px;
+        }
+      }
+      @media (min-width: 300px) {
+      }
+      /* tablet */
+      @media (max-width: 1000px) {
+        nav {
+          flex-direction: column;
+        }
+        nav .nav-desktop {
+          display: none;
+        }
+
+        footer .wrapper {
+          width: 60%;
+          align-items: center;
+        }
+        footer .wrapper img {
+          margin-right: 0px;
+          margin-block: 30px;
+        }
+        footer .wrapper ul {
+          flex-direction: column;
+          gap: 25px;
+        }
+        footer .wrapper ul li {
+          width: 100%;
+        }
+      }
+      @media (min-width: 768px) {
+        .video iframe {
+          height: 300px;
+        }
+      }
+      /* desktop */
+      @media (min-width: 1000px) {
+        nav .logo details {
+          display: none;
         }
         .video iframe {
-          width: 450px;
-          height: 247px;
-        } */
-      }
-
-      /* Medium devices (landscape tablets, 768px and up) */
-      @media only screen and (min-width: 768px) {
-        .example {
-          background: blue;
+          height: 450px;
         }
-      }
-
-      /* Large devices (laptops/desktops, 992px and up) */
-      @media only screen and (min-width: 992px) {
-        .example {
-          background: orange;
-        }
-      }
-
-      /* Extra large devices (large laptops and desktops, 1200px and up) */
-      @media only screen and (min-width: 1200px) {
-        .example {
-          background: pink;
+        .anaks {
+          margin: auto;
+          width: 90%;
+          margin-top: 45px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
         }
       }
     </style>
   </head>
   <body>
+    <header>
+      <div class="header">
+        <form action="" method="get">
+          <input type="text" class="searchbar" placeholder="Search..." />
+          <button><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+        <div class="language">
+          <a href="" class="lang-IDN"
+            ><img
+              src="https://mktr.co.id/wp-content/plugins/gtranslate/flags/svg/id.svg"
+              alt="idn"
+          /></a>
+          <a href="" class="lang-ENG"
+            ><img
+              src="https://mktr.co.id/wp-content/plugins/gtranslate/flags/svg/en.svg"
+              alt="eng"
+          /></a>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <div class="logo">
+        <img
+          src="https://mktr.co.id/wp-content/uploads/2023/10/cropped-logo_mktr-300x300-removebg-preview-q11eqomlzg4qm8ucs04smovieczeshlewxua3mhrvc.png"
+          alt="logo"
+        />
+        <span>PT Menthobi Karyatama Raya Tbk</span>
+        <details>
+          <summary>
+            <div></div>
+            <div></div>
+            <div></div>
+          </summary>
+          <div class="hamburger-menu">
+            <a href="./index.html">BERANDA</a>
+            <details>
+              <summary>TENTANG KAMI &#9660;</summary>
+              <ul>
+                <a href="./SEKILASPERUSAHAAN.html">
+                  <li class="SEKPER">Sekilas Perusahaan</li>
+                </a>
+                <a href="./VMBudayaKerja.html">
+                  <li>Visi Misi & Budaya Kerja</li>
+                </a>
+                <details>
+                  <summary>Manajemen Organisasi &#9660;</summary>
+                  <ul>
+                    <a href="./manajemen.html#manajemen">
+                      <li>Manajemen</li>
+                    </a>
+                    <a href="./manajemen.html#KA">
+                      <li>Komite Audit</li>
+                    </a>
+                    <a href="./manajemen.html#KNR">
+                      <li>Komite Nominasi dan Renumarasi</li>
+                    </a>
+                    <a href="./manajemen.html#SP">
+                      <li>Sekretaris Perusahaan</li>
+                    </a>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Tata Kelola Perusahaan &#9660;</summary>
+                  <ul>
+                    <a href="./tata-kelola.html#audit-internal">
+                      <li>Audit Internal</li>
+                    </a>
+                    <a href="./tata-kelola.html#manajemen-resiko">
+                      <li>Manajemen Resiko</li>
+                    </a>
+                    <a href="./tata-kelola.html#pedoman-etika-bisnis">
+                      <li>Pedoman Etika Bisnis & Etika Kerja</li>
+                    </a>
+                  </ul>
+                </details>
+              </ul>
+            </details>
+            <details>
+              <summary>BERKELANJUTAN &#9660;</summary>
+              <ul>
+                <a href="./konservasi-hutan.html#konservasi"
+                  ><li>Konservasi Hutan</li></a
+                >
+                <a href="./konservasi-hutan.html#SNS"
+                  ><li>Standar dan Sertifikasi</li></a
+                >
+                <a href="./konservasi-hutan.html#CSR"><li>CSR</li></a>
+                <a href="./konservasi-hutan.html#RP"><li>Rantai Pasok</li></a>
+                <a href="./konservasi-hutan.html#PM"><li>Plasma</li></a>
+              </ul>
+            </details>
+            <details>
+              <summary>HUBUNGAN INVESTOR &#9660;</summary>
+              <ul>
+                <details>
+                  <summary>Informasi Pemegang Saham &#9660;</summary>
+                  <ul>
+                    <a href="./informasi-pemegang-saham.html#struktur">
+                      <li>Struktur Kepemilikan</li>
+                    </a>
+                    <a href="./informasi-pemegang-saham.html#dividen">
+                      <li>Dividen</li>
+                    </a>
+                    <a href="./informasi-pemegang-saham.html#rups">
+                      <li>RUPS</li>
+                    </a>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Informasi Keuangan &#9660;</summary>
+                  <ul>
+                    <a href="./informasi-keuangan.html#harga">
+                      <li>Harga Saham</li>
+                    </a>
+                    <a href="./informasi-keuangan.html#LK">
+                      <li>Laporan Kuartalan</li>
+                    </a>
+                    <a href="./informasi-keuangan.html#LT">
+                      <li>Laporan Tahunan</li>
+                    </a>
+                    <a href="./informasi-keuangan.html#PROSPEKTUS">
+                      <li>Prospektus</li>
+                    </a>
+                  </ul>
+                </details>
+              </ul>
+            </details>
+            <details>
+              <summary>AKTIFITAS BISNIS &#9660;</summary>
+              <ul>
+                <a href="./aktifitas-bisnis.html#MML"
+                  ><li>PT Menthobi Makmur Lestari</li></a
+                >
+                <a href="./aktifitas-bisnis.html#MHL"
+                  ><li>PT Menthobi Hijau Lestari</li></a
+                >
+                <a href="./aktifitas-bisnis.html#MTR"
+                  ><li>PT Menthobi Transitian Raya</li></a
+                >
+                <a href="./aktifitas-bisnis.html#MAR"
+                  ><li>PT Menthobi Agro Raya</li></a
+                >
+              </ul>
+            </details>
+            <details>
+              <summary>BERITA & GALLERY &#9660;</summary>
+              <ul>
+                <a href="./berita.html"><li>Berita</li></a>
+                <a href="./foto-video-aktifitas.html" class="foto-video"
+                  ><li>Foto & Video Aktifitas</li></a
+                >
+              </ul>
+            </details>
+            <a href="">KARIR</a>
+          </div>
+        </details>
+      </div>
+      <div class="nav-desktop">
+        <a href="./index.html" class="beranda">BERANDA</a>
+        <div class="drop-wrap">
+          <span>TENTANG KAMI &#9660;</span>
+          <ul>
+            <a href="./SEKILASPERUSAHAAN.html">
+              <li class="SEKPER">Sekilas Perusahaan</li>
+            </a>
+            <a href="./VMBudayaKerja.html">
+              <li>Visi Misi & Budaya Kerja</li>
+            </a>
+            <li>
+              <span>Manajemen Organisasi ►</span>
+              <ul>
+                <a href="./manajemen.html#manajemen">
+                  <li>Manajemen</li>
+                </a>
+                <a href="./manajemen.html#KA">
+                  <li>Komite Audit</li>
+                </a>
+                <a href="./manajemen.html#KNR">
+                  <li>Komite Nominasi dan Renumarasi</li>
+                </a>
+                <a href="./manajemen.html#SP">
+                  <li>Sekretaris Perusahaan</li>
+                </a>
+              </ul>
+            </li>
+            <li>
+              <span>Tata Kelola Perusahaan ►</span>
+              <ul>
+                <a href="./tata-kelola.html#audit-internal">
+                  <li>Audit Internal</li>
+                </a>
+                <a href="./tata-kelola.html#manajemen-resiko">
+                  <li>Manajemen Resiko</li>
+                </a>
+                <a href="./tata-kelola.html#pedoman-etika-bisnis">
+                  <li>Pedoman Etika Bisnis & Etika Kerja</li>
+                </a>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="drop-wrap">
+          <span>BERKELANJUTAN &#9660;</span>
+          <ul>
+            <a href="./konservasi-hutan.html#konservasi"
+              ><li>Konservasi Hutan</li></a
+            >
+            <a href="./konservasi-hutan.html#SNS"
+              ><li>Standar dan Sertifikasi</li></a
+            >
+            <a href="./konservasi-hutan.html#CSR"><li>CSR</li></a>
+            <a href="./konservasi-hutan.html#RP"><li>Rantai Pasok</li></a>
+            <a href="./konservasi-hutan.html#PM"><li>Plasma</li></a>
+          </ul>
+        </div>
+        <div class="drop-wrap">
+          <span>HUBUNGAN INVESTOR &#9660;</span>
+          <ul>
+            <li>
+              <span>Informasi Pemegang Saham ►</span>
+              <ul>
+                <a href="./informasi-pemegang-saham.html#struktur">
+                  <li>Struktur Kepemilikan</li>
+                </a>
+                <a href="./informasi-pemegang-saham.html#dividen">
+                  <li>Dividen</li>
+                </a>
+                <a href="./informasi-pemegang-saham.html#rups">
+                  <li>RUPS</li>
+                </a>
+              </ul>
+            </li>
+            <li>
+              <span>Informasi Keuangan ►</span>
+              <ul>
+                <a href="./informasi-keuangan.html#harga">
+                  <li>Harga Saham</li>
+                </a>
+                <a href="./informasi-keuangan.html#LK">
+                  <li>Laporan Kuartalan</li>
+                </a>
+                <a href="./informasi-keuangan.html#LT">
+                  <li>Laporan Tahunan</li>
+                </a>
+                <a href="./informasi-keuangan.html#PROSPEKTUS">
+                  <li>Prospektus</li>
+                </a>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="drop-wrap">
+          <span>AKTIFITAS BISNIS &#9660;</span>
+          <ul>
+            <a href="./aktifitas-bisnis.html#MML"
+              ><li>PT Menthobi Makmur Lestari</li></a
+            >
+            <a href="./aktifitas-bisnis.html#MHL"
+              ><li>PT Menthobi Hijau Lestari</li></a
+            >
+            <a href="./aktifitas-bisnis.html#MTR"
+              ><li>PT Menthobi Transitian Raya</li></a
+            >
+            <a href="./aktifitas-bisnis.html#MAR"
+              ><li>PT Menthobi Agro Raya</li></a
+            >
+          </ul>
+        </div>
+        <div class="drop-wrap">
+          <span>BERITA & GALLERY &#9660;</span>
+          <ul>
+            <a href="./berita.html"><li>Berita</li></a>
+            <a href="./foto-video-aktifitas.html"
+              ><li>Foto & Video Aktifitas</li></a
+            >
+          </ul>
+        </div>
+        <a href="">KARIR</a>
+      </div>
+      <div class="saham">
+        <iframe
+          scrolling="no"
+          allowtransparency="true"
+          frameborder="0"
+          src="https://www.tradingview-widget.com/embed-widget/ticker-tape/?locale=id#%7B%22symbols%22%3A%5B%7B%22description%22%3A%22%22%2C%22proName%22%3A%22IDX%3AMKTR%22%7D%5D%2C%22showSymbolLogo%22%3Afalse%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Atrue%2C%22displayMode%22%3A%22regular%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A44%2C%22utm_source%22%3A%22mktr.co.id%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22mktr.co.id%2Findex.php%2Ffoto-video-aktifitas%2F%22%7D"
+          title="ticker tape TradingView widget"
+          lang="en"
+          style="
+            user-select: none;
+            box-sizing: border-box;
+            display: block;
+            height: 44px;
+            width: 100%;
+          "
+        ></iframe>
+      </div>
+    </nav>
+
     <div class="container-bg">
       <div class="container">
         <div class="text">
           <div class="text-head">
             <div class="text-h1"><h1>SEKILAS PERUSAHAAN</h1></div>
-            <div class="line"><hr class="line-text" color="rgb(13, 75, 13)" /></div>
+            <div class="line">
+              <hr class="line-text" color="rgb(13, 75, 13)" />
+            </div>
           </div>
           <div class="p-text">
             <p>
-              PT. Menthobi Karyatama Raya (MKTR) Tbk merupakan perusahaan perkebunan yang berpusat di Jakarta. MKTR adalah bagian dari Maktour Group, perusahaan biro haji dan umroh terkemuka di Indonesia yang dipimpin oleh Fuad Hasan
-              Masyhur.
+              PT. Menthobi Karyatama Raya (MKTR) Tbk merupakan perusahaan
+              perkebunan yang berpusat di Jakarta. MKTR adalah bagian dari
+              Maktour Group, perusahaan biro haji dan umroh terkemuka di
+              Indonesia yang dipimpin oleh Fuad Hasan Masyhur.
             </p>
             &nbsp;
             <p>
-              Saat ini, MKTR memiliki usaha di industri kelapa sawit dan mempunyai area perkebunan serta pabrik kelapa sawit di Kalimantan Tengah. MKTR mengedepankan prinsip tata kelola perusahaan terbaik dengan konsep integrasi antara
-              hasil perkebunan, pengolahan, dan pemanfaatan limbah. Didukung standar pengelolaan dan hasil perkebunan yang tinggi, transport manajemen yang baik, dan menjunjung konsep ramah lingkungan serta berkesinambungan.
+              Saat ini, MKTR memiliki usaha di industri kelapa sawit dan
+              mempunyai area perkebunan serta pabrik kelapa sawit di Kalimantan
+              Tengah. MKTR mengedepankan prinsip tata kelola perusahaan terbaik
+              dengan konsep integrasi antara hasil perkebunan, pengolahan, dan
+              pemanfaatan limbah. Didukung standar pengelolaan dan hasil
+              perkebunan yang tinggi, transport manajemen yang baik, dan
+              menjunjung konsep ramah lingkungan serta berkesinambungan.
             </p>
             &nbsp;
             <p>
-              Melalui anak perusahaannya, MKTR mengelola perkebunan kelapa sawit sekitar 6.000 hektar dan pabrik kelapa sawit kapasitas 30 ton per jam. Salah satu wujud peduli lingkungan, MKTR melalui anak perusahaannya telah mengalokasikan
-              lahan 50 hektar sebagai area high conservation value (HCV).
+              Melalui anak perusahaannya, MKTR mengelola perkebunan kelapa sawit
+              sekitar 6.000 hektar dan pabrik kelapa sawit kapasitas 30 ton per
+              jam. Salah satu wujud peduli lingkungan, MKTR melalui anak
+              perusahaannya telah mengalokasikan lahan 50 hektar sebagai area
+              high conservation value (HCV).
             </p>
             &nbsp;
             <p>
-              Pada awalnya, perseroan bernama PT Accinvest Bangun Lestari, kemudian diubah menjadi PT Menthobi Karyatama Raya berdasarkan Akta Pernyataan Keputusan Rapat No. 36 tanggal 31 Desember 2020, yang dibuat di hadapan Notaris
-              Andhika Mayrizal Amir, SH., M.Kn., Notaris di Tangerang.
+              Pada awalnya, perseroan bernama PT Accinvest Bangun Lestari,
+              kemudian diubah menjadi PT Menthobi Karyatama Raya berdasarkan
+              Akta Pernyataan Keputusan Rapat No. 36 tanggal 31 Desember 2020,
+              yang dibuat di hadapan Notaris Andhika Mayrizal Amir, SH., M.Kn.,
+              Notaris di Tangerang.
             </p>
           </div>
         </div>
         <div class="video">
           <iframe
-            width="600"
-            height="347"
             src="https://www.youtube.com/embed/eK-MgzRsC3s?si=AyjsGJ9XuHx-lN5H"
             title="YouTube video player"
             frameborder="0"
@@ -203,58 +835,146 @@
           ></iframe>
         </div>
       </div>
-    </div>
-    <div class="struktur-perusahaan">
-      <div class="struktur-h1"><h1>STRUKTUR PERUSAHAAN</h1></div>
-      <hr class="line-text hr" color="rgb(13, 75, 13)" />
-      <div class="struktur-img"><img src="./img/StrukTur-Organisasi-mkt.png" alt="struktur-perusahaan" /></div>
-    </div>
-    <div class="anak-perusahaan">
-      <div class="anak-h1">
-        <h1>ANAK PERUSAHAAN</h1>
-      </div>
-      <div class="anaks">
-        <div class="list-anaks">
-          <div class="img-anak"><img src="./img/MAR-fix-1-300x300-1.png" alt="" class="list-anaks" /></div>
-          <div class="contentan">
-            <h4 class="deskri">PT. Menthobi Agro Raya</h4>
-            <p>Bergerak di bidang pembibitan dan penjualan CPO</p>
-          </div>
-          <div class="selengkapnya">
-            <button class="btnS">selengkapya</button>
-          </div>
-        </div>
-        <div class="list-anaks">
-          <div class="img-anak"><img src="./img/MTTR-New-2-275x300-1.png" alt="" class="list-anaks" /></div>
-          <div class="contentan">
-            <h4 class="deskri">PT. Menthobi Transitian Raya</h4>
-            <p>Bergerak di bidang transportasi dan logistik</p>
-          </div>
-          <div class="selengkapnya">
-            <button class="btnS">selengkapya</button>
-          </div>
-        </div>
-        <div class="list-anaks">
-          <div class="img-anak"><img src="./img/mml-300x300-1.png" alt="" class="list-anaks" /></div>
-          <div class="contentan">
-            <h4 class="deskri">PT. Menthobi Makmur Lestari</h4>
-            <p>Kebun kelapa sawit di lamandau, kalimantan tengah</p>
-          </div>
-          <div class="selengkapnya">
-            <button class="btnS">selengkapya</button>
-          </div>
-        </div>
-        <div class="list-anaks">
-          <div class="img-anak"><img src="./img/mhl.png" alt="" class="list-anaks" /></div>
-          <div class="contentan">
-            <h4 class="deskri">PT. Menthobi Hijau Lestari</h4>
-            <p>Bergerak di bidang pengolahan limbah</p>
-          </div>
-          <div class="selengkapnya">
-            <button class="btnS">selengkapya</button>
-          </div>
+      <div class="struktur-perusahaan">
+        <div class="struktur-h1"><h1>STRUKTUR PERUSAHAAN</h1></div>
+        <hr class="line-text hr" color="rgb(13, 75, 13)" />
+        <div class="struktur-img">
+          <img
+            src="./img/StrukTur-Organisasi-mkt.png"
+            alt="struktur-perusahaan"
+          />
         </div>
       </div>
+      <div class="anak-perusahaan">
+        <div class="anak-h1">
+          <h1>ANAK PERUSAHAAN</h1>
+        </div>
+        <div class="anaks">
+          <div class="list-anaks">
+            <div class="img-anak">
+              <img
+                src="./img/MAR-fix-1-300x300-1.png"
+                alt=""
+                class="list-anaks"
+              />
+            </div>
+            <div class="contentan">
+              <h4 class="deskri">PT. Menthobi Agro Raya</h4>
+              <p>Bergerak di bidang pembibitan dan penjualan CPO</p>
+            </div>
+            <div class="selengkapnya">
+              <button class="btnS">selengkapya</button>
+            </div>
+          </div>
+          <div class="list-anaks">
+            <div class="img-anak">
+              <img
+                src="./img/MTTR-New-2-275x300-1.png"
+                alt=""
+                class="list-anaks"
+              />
+            </div>
+            <div class="contentan">
+              <h4 class="deskri">PT. Menthobi Transitian Raya</h4>
+              <p>Bergerak di bidang transportasi dan logistik</p>
+            </div>
+            <div class="selengkapnya">
+              <button class="btnS">selengkapya</button>
+            </div>
+          </div>
+          <div class="list-anaks">
+            <div class="img-anak">
+              <img src="./img/mml-300x300-1.png" alt="" class="list-anaks" />
+            </div>
+            <div class="contentan">
+              <h4 class="deskri">PT. Menthobi Makmur Lestari</h4>
+              <p>Kebun kelapa sawit di lamandau, kalimantan tengah</p>
+            </div>
+            <div class="selengkapnya">
+              <button class="btnS">selengkapya</button>
+            </div>
+          </div>
+          <div class="list-anaks">
+            <div class="img-anak">
+              <img src="./img/mhl.png" alt="" class="list-anaks" />
+            </div>
+            <div class="contentan">
+              <h4 class="deskri">PT. Menthobi Hijau Lestari</h4>
+              <p>Bergerak di bidang pengolahan limbah</p>
+            </div>
+            <div class="selengkapnya">
+              <button class="btnS">selengkapya</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <footer>
+      <div class="wrapper">
+        <img
+          src="https://mktr.co.id/wp-content/uploads/2023/10/cropped-logo_mktr-300x300-removebg-preview-q11eqomlzg4qm8ucs04smovieczeshlewxua3mhrvc.png"
+          alt="logo"
+        />
+        <ul>
+          <li>
+            <h3>INFORMASI PEMEGANG SAHAM</h3>
+            <a href="./informasi-pemegang-saham.html#struktur"
+              >Struktur Kepemilikan</a
+            >
+            <a href="./informasi-pemegang-saham.html#dividen">Dividen</a>
+            <a href="./informasi-pemegang-saham.html#rups">Rups</a>
+            <a href="./informasi-pemegang-saham.html#">Penunjang Pasar Modal</a>
+          </li>
+          <li>
+            <h3>LAPORAN KEUANGAN</h3>
+            <a href="./informasi-keuangan.html#LK">Laporan Kuartalan</a>
+            <a href="./informasi-keuangan.html#LT">Laporan Tahunan</a>
+            <a href="./informasi-keuangan.html#PROSPEKTUS">Prospektus</a>
+          </li>
+          <li>
+            <h3>BERKELANJUTAN</h3>
+            <a href="./konservasi-hutan.html#konservasi">Konservasi Hutan</a>
+            <a href="./konservasi-hutan.html#SNS">Standar dan Sertifikasi</a>
+            <a href="./konservasi-hutan.html#CSR">CSR</a>
+            <a href="./konservasi-hutan.html#RP">Rantai Pasok</a>
+            <a href="./konservasi-hutan.html#PM">Plasma</a>
+          </li>
+          <li>
+            <h3>PT. Menthobi Karyatama Raya Tbk</h3>
+            <p>
+              Wisma Maktour Lt. 4 Jalan Otista Raya No.80 Jakarta Timur 13330
+              Indonesia
+            </p>
+            <span>Ikuti Kami :</span>
+            <div class="sosmed">
+              <a
+                href="https://m.facebook.com/p/PT-Menthobi-Karyatama-Raya-Tbk-100081064625604/"
+                target="_blank"
+                ><i class="fa-brands fa-facebook" style="color: #4267b2"></i
+              ></a>
+              <a
+                href="https://instagram.com/mktr.id?igshid=MzRlODBiNWFlZA=="
+                target="_blank"
+                ><i class="fa-brands fa-instagram" style="color: orangered"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/mktr/about/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin" style="color: #4267b2"></i
+              ></a>
+              <a href="https://www.youtube.com/@mktr5433" target="_blank"
+                ><i class="fa-brands fa-youtube" style="color: red"></i
+              ></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <span
+          >PT. Menthobi Karyatama Raya Tbk @Copyright 2023 All Right
+          Reserved</span
+        >
+      </div>
+    </footer>
   </body>
 </html>

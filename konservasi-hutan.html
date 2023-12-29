@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visi Misi - Menthobi Karyatama Raya Tbk</title>
+    <title>Informasi Pemegang Saham - Menthobi Karyatama Raya Tbk</title>
     <script
       src="https://kit.fontawesome.com/ba965b16bb.js"
       crossorigin="anonymous"
@@ -20,6 +20,9 @@
       type="image/x-icon"
     />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       * {
         padding: 0px;
         margin: 0px;
@@ -222,108 +225,54 @@
         width: 100px;
         margin-left: 60px;
       }
-      .VMBK {
+      .BERKELANJUTAN {
         color: #ffc050;
       }
 
       /* container */
-      .bungkusCon {
-        width: 100%;
-        background-color: rgb(255, 255, 255);
-        padding-bottom: 20px;
-      }
       .container {
-        margin: auto;
         width: 100%;
-        padding-top: 8%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-      }
-      .container > div {
-        width: 80%;
-      }
-      .VM {
-        font-size: 14px;
-        font-weight: 600;
-        color: #f1f1f1;
-        margin: 10px 10px;
-        padding: 19px;
-        border: 1px solid;
-        width: 50%;
-        border: none;
-        background-color: #3b6641;
-        border-radius: 8px;
-        box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -webkit-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -moz-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-      }
-      .VM h1 {
-        text-align: center;
-      }
-      .T {
-        padding: 20px;
-      }
-      .Bdy-krj {
-        background-color: #f1f1f1;
+        background-color: #fff;
         padding-bottom: 60px;
-      }
-      .bdy-tp {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-      }
-      .bdy-card {
-        padding: 30px;
-        box-sizing: border-box;
-        width: 100%;
-        border: 1px solid #f1f1f1;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      .bdy-desk {
-        padding: 50px;
-      }
-      .bdy-desk h1 {
-        margin-bottom: 30px;
-      }
-      .bdy-img img {
-        width: 100%;
-        border-radius: 10px;
-      }
-      .pmn-cards {
-        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        gap: 30px;
+      }
+      .container h1 {
+        color: #01440a;
+        text-align: center;
+        font-size: 34px;
+      }
+      .container section {
+        width: 90%;
+        padding-top: 90px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .container section .content {
+        display: flex;
+        flex-direction: column;
         gap: 25px;
       }
-      .card-pdmn {
-        width: 90%;
-        height: 350px;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -webkit-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -moz-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        color: white;
-        background-color: #3b6641;
-        padding: 20px;
-        box-sizing: border-box;
+      .container section .content .content-img {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
       }
-      .card-pdmn h4 {
-        text-align: center;
-        margin: 40px 0 50px 0;
+      .container section .content .content-img img {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
       }
-      .card-pdmn p {
-        padding: 10px;
+      .container section .content .deskripsi {
+        text-align: justify;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
       }
 
       /* footer */
@@ -429,42 +378,29 @@
         }
       }
       @media (min-width: 768px) {
+        .container section {
+          width: 75%;
+        }
       }
       /* desktop */
       @media (min-width: 1000px) {
         nav .logo details {
           display: none;
         }
-
-        .container {
+        .container section {
+          width: 90%;
+        }
+        .container section .content {
           flex-direction: row;
         }
-        .container > div {
+        .container section .content .content-img {
           width: 40%;
-          height: 300px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          font-size: 20px;
         }
-        .bdy-desk h4 {
-          font-size: 21px;
+        .container section .content .deskripsi {
+          width: 60%;
         }
-        .card-pdmn {
-          font-size: 21px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding-bottom: 35px;
-        }
-        .card-pdmn p {
-          font-size: 19px;
-        }
-        .pmn-cards {
-          flex-direction: row;
-          padding-inline: 25px;
-          box-sizing: border-box;
+        .container section .content .content-img img {
+          height: 350px;
         }
       }
     </style>
@@ -512,7 +448,7 @@
                   <li>Sekilas Perusahaan</li>
                 </a>
                 <a href="./VMBudayaKerja.html">
-                  <li class="VMBK">Visi Misi & Budaya Kerja</li>
+                  <li>Visi Misi & Budaya Kerja</li>
                 </a>
                 <details>
                   <summary>Manajemen Organisasi &#9660;</summary>
@@ -548,7 +484,7 @@
               </ul>
             </details>
             <details>
-              <summary>BERKELANJUTAN &#9660;</summary>
+              <summary class="BERKELANJUTAN">BERKELANJUTAN &#9660;</summary>
               <ul>
                 <a href="./konservasi-hutan.html#konservasi"
                   ><li>Konservasi Hutan</li></a
@@ -636,7 +572,7 @@
               <li>Sekilas Perusahaan</li>
             </a>
             <a href="./VMBudayaKerja.html">
-              <li class="VMBK">Visi Misi & Budaya Kerja</li>
+              <li>Visi Misi & Budaya Kerja</li>
             </a>
             <li>
               <span>Manajemen Organisasi ►</span>
@@ -672,7 +608,7 @@
           </ul>
         </div>
         <div class="drop-wrap">
-          <span>BERKELANJUTAN &#9660;</span>
+          <span class="BERKELANJUTAN">BERKELANJUTAN &#9660;</span>
           <ul>
             <a href="./konservasi-hutan.html#konservasi"
               ><li>Konservasi Hutan</li></a
@@ -767,92 +703,180 @@
         ></iframe>
       </div>
     </nav>
-    <div class="wrapper">
-      <div class="bungkusCon">
-        <div class="container">
-          <div class="visi VM">
-            <h1>VISI</h1>
-            <div class="visiText T">
-              <p>
-                Menjadi perusahaan yang menghasilkan produk perkebunan terbaik
-                dengan menjalankan Best Practice Agronomi perkebunan yang
-                berkelanjutan dan ramah lingkungan.
-              </p>
-            </div>
+    <div class="container">
+      <section id="konservasi">
+        <h1>Konservasi Hutan</h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/kebun1.jpg" alt="konservasi hutan" />
           </div>
-          <div class="misi VM">
-            <h1>MISI</h1>
-            <div class="misiList T">
-              <ul>
-                <p>
-                  <li>Mengembangkan bisnis perkebunan yang efisien</li>
-                  <li>
-                    Meningkatkan nilai tambah bagi seluruh pemangku kepentingan
-                  </li>
-                  <li>Menerapkan prinsip tata kelola perusahaan yang baik</li>
-                  <li>Memanfaatkan teknologi ramah lingkungan</li>
-                  <li>
-                    Memperkuat serta mengembangkan kemitraan sumber daya manusia
-                    dan potensi lokal
-                  </li>
-                </p>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="Bdy-krj">
-        <div class="bdy-tp">
-          <div class="bdy-card">
-            <div class="bdy-img"><img src="./img/bdy.jpg" alt="" /></div>
-            <div class="bdy-desk">
-              <h1>BUDAYA KERJA</h1>
-              <h4>
-                Budaya Perusahaan PT MKTR memiliki nilai-nilai budaya kerja yang
-                dijunjung tinggi seluruh insan perusahaan. Ada empat budaya yang
-                menjadi pedoman:
-              </h4>
-            </div>
+          <div class="deskripsi">
+            <p>
+              Industri sawit di Indonesia merupakan industri unggulan yang
+              meyumbang devisa negara. Salah satu peran dan kontribusi industri
+              sawit di Indonesia adalah sebagai tanaman perkebunan. Kelapa sawit
+              menghijaukan areal bekas hutan yang berperan menyerap CO2 dan
+              mengurangi emisi karbon, sehingga berfungsi memperbaiki
+              lingkungan.
+            </p>
+            <p>
+              Pada tahun 2021, pemerintah berkomitmen dalam melakukan peremajaan
+              (replanting) yang bertujuan untuk meningkatkan produktivitas kebun
+              sawit rakyat yang sudah tua. Replanting juga dilakukan agar kebun
+              atau lahan hutan tersebut tetap tumbuh subur dengan
+              tanaman-tanaman baru yang lebih sehat.
+            </p>
+            <p>
+              Dengan semakin suburnya tanaman-tanaman baru tentu akan memberikan
+              dampak positif pada pendapatan Perseroan. PT MKTR Tbk melalui
+              entitas anak memiliki area HCV (High Conservation Value) dengan
+              luasan sekitar 42 Ha. HCV adalah hutan yang bernilai konservasi
+              tinggi meliputi nilai-nilai ekologi, jasa lingkungan, sosial dan
+              budaya. HCV sangat berpotensi menyumbang penurunan emisi di sektor
+              kehutanan, perkebunan, dan pertambangan.
+            </p>
           </div>
         </div>
-        <div class="bdy-pdmn">
-          <div class="pmn-cards">
-            <div class="card-pdmn">
-              <h4>1. MOTIVATION & INTEGRITY</h4>
-              <p>
-                Memiliki semangat kerja dengan kinerja terbaik dan semangat
-                mengembangkan kompetensi secara mandiri untuk menjadi pribadi
-                yang unggul.
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>2. COMMITMENT & PROFESSIONAL</h4>
-              <p>
-                Mendedikasikan diri seutuhnyauntuk tumbuh dan maju bersama
-                perusahaan. Selalu bersikap dan bertindak yang terbaik untuk
-                perusahaan.
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>3. TRUST & TRANSPARENT</h4>
-              <p>
-                Keterbukaan dan ketersediaan informasi yang dibutuhkan.
-                Membangun kepercayaan dan berprasangka baik di antara
-                stakeholders dan seluruh insan perusahaan. Responsif
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>4. RESPONSIF</h4>
-              <p>
-                Memiliki perilaku kerja proaktif, kooperatif, kritis, suportif
-                serta peka terhadap situasi dan kebutuhan lingkungan kerja.
-                Memiliki kemampuan memanfaatkan peluang dan tantangan yang ada
-                untuk pencapaian kinerja terbaik
-              </p>
-            </div>
+      </section>
+      <section id="SNS">
+        <h1>Standard & Sertifikasi</h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/inisiatif-img2.jpg" alt="SNS" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              MKTR melalui entitas anak sejak tahun 2019 telah tersertifikasi
+              ISPO (Indonesian Sustainable Palm Oil) untuk perizinan umum.
+              Tujuan ISPO adalah untuk meningkatkan kepedulian pentingnya
+              memproduksi kelapa sawit berkelanjutan, meningkatkan tingkat
+              kompetisi minyak kelapa sawit Indonesia di pasar dunia, dan
+              mendukung komitmen Indonesia dalam pelestarian sumber daya alam
+              dan lingkungan.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
+      <section id="">
+        <h1></h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/ISPO.jpg" alt="ISPO" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              MKTR melalui entitas anak telah mendapatkan sertifikasi ISO
+              (International Standardization Organization) pada tahun 2022.
+              Tujuan sertifikasi sistem manajemen mutu ISO 9001 yaitu, untuk
+              mencegah terjadinya kesalahan dalam proyek. Selain itu juga, ISO
+              merupakan fungsi kontrol untuk meminimalisir terjadinya kesalahan
+              setelah produk disampaikan kepada konsumen.
+            </p>
+            <p>
+              Perseroan menargetkan MMAL (Menthobi Makmur Lestari) untuk dapat
+              tersertifikasi ISO 45001 pada tahun 2023. Tujuannya agar
+              perusahaan dapat mengutamakan kesehatan dan keselamatan pekerja
+              dalam beroperasi dan integrasinya ke dalam proses bisnis.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="CSR">
+        <h1>Corporate Social Responsibility</h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/inisiatif-img3.jpg" alt="CSR" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              Pelaksanaan CSR (Corporate Social Responsibility) merupakan
+              komitmen dan langkah strategis Perseroan dalam menjaga pertumbuhan
+              dan keberlangsungan bisnis Perusahaan. Perseroan meyakini bahwa
+              dengan pendekatan yang seimbang antara kinerja ekonomi, kinerja
+              lingkungan, dan kinerja sosial akan mendukung peran Perusahaan
+              dalam pembangunan yang berkelanjutan.
+            </p>
+            <p>
+              Perseroan secara konsisten melaksanakan kegiatan CSR sebagai wujud
+              kepedulian Perusahaan sekaligus apresiasi kepada masyarakat yang
+              telah memberikan kepercayaan dan dukungan atas proses bisnis
+              Perusahaan.
+            </p>
+            <p>
+              Keberlangsungan bisnis Perseroan tidak lepas dari partisipasi
+              masyarakat dalam menyambut berbagai produk dan layanan yang
+              ditawarkan oleh Perusahaan. Beberapa kontribusi Perseroan yang
+              telah dijalankan antara lain berupa sumbangan kepada masyarakat
+              sekitar seperti sumbangan beasiswa, kegiatan keagamaan dan
+              kegiatan sosial budaya lokal.
+            </p>
+            <p>
+              Perseroan berkomitmen untuk terus berkontribusi kepada masyarakat
+              sekitar, sehingga Perseroan juga mendapatkan dukungan positif
+              dalam menjalankan kegiatan usahanya.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="RP">
+        <h1>Rantai Pasok</h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/rantai_pasok.png" alt="Rantai Pasok" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              Sejak Perseroan berdiri, kegiatan usaha utama Perseroan adalah di
+              bidang perdagangan minyak kelapa sawit, serta bidang perkebunan
+              dan PKS melalui Entitas Anak
+            </p>
+            <p>
+              Dalam hal ini, Perseroan melakukan trading Tanda Buah Segar (TBS)
+              kelapa sawit yang dibeli dari pengepul, koperasi maupun Kelompok
+              Tani Masyarakat sekitar lokasi pabrik Menthobi Makmur Lestari
+              (MMAL).
+            </p>
+            <p>
+              TBS yang dibeli oleh Perseroan selanjutnya dilakukan titip olah di
+              pabrik Entisas Anak (MMAL) untuk diproses menjadi CPO.<br />
+              Hasil produksi CPO dan kernel kemudian dijual oleh Perseroan
+              kepada customer di wilayah Kalimantan Tengah.
+            </p>
+            <p>
+              Customer melakukan pembayaran langsung kepada Perseroan dan
+              berdasarkan invoice titip olah dari MMAL Perseroan melakukan
+              pembayaran kepada MMAL.
+            </p>
+            <p>
+              Perseroan berupaya semaksimal mungkin mengarahkan kegiatan
+              usahanya untuk dapat menghasilkan produk yang berfokus kepada
+              kepuasan konsumen. Melalui produk pelayanan yang dihasilkannya,
+              perseroan menciptakan, membina dan mempertahankan kepercayaan
+              konsumen.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="PM">
+        <h1>Pemberdayaan Masyarakat</h1>
+        <div class="content">
+          <div class="content-img">
+            <img src="./img/inisiatif-img5.png" alt="PM" />
+          </div>
+          <div class="deskripsi">
+            <p>
+              MKTR berkembang seiring pembangunan dan perputaran roda ekonomi
+              nasional. Melalui perusahaan entitas anak yang berfokus pada
+              pengelolaan hasil perkebunan, MKTR terus bersinergi dan berusaha
+              menjadi salah satu perusahaan dengan tata kelola terbaik dengan
+              konsep integrasi antara hasil perkebunan rakyat dan inti,
+              pengolahan dan pemanfaatan limbah. didukung dengan transport
+              manajemen yang baik dengan konsep yang ramah lingkungan dan
+              berkesinambungan.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
     <footer>
       <div class="wrapper">

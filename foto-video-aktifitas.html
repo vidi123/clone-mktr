@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visi Misi - Menthobi Karyatama Raya Tbk</title>
+    <title>Foto & Video Aktifitas - Menthobi Karyatama Raya Tbk</title>
     <script
       src="https://kit.fontawesome.com/ba965b16bb.js"
       crossorigin="anonymous"
@@ -84,6 +84,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      nav a.foto-video,
+      nav .logo .hamburger-menu ul a.foto-video {
+        color: #ffc050;
       }
       nav .logo {
         width: 255px;
@@ -222,108 +226,111 @@
         width: 100px;
         margin-left: 60px;
       }
-      .VMBK {
+      .FVA {
         color: #ffc050;
       }
 
-      /* container */
-      .bungkusCon {
-        width: 100%;
-        background-color: rgb(255, 255, 255);
-        padding-bottom: 20px;
-      }
+      /* Container */
       .container {
-        margin: auto;
-        width: 100%;
-        padding-top: 8%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-      }
-      .container > div {
-        width: 80%;
-      }
-      .VM {
-        font-size: 14px;
-        font-weight: 600;
-        color: #f1f1f1;
-        margin: 10px 10px;
-        padding: 19px;
-        border: 1px solid;
-        width: 50%;
-        border: none;
-        background-color: #3b6641;
-        border-radius: 8px;
-        box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -webkit-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -moz-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-      }
-      .VM h1 {
-        text-align: center;
-      }
-      .T {
-        padding: 20px;
-      }
-      .Bdy-krj {
-        background-color: #f1f1f1;
-        padding-bottom: 60px;
-      }
-      .bdy-tp {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-      }
-      .bdy-card {
-        padding: 30px;
-        box-sizing: border-box;
-        width: 100%;
-        border: 1px solid #f1f1f1;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background-color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      .bdy-desk {
-        padding: 50px;
-      }
-      .bdy-desk h1 {
-        margin-bottom: 30px;
-      }
-      .bdy-img img {
-        width: 100%;
-        border-radius: 10px;
-      }
-      .pmn-cards {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 25px;
-      }
-      .card-pdmn {
         width: 90%;
-        height: 350px;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -webkit-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -moz-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        color: white;
-        background-color: #3b6641;
-        padding: 20px;
-        box-sizing: border-box;
+        margin: auto;
+        padding-block: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
       }
-      .card-pdmn h4 {
-        text-align: center;
-        margin: 40px 0 50px 0;
+      .container h1 {
+        color: #01440a;
       }
-      .card-pdmn p {
-        padding: 10px;
+
+      /* slider */
+      .swipper {
+        width: 100%;
+        height: 500px;
+        background: transparent;
+        background-size: cover;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 1s;
+        position: relative;
+        overflow: hidden;
+      }
+      .bg-satu {
+        right: -2685px;
+        transition: 1.3s;
+      }
+      .bg-dua {
+        right: -1343px;
+        transition: 1.3s;
+      }
+      .bg-tiga {
+        right: -700px;
+        transition: 1.3s;
+      }
+      .bg-empat {
+        right: 0;
+        transition: 1.3s;
+      }
+      .swipper div {
+        width: 50px;
+        height: 100px;
+        background-color: rgba(34, 34, 34, 0.692);
+        cursor: pointer;
+        z-index: 1;
+      }
+      .swipper .slide-button:hover {
+        background-color: rgba(34, 34, 34, 0.849);
+      }
+      .swipper i {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+        color: #fff;
+      }
+      .swipper .gambar {
+        width: 300%;
+        height: 500px;
+        position: absolute;
+        display: flex;
+      }
+      .gambar img {
+        width: 100%;
+      }
+      .swipper .index {
+        width: 100px;
+        height: 40px;
+        display: flex;
+        align-self: flex-end;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+      }
+      .index .bulat {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background-color: #fff;
+        transition: 0.4s;
+      }
+      .index .select {
+        width: 45px;
+        border-radius: 50px;
+        background-color: #fff;
+      }
+
+      .video {
+        width: 100%;
+        height: 230px;
+      }
+      .video iframe {
+        width: 100%;
+        height: 100%;
       }
 
       /* footer */
@@ -400,8 +407,19 @@
           width: 80%;
           margin-left: 0px;
         }
-      }
-      @media (min-width: 300px) {
+
+        .swipper .bg-satu {
+          right: -600px;
+        }
+        .swipper .bg-dua {
+          right: 200px;
+        }
+        .swipper .bg-tiga {
+          right: 1000px;
+        }
+        .swipper .bg-empat {
+          right: 1800px;
+        }
       }
       /* tablet */
       @media (max-width: 1000px) {
@@ -410,6 +428,22 @@
         }
         nav .nav-desktop {
           display: none;
+        }
+
+        .gambar img {
+          width: 800px;
+        }
+        .bg-satu {
+          right: -1370px;
+        }
+        .bg-dua {
+          right: -568px;
+        }
+        .bg-tiga {
+          right: -600px;
+        }
+        .bg-empat {
+          right: 980px;
         }
 
         footer .wrapper {
@@ -428,43 +462,31 @@
           width: 100%;
         }
       }
-      @media (min-width: 768px) {
-      }
       /* desktop */
       @media (min-width: 1000px) {
         nav .logo details {
           display: none;
         }
 
-        .container {
-          flex-direction: row;
+        .swipper .gambar {
+          width: 450%;
         }
-        .container > div {
-          width: 40%;
-          height: 300px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          font-size: 20px;
+        .bg-satu {
+          right: -4200px;
         }
-        .bdy-desk h4 {
-          font-size: 21px;
+        .bg-dua {
+          right: -2800px;
         }
-        .card-pdmn {
-          font-size: 21px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding-bottom: 35px;
+        .bg-tiga {
+          right: -1400px;
         }
-        .card-pdmn p {
-          font-size: 19px;
+        .bg-empat {
+          right: 0;
         }
-        .pmn-cards {
-          flex-direction: row;
-          padding-inline: 25px;
-          box-sizing: border-box;
+
+        .video {
+          width: 80%;
+          height: 500px;
         }
       }
     </style>
@@ -512,7 +534,7 @@
                   <li>Sekilas Perusahaan</li>
                 </a>
                 <a href="./VMBudayaKerja.html">
-                  <li class="VMBK">Visi Misi & Budaya Kerja</li>
+                  <li>Visi Misi & Budaya Kerja</li>
                 </a>
                 <details>
                   <summary>Manajemen Organisasi &#9660;</summary>
@@ -619,7 +641,7 @@
               <ul>
                 <a href="./berita.html"><li>Berita</li></a>
                 <a href="./foto-video-aktifitas.html" class="foto-video"
-                  ><li>Foto & Video Aktifitas</li></a
+                  ><li class="FVA">Foto & Video Aktifitas</li></a
                 >
               </ul>
             </details>
@@ -636,7 +658,7 @@
               <li>Sekilas Perusahaan</li>
             </a>
             <a href="./VMBudayaKerja.html">
-              <li class="VMBK">Visi Misi & Budaya Kerja</li>
+              <li>Visi Misi & Budaya Kerja</li>
             </a>
             <li>
               <span>Manajemen Organisasi ►</span>
@@ -743,7 +765,7 @@
           <ul>
             <a href="./berita.html"><li>Berita</li></a>
             <a href="./foto-video-aktifitas.html"
-              ><li>Foto & Video Aktifitas</li></a
+              ><li class="FVA">Foto & Video Aktifitas</li></a
             >
           </ul>
         </div>
@@ -767,91 +789,36 @@
         ></iframe>
       </div>
     </nav>
-    <div class="wrapper">
-      <div class="bungkusCon">
-        <div class="container">
-          <div class="visi VM">
-            <h1>VISI</h1>
-            <div class="visiText T">
-              <p>
-                Menjadi perusahaan yang menghasilkan produk perkebunan terbaik
-                dengan menjalankan Best Practice Agronomi perkebunan yang
-                berkelanjutan dan ramah lingkungan.
-              </p>
-            </div>
-          </div>
-          <div class="misi VM">
-            <h1>MISI</h1>
-            <div class="misiList T">
-              <ul>
-                <p>
-                  <li>Mengembangkan bisnis perkebunan yang efisien</li>
-                  <li>
-                    Meningkatkan nilai tambah bagi seluruh pemangku kepentingan
-                  </li>
-                  <li>Menerapkan prinsip tata kelola perusahaan yang baik</li>
-                  <li>Memanfaatkan teknologi ramah lingkungan</li>
-                  <li>
-                    Memperkuat serta mengembangkan kemitraan sumber daya manusia
-                    dan potensi lokal
-                  </li>
-                </p>
-              </ul>
-            </div>
-          </div>
+    <div class="container">
+      <h1>FOTO & VIDEO AKTIFITAS</h1>
+      <div class="swipper">
+        <div class="gambar">
+          <img src="./img/foto-video1.png" />
+          <img src="./img/kebun1.jpg" />
+          <img src="./img/foto-video3.png" />
+          <img src="./img/foto-video4.png" />
+        </div>
+        <div class="slide-button">
+          <i class="fa-solid fa-chevron-left previous"></i>
+        </div>
+        <div class="index">
+          <span class="bulat"></span>
+          <span class="bulat"></span>
+          <span class="bulat"></span>
+          <span class="bulat"></span>
+        </div>
+        <div class="slide-button">
+          <i class="fa-solid fa-chevron-right next"></i>
         </div>
       </div>
-      <div class="Bdy-krj">
-        <div class="bdy-tp">
-          <div class="bdy-card">
-            <div class="bdy-img"><img src="./img/bdy.jpg" alt="" /></div>
-            <div class="bdy-desk">
-              <h1>BUDAYA KERJA</h1>
-              <h4>
-                Budaya Perusahaan PT MKTR memiliki nilai-nilai budaya kerja yang
-                dijunjung tinggi seluruh insan perusahaan. Ada empat budaya yang
-                menjadi pedoman:
-              </h4>
-            </div>
-          </div>
-        </div>
-        <div class="bdy-pdmn">
-          <div class="pmn-cards">
-            <div class="card-pdmn">
-              <h4>1. MOTIVATION & INTEGRITY</h4>
-              <p>
-                Memiliki semangat kerja dengan kinerja terbaik dan semangat
-                mengembangkan kompetensi secara mandiri untuk menjadi pribadi
-                yang unggul.
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>2. COMMITMENT & PROFESSIONAL</h4>
-              <p>
-                Mendedikasikan diri seutuhnyauntuk tumbuh dan maju bersama
-                perusahaan. Selalu bersikap dan bertindak yang terbaik untuk
-                perusahaan.
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>3. TRUST & TRANSPARENT</h4>
-              <p>
-                Keterbukaan dan ketersediaan informasi yang dibutuhkan.
-                Membangun kepercayaan dan berprasangka baik di antara
-                stakeholders dan seluruh insan perusahaan. Responsif
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>4. RESPONSIF</h4>
-              <p>
-                Memiliki perilaku kerja proaktif, kooperatif, kritis, suportif
-                serta peka terhadap situasi dan kebutuhan lingkungan kerja.
-                Memiliki kemampuan memanfaatkan peluang dan tantangan yang ada
-                untuk pencapaian kinerja terbaik
-              </p>
-            </div>
-          </div>
-        </div>
+      <div class="video">
+        <iframe
+          src="https://www.youtube.com/embed/fS-ap7YhaMI"
+          title="MKTR profile"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
     <footer>
@@ -921,5 +888,128 @@
         >
       </div>
     </footer>
+
+    <script>
+      const swipper = document.querySelector(".swipper");
+      const image = document.querySelector(".gambar");
+      const bulat = document.querySelectorAll(".bulat");
+      let gambar = 1;
+
+      let interval = setInterval(auto_slide, 5000);
+      function auto_slide() {
+        gambar += 1;
+        if (gambar == 0) {
+          gambar = 3;
+        }
+        if (gambar == 5) {
+          gambar = 1;
+        }
+        if (gambar == 1) {
+          image.className = "gambar bg-satu";
+          bulat[0].className = "bulat select";
+          bulat[0].nextElementSibling.className = "bulat";
+          bulat[0].nextElementSibling.nextElementSibling.className = "bulat";
+          bulat[0].nextElementSibling.nextElementSibling.nextElementSibling.className =
+            "bulat";
+        }
+        if (gambar == 2) {
+          image.className = "gambar bg-dua";
+          bulat[1].className = "bulat select";
+          bulat[1].previousElementSibling.className = "bulat";
+          bulat[1].nextElementSibling.className = "bulat";
+          bulat[1].nextElementSibling.nextElementSibling.className = "bulat";
+        }
+        if (gambar == 3) {
+          image.className = "gambar bg-tiga";
+          bulat[2].className = "bulat select";
+          bulat[2].previousElementSibling.className = "bulat";
+          bulat[2].previousElementSibling.previousElementSibling.className =
+            "bulat";
+          bulat[2].nextElementSibling.className = "bulat";
+        }
+        if (gambar == 4) {
+          image.className = "gambar bg-empat";
+          bulat[3].className = "bulat select";
+          bulat[3].previousElementSibling.className = "bulat";
+          bulat[3].previousElementSibling.previousElementSibling.className =
+            "bulat";
+          bulat[3].previousElementSibling.previousElementSibling.previousElementSibling.className =
+            "bulat";
+        }
+      }
+
+      swipper.addEventListener("click", function (e) {
+        if (e.target.classList.contains("previous")) {
+          if (gambar > 0) {
+            gambar -= 1;
+          }
+          if (gambar == 0) {
+            gambar = 4;
+          }
+          clearInterval(interval);
+          interval = setInterval(auto_slide, 5000);
+        }
+        if (e.target.classList.contains("next")) {
+          if (gambar < 5) {
+            gambar += 1;
+          }
+          if (gambar == 5) {
+            gambar = 1;
+          }
+          clearInterval(interval);
+          interval = setInterval(auto_slide, 5000);
+        }
+
+        for (let i = 0; i <= bulat.length; i++) {
+          if (e.target == bulat[i]) {
+            bulat[i].className = "bulat select";
+            gambar = i + 1;
+            clearInterval(interval);
+            interval = setInterval(auto_slide, 5000);
+          }
+        }
+
+        switch (gambar) {
+          case 1:
+            image.className = "gambar bg-satu";
+            bulat[0].className = "bulat select";
+            bulat[0].nextElementSibling.className = "bulat";
+            bulat[0].nextElementSibling.nextElementSibling.className = "bulat";
+            bulat[0].nextElementSibling.nextElementSibling.nextElementSibling.className =
+              "bulat";
+            break;
+          case 2:
+            image.className = "gambar bg-dua";
+            bulat[1].className = "bulat select";
+            bulat[1].previousElementSibling.className = "bulat";
+            bulat[1].nextElementSibling.className = "bulat";
+            bulat[1].nextElementSibling.nextElementSibling.className = "bulat";
+            break;
+          case 3:
+            image.className = "gambar bg-tiga";
+            bulat[2].className = "bulat select";
+            bulat[2].previousElementSibling.className = "bulat";
+            bulat[2].previousElementSibling.previousElementSibling.className =
+              "bulat";
+            bulat[2].nextElementSibling.className = "bulat";
+            break;
+          case 4:
+            image.className = "gambar bg-empat";
+            bulat[3].className = "bulat select";
+            bulat[3].previousElementSibling.className = "bulat";
+            bulat[3].previousElementSibling.previousElementSibling.className =
+              "bulat";
+            bulat[3].previousElementSibling.previousElementSibling.previousElementSibling.className =
+              "bulat";
+          default:
+            break;
+        }
+      });
+
+      if (gambar == 1) {
+        image.className = "gambar bg-satu";
+        bulat[0].className = "bulat select";
+      }
+    </script>
   </body>
 </html>

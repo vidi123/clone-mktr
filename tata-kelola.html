@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visi Misi - Menthobi Karyatama Raya Tbk</title>
+    <title>Tata Kelola Perusahaan - Menthobi Karyatama Raya Tbk</title>
     <script
       src="https://kit.fontawesome.com/ba965b16bb.js"
       crossorigin="anonymous"
@@ -20,9 +20,12 @@
       type="image/x-icon"
     />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       * {
-        padding: 0px;
-        margin: 0px;
+        margin: 0;
+        padding: 0;
         font-family: "Roboto", sans-serif;
       }
       header {
@@ -222,108 +225,81 @@
         width: 100px;
         margin-left: 60px;
       }
-      .VMBK {
+      .TAKEL {
         color: #ffc050;
       }
 
       /* container */
-      .bungkusCon {
-        width: 100%;
-        background-color: rgb(255, 255, 255);
-        padding-bottom: 20px;
+      h1 {
+        color: #01440a;
+        margin-bottom: 35px;
+        text-align: center;
       }
-      .container {
-        margin: auto;
+      .audit-internal {
+        display: flex;
+        justify-content: center;
+      }
+      .audit-wrap {
+        width: 85%;
+      }
+      .audit-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+      }
+      .audit-body img {
+        border-radius: 8px;
         width: 100%;
-        padding-top: 8%;
+      }
+      .audit-text {
+        display: flex;
+        align-items: center;
+        text-align: justify;
+      }
+      .audit-img {
+        width: 100%;
+      }
+      .manajemen-resiko {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(240, 240, 240);
+        margin: 30px 0;
+      }
+      .manajemen-wrap {
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
       }
-      .container > div {
+      .manajemen-body {
         width: 80%;
+        text-align: justify;
       }
-      .VM {
-        font-size: 14px;
-        font-weight: 600;
-        color: #f1f1f1;
-        margin: 10px 10px;
-        padding: 19px;
-        border: 1px solid;
-        width: 50%;
-        border: none;
-        background-color: #3b6641;
-        border-radius: 8px;
-        box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -webkit-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -moz-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-      }
-      .VM h1 {
-        text-align: center;
-      }
-      .T {
+      .manajemen-body ol {
         padding: 20px;
       }
-      .Bdy-krj {
-        background-color: #f1f1f1;
-        padding-bottom: 60px;
-      }
-      .bdy-tp {
+      .pedoman-etika-bisnis {
         display: flex;
         justify-content: center;
-        padding: 20px;
       }
-      .bdy-card {
-        padding: 30px;
-        box-sizing: border-box;
-        width: 100%;
-        border: 1px solid #f1f1f1;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      .bdy-desk {
-        padding: 50px;
-      }
-      .bdy-desk h1 {
-        margin-bottom: 30px;
-      }
-      .bdy-img img {
-        width: 100%;
-        border-radius: 10px;
-      }
-      .pmn-cards {
+      .pedoman-wrap {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 25px;
       }
-      .card-pdmn {
-        width: 90%;
-        height: 350px;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -webkit-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -moz-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        color: white;
-        background-color: #3b6641;
+      .pedoman-body {
+        width: 80%;
+        text-align: justify;
+      }
+      .pedoman-body ol {
         padding: 20px;
-        box-sizing: border-box;
       }
-      .card-pdmn h4 {
-        text-align: center;
-        margin: 40px 0 50px 0;
-      }
-      .card-pdmn p {
-        padding: 10px;
+      #audit-internal,
+      #manajemen-resiko,
+      #pedoman-etika-bisnis {
+        padding-top: 90px;
       }
 
       /* footer */
@@ -436,35 +412,11 @@
           display: none;
         }
 
-        .container {
+        .audit-body {
           flex-direction: row;
         }
-        .container > div {
-          width: 40%;
-          height: 300px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          font-size: 20px;
-        }
-        .bdy-desk h4 {
-          font-size: 21px;
-        }
-        .card-pdmn {
-          font-size: 21px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding-bottom: 35px;
-        }
-        .card-pdmn p {
-          font-size: 19px;
-        }
-        .pmn-cards {
-          flex-direction: row;
-          padding-inline: 25px;
-          box-sizing: border-box;
+        .audit-body > div {
+          width: 50%;
         }
       }
     </style>
@@ -512,7 +464,7 @@
                   <li>Sekilas Perusahaan</li>
                 </a>
                 <a href="./VMBudayaKerja.html">
-                  <li class="VMBK">Visi Misi & Budaya Kerja</li>
+                  <li>Visi Misi & Budaya Kerja</li>
                 </a>
                 <details>
                   <summary>Manajemen Organisasi &#9660;</summary>
@@ -532,7 +484,9 @@
                   </ul>
                 </details>
                 <details>
-                  <summary>Tata Kelola Perusahaan &#9660;</summary>
+                  <summary class="TAKEL">
+                    Tata Kelola Perusahaan &#9660;
+                  </summary>
                   <ul>
                     <a href="./tata-kelola.html#audit-internal">
                       <li>Audit Internal</li>
@@ -636,7 +590,7 @@
               <li>Sekilas Perusahaan</li>
             </a>
             <a href="./VMBudayaKerja.html">
-              <li class="VMBK">Visi Misi & Budaya Kerja</li>
+              <li>Visi Misi & Budaya Kerja</li>
             </a>
             <li>
               <span>Manajemen Organisasi ►</span>
@@ -656,7 +610,7 @@
               </ul>
             </li>
             <li>
-              <span>Tata Kelola Perusahaan ►</span>
+              <span class="TAKEL">Tata Kelola Perusahaan ►</span>
               <ul>
                 <a href="./tata-kelola.html#audit-internal">
                   <li>Audit Internal</li>
@@ -767,89 +721,109 @@
         ></iframe>
       </div>
     </nav>
-    <div class="wrapper">
-      <div class="bungkusCon">
-        <div class="container">
-          <div class="visi VM">
-            <h1>VISI</h1>
-            <div class="visiText T">
+    <div class="container">
+      <div class="audit-internal" id="audit-internal">
+        <div class="audit-wrap">
+          <h1>AUDIT INTERNAL</h1>
+          <!-- <hr class="audit-line"> -->
+          <div class="audit-body">
+            <div class="audit-text">
               <p>
-                Menjadi perusahaan yang menghasilkan produk perkebunan terbaik
-                dengan menjalankan Best Practice Agronomi perkebunan yang
-                berkelanjutan dan ramah lingkungan.
+                PT MKTR Tbk telah membentuk pengawas internal untuk memenuhi
+                Peraturan OJK No. 56/2015. Satuan Pengawas Internal telah
+                ditetapkan berdasarkan Surat Keputusan Direksi PT Menthobi
+                Karyatama Raya Tbk Nomor 07/Dir-MKTR/VII/2022 tanggal 15 Juli
+                2022 tentang Penunjukan Ketua Internal Audit yang menunjuk
+                Achmad Romadhoni sebagai Ketua Satuan Pengawas Internal Audit
+                Perseroan. Audit internal akan melakukan pemeriksaan dan
+                mengevaluasi atas proses operasi dan pengendalian internal
+                perseroan. Selanjutnya, hasilnya akan dituangkan dalam laporan
+                audit beserta rekomendasi dan saran perbaikan yang diperlukan
+                dan dilaporkan kepada direktur utama dan dewan komisaris.
               </p>
             </div>
-          </div>
-          <div class="misi VM">
-            <h1>MISI</h1>
-            <div class="misiList T">
-              <ul>
-                <p>
-                  <li>Mengembangkan bisnis perkebunan yang efisien</li>
-                  <li>
-                    Meningkatkan nilai tambah bagi seluruh pemangku kepentingan
-                  </li>
-                  <li>Menerapkan prinsip tata kelola perusahaan yang baik</li>
-                  <li>Memanfaatkan teknologi ramah lingkungan</li>
-                  <li>
-                    Memperkuat serta mengembangkan kemitraan sumber daya manusia
-                    dan potensi lokal
-                  </li>
-                </p>
-              </ul>
+            <div class="audit-img">
+              <img src="./img/audit.jpg" alt="" />
             </div>
           </div>
         </div>
       </div>
-      <div class="Bdy-krj">
-        <div class="bdy-tp">
-          <div class="bdy-card">
-            <div class="bdy-img"><img src="./img/bdy.jpg" alt="" /></div>
-            <div class="bdy-desk">
-              <h1>BUDAYA KERJA</h1>
-              <h4>
-                Budaya Perusahaan PT MKTR memiliki nilai-nilai budaya kerja yang
-                dijunjung tinggi seluruh insan perusahaan. Ada empat budaya yang
-                menjadi pedoman:
-              </h4>
-            </div>
+      <div class="manajemen-resiko" id="manajemen-resiko">
+        <div class="manajemen-wrap">
+          <h1>MANAJEMEN RISIKO</h1>
+          <div class="manajemen-body">
+            <p>
+              Risiko-risiko utama perseroan adalah risiko fluktuasi harga pasar
+              minyak kelapa sawit dan minyak inti kelapa sawit. Manajemen telah
+              menelaah dan mengeluarkan kebijakan untuk mengelola masing-masing
+              risiko. Perseroan menerapkan kebijakan manajemen risiko yang
+              bertujuan untuk meminimalkan pengaruh ketidakpastian pasar
+              terhadap kinerja keuangan perseroan. Berikut ini ringkasan
+              kebijakan dan pengelolaan manajemen risiko tersebut:
+            </p>
+            <ol>
+              <li>
+                Risiko utama yang mempunyai pengaruh signifikan terhadap
+                kelangsungan usaha perseroan.
+              </li>
+              <li>
+                Risiko usaha yang berhubungan dengan kegiatan usaha perseroan
+              </li>
+              <li>Risiko umum</li>
+            </ol>
           </div>
         </div>
-        <div class="bdy-pdmn">
-          <div class="pmn-cards">
-            <div class="card-pdmn">
-              <h4>1. MOTIVATION & INTEGRITY</h4>
-              <p>
-                Memiliki semangat kerja dengan kinerja terbaik dan semangat
-                mengembangkan kompetensi secara mandiri untuk menjadi pribadi
-                yang unggul.
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>2. COMMITMENT & PROFESSIONAL</h4>
-              <p>
-                Mendedikasikan diri seutuhnyauntuk tumbuh dan maju bersama
-                perusahaan. Selalu bersikap dan bertindak yang terbaik untuk
-                perusahaan.
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>3. TRUST & TRANSPARENT</h4>
-              <p>
-                Keterbukaan dan ketersediaan informasi yang dibutuhkan.
-                Membangun kepercayaan dan berprasangka baik di antara
-                stakeholders dan seluruh insan perusahaan. Responsif
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>4. RESPONSIF</h4>
-              <p>
-                Memiliki perilaku kerja proaktif, kooperatif, kritis, suportif
-                serta peka terhadap situasi dan kebutuhan lingkungan kerja.
-                Memiliki kemampuan memanfaatkan peluang dan tantangan yang ada
-                untuk pencapaian kinerja terbaik
-              </p>
-            </div>
+      </div>
+      <div class="pedoman-etika-bisnis" id="pedoman-etika-bisnis">
+        <div class="pedoman-wrap">
+          <h1>PEDOMAN ETIKA BISNIS</h1>
+          <div class="pedoman-body">
+            <p>
+              PT MKTR memiliki pedoman etika bisnis dan etika kerja yang terus
+              dijalankan sesuai dengan prinsip-prinsip good coorporate
+              governance (GCG) dan budaya kerja perusahaan. Berikut pedoman
+              etika yang menjadi pegangan:
+            </p>
+            <ol>
+              <li>Kepatuhan terhadap peraturan perundang-undangan.</li>
+              <li>
+                Menghindari praktik-praktik yang tidak mengindahkan norma dan
+                bertentangan dengan peraturan hukum.
+              </li>
+              <li>
+                Setiap SDM tidak dibenarkan menerima gratifikasi yang dapat
+                mempengaruhi pengambilan keputusan atau terkait dengan
+                jabatannya.
+              </li>
+              <li>
+                Setiap SDM tidak dibenarkan menawarkan atau menerima suap atau
+                secara langsung menyuruh orang lain untuk melakukannya demi
+                kepentingan orang yang bersangkutan
+              </li>
+              <li>
+                Setiap SDM tidak dibenarkan melakukan praktik-praktik pembayaran
+                tidak wajar kepada pihak-pihak di luar perusahaan atau secara
+                langsung menyuruh orang lain untuk melakukannya demi kepentingan
+                pihak yang bersangkutan.
+              </li>
+              <li>
+                Peduli terhadap prinsip keselamatan dan kesehatan kerja serta
+                lingkungan hidup (K3LH).
+              </li>
+              <li>Memberikan nilai keadilan kepada seluruh SDM.</li>
+              <li>
+                Menjunjung tinggi prinsip keadilan, kesetaraan dan tanpa
+                diskriminasi.
+              </li>
+              <li>
+                Menegakkan hukum dan peraturan perusahaan dengan konsisten tanpa
+                membedakan ras, gender, agama dan jabatan.
+              </li>
+              <li>
+                Menjaga hubungan dan komunikasi yang baik dengan berbagai
+                pemangku kepentingan.
+              </li>
+            </ol>
           </div>
         </div>
       </div>

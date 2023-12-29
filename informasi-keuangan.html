@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visi Misi - Menthobi Karyatama Raya Tbk</title>
+    <title>Informasi Pemegang Saham - Menthobi Karyatama Raya Tbk</title>
     <script
       src="https://kit.fontawesome.com/ba965b16bb.js"
       crossorigin="anonymous"
@@ -20,6 +20,9 @@
       type="image/x-icon"
     />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       * {
         padding: 0px;
         margin: 0px;
@@ -209,6 +212,9 @@
       .nav-desktop .drop-wrap ul li:hover span {
         color: #ffc050;
       }
+      .nav-desktop .drop-wrap ul li span.info-keuangan {
+        color: #ffc050;
+      }
       .nav-desktop .drop-wrap ul li ul {
         width: 250px;
       }
@@ -222,108 +228,88 @@
         width: 100px;
         margin-left: 60px;
       }
-      .VMBK {
+      .IK {
         color: #ffc050;
       }
 
-      /* container */
-      .bungkusCon {
-        width: 100%;
-        background-color: rgb(255, 255, 255);
-        padding-bottom: 20px;
-      }
+      /* CONTAINER */
       .container {
-        margin: auto;
         width: 100%;
-        padding-top: 8%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        gap: 100px;
+        padding-bottom: 90px;
       }
-      .container > div {
-        width: 80%;
-      }
-      .VM {
-        font-size: 14px;
-        font-weight: 600;
-        color: #f1f1f1;
-        margin: 10px 10px;
-        padding: 19px;
-        border: 1px solid;
-        width: 50%;
-        border: none;
-        background-color: #3b6641;
-        border-radius: 8px;
-        box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -webkit-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -moz-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-      }
-      .VM h1 {
+      .container h1 {
+        color: #01440a;
         text-align: center;
+        font-size: 34px;
       }
-      .T {
-        padding: 20px;
-      }
-      .Bdy-krj {
-        background-color: #f1f1f1;
-        padding-bottom: 60px;
-      }
-      .bdy-tp {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-      }
-      .bdy-card {
-        padding: 30px;
-        box-sizing: border-box;
-        width: 100%;
-        border: 1px solid #f1f1f1;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: white;
+      .container section {
+        width: 90%;
+        padding-top: 90px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      .bdy-desk {
-        padding: 50px;
-      }
-      .bdy-desk h1 {
-        margin-bottom: 30px;
-      }
-      .bdy-img img {
-        width: 100%;
-        border-radius: 10px;
-      }
-      .pmn-cards {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         gap: 25px;
       }
-      .card-pdmn {
-        width: 90%;
-        height: 350px;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -webkit-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
-        -moz-box-shadow: 11px -8px 19px -11px rgba(0, 0, 0, 0.72);
+      .container section .content {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      .container section .content > .grafik iframe {
+        width: 100%;
+        height: 400px;
+      }
+      .container section .content table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .container section .content table thead tr {
+        background-color: #01440a;
         color: white;
-        background-color: #3b6641;
-        padding: 20px;
-        box-sizing: border-box;
+        border: 1px solid #01440a;
       }
-      .card-pdmn h4 {
+      .container section .content table tr td {
         text-align: center;
-        margin: 40px 0 50px 0;
+        padding: 5px;
       }
-      .card-pdmn p {
-        padding: 10px;
+      .container section .content table tbody td {
+        border: 1px solid black;
+      }
+      .container section .content table tbody td a {
+        color: black;
+      }
+      .container section .content .deskripsi {
+        text-align: justify;
+      }
+      .container section .content .file {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      .container section .content .file .file-img {
+        width: 50%;
+      }
+      .container section .content .file .file-img img {
+        width: 100%;
+      }
+      .container section .content .file a > i {
+        font-size: 30px;
+        color: black;
+      }
+      .container section#PROSPEKTUS .content .file a {
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #01440a;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       /* footer */
@@ -429,42 +415,23 @@
         }
       }
       @media (min-width: 768px) {
+        .container section {
+          width: 75%;
+        }
+        .container section#LT .content .file .file-img {
+          width: 25%;
+        }
       }
       /* desktop */
       @media (min-width: 1000px) {
         nav .logo details {
           display: none;
         }
-
-        .container {
-          flex-direction: row;
+        .container section#LT .content .file .file-img {
+          width: 10%;
         }
-        .container > div {
-          width: 40%;
-          height: 300px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          font-size: 20px;
-        }
-        .bdy-desk h4 {
-          font-size: 21px;
-        }
-        .card-pdmn {
-          font-size: 21px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding-bottom: 35px;
-        }
-        .card-pdmn p {
-          font-size: 19px;
-        }
-        .pmn-cards {
-          flex-direction: row;
-          padding-inline: 25px;
-          box-sizing: border-box;
+        .container section#PROSPEKTUS .content .file .file-img {
+          width: 25%;
         }
       }
     </style>
@@ -512,7 +479,7 @@
                   <li>Sekilas Perusahaan</li>
                 </a>
                 <a href="./VMBudayaKerja.html">
-                  <li class="VMBK">Visi Misi & Budaya Kerja</li>
+                  <li>Visi Misi & Budaya Kerja</li>
                 </a>
                 <details>
                   <summary>Manajemen Organisasi &#9660;</summary>
@@ -579,7 +546,7 @@
                   </ul>
                 </details>
                 <details>
-                  <summary>Informasi Keuangan &#9660;</summary>
+                  <summary class="IK">Informasi Keuangan &#9660;</summary>
                   <ul>
                     <a href="./informasi-keuangan.html#harga">
                       <li>Harga Saham</li>
@@ -636,7 +603,7 @@
               <li>Sekilas Perusahaan</li>
             </a>
             <a href="./VMBudayaKerja.html">
-              <li class="VMBK">Visi Misi & Budaya Kerja</li>
+              <li>Visi Misi & Budaya Kerja</li>
             </a>
             <li>
               <span>Manajemen Organisasi ►</span>
@@ -703,7 +670,7 @@
               </ul>
             </li>
             <li>
-              <span>Informasi Keuangan ►</span>
+              <span class="IK">Informasi Keuangan ►</span>
               <ul>
                 <a href="./informasi-keuangan.html#harga">
                   <li>Harga Saham</li>
@@ -767,92 +734,95 @@
         ></iframe>
       </div>
     </nav>
-    <div class="wrapper">
-      <div class="bungkusCon">
-        <div class="container">
-          <div class="visi VM">
-            <h1>VISI</h1>
-            <div class="visiText T">
-              <p>
-                Menjadi perusahaan yang menghasilkan produk perkebunan terbaik
-                dengan menjalankan Best Practice Agronomi perkebunan yang
-                berkelanjutan dan ramah lingkungan.
-              </p>
-            </div>
-          </div>
-          <div class="misi VM">
-            <h1>MISI</h1>
-            <div class="misiList T">
-              <ul>
-                <p>
-                  <li>Mengembangkan bisnis perkebunan yang efisien</li>
-                  <li>
-                    Meningkatkan nilai tambah bagi seluruh pemangku kepentingan
-                  </li>
-                  <li>Menerapkan prinsip tata kelola perusahaan yang baik</li>
-                  <li>Memanfaatkan teknologi ramah lingkungan</li>
-                  <li>
-                    Memperkuat serta mengembangkan kemitraan sumber daya manusia
-                    dan potensi lokal
-                  </li>
-                </p>
-              </ul>
-            </div>
+    <div class="container">
+      <section id="harga">
+        <h1>Harga Saham</h1>
+        <div class="content">
+          <div class="grafik">
+            <iframe
+              scrolling="no"
+              allowtransparency="true"
+              frameborder="0"
+              src="https://www.tradingview-widget.com/embed-widget/symbol-overview/?locale=id#%7B%22symbols%22%3A%5B%5B%22Kelapa%20Sawit%22%2C%22IDX%3AMKTR%7C3M%22%5D%5D%2C%22chartOnly%22%3Afalse%2C%22width%22%3A1050%2C%22height%22%3A400%2C%22colorTheme%22%3A%22light%22%2C%22showVolume%22%3Afalse%2C%22showMA%22%3Afalse%2C%22hideDateRanges%22%3Atrue%2C%22hideMarketStatus%22%3Afalse%2C%22hideSymbolLogo%22%3Afalse%2C%22scalePosition%22%3A%22right%22%2C%22scaleMode%22%3A%22Normal%22%2C%22fontFamily%22%3A%22Arial%2C%20sans-serif%22%2C%22fontSize%22%3A%2214%22%2C%22noTimeScale%22%3Afalse%2C%22valuesTracking%22%3A%221%22%2C%22changeMode%22%3A%22price-and-percent%22%2C%22chartType%22%3A%22candlesticks%22%2C%22backgroundColor%22%3A%22rgba(255%2C%20255%2C%20255%2C%201)%22%2C%22upColor%22%3A%22rgba(27%2C%2094%2C%2032%2C%201)%22%2C%22downColor%22%3A%22rgba(255%2C%20167%2C%2038%2C%201)%22%2C%22borderUpColor%22%3A%22rgba(27%2C%2094%2C%2032%2C%201)%22%2C%22borderDownColor%22%3A%22rgba(255%2C%20167%2C%2038%2C%201)%22%2C%22wickUpColor%22%3A%22rgba(27%2C%2094%2C%2032%2C%201)%22%2C%22wickDownColor%22%3A%22rgba(255%2C%20167%2C%2038%2C%201)%22%2C%22utm_source%22%3A%22mktr.co.id%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22symbol-overview%22%2C%22page-uri%22%3A%22mktr.co.id%2Findex.php%2Finformasi-keuangan%2F%23HARGASAHAM%22%7D"
+              title="symbol overview TradingView widget"
+              lang="en"
+              style="user-select: none; box-sizing: border-box; display: block"
+            ></iframe>
           </div>
         </div>
-      </div>
-      <div class="Bdy-krj">
-        <div class="bdy-tp">
-          <div class="bdy-card">
-            <div class="bdy-img"><img src="./img/bdy.jpg" alt="" /></div>
-            <div class="bdy-desk">
-              <h1>BUDAYA KERJA</h1>
-              <h4>
-                Budaya Perusahaan PT MKTR memiliki nilai-nilai budaya kerja yang
-                dijunjung tinggi seluruh insan perusahaan. Ada empat budaya yang
-                menjadi pedoman:
-              </h4>
+      </section>
+      <section id="LK">
+        <h1>Laporan Kuartalan</h1>
+        <div class="content">
+          <table>
+            <thead>
+              <tr>
+                <td>Tahun</td>
+                <td>Unduh</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2021</td>
+                <td>
+                  <a
+                    href="https://mktr.co.id/wp-content/uploads/2023/10/Robi_Navicula.pdf"
+                    ><i class="fa-solid fa-download"></i
+                  ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section id="LT">
+        <h1>Laporan Tahunan</h1>
+        <div class="content">
+          <div class="deskripsi">
+            <p>
+              Sebagai perusahaan yang menjunjung tinggi prinsip-prinsip
+              keterbukaan dan akuntabilitas, kami memiliki fokus untuk membangun
+              pelaporan perusahaan yang transparan dan efektif. Laporan tahunan
+              kami bertujuan untuk mengungkapkan kinerja, tujuan, serta rencana
+              kami untuk mencapai target dan komitmen dalam mewujudkan potensi
+              minyak kelapa sawit dalam satu tahun terakhir. Kami menyediakan
+              pandangan bagaimana nilai-nilai kami mendorong tujuan strategis
+              dan kemudian, bagaimana tindakan kami menciptakan nilai untuk
+              perusahaan dan berbagai pemangku kepentingan. Laporan berikut ini
+              mencakup informasi dan data mengenai aktivitas perusahaan untuk
+              setiap periode yang disajikan.
+            </p>
+          </div>
+          <div class="file">
+            <div class="file-img">
+              <img
+                src="https://mktr.co.id/wp-content/uploads/2023/10/cropped-logo_mktr-300x300-removebg-preview-q11eqomlzg4qm8ucs04smovieczeshlewxua3mhrvc.png"
+                alt="logo"
+              />
             </div>
+            <span>Laporan Keuangan Tahun 2022</span>
+            <a
+              href="https://mktr.co.id/dokumen/Report-PT-Menthobi-Karyatama-Raya-Tbk-dan-Entitas-Anak.pdf"
+              ><i class="fa-solid fa-download"></i
+            ></a>
           </div>
         </div>
-        <div class="bdy-pdmn">
-          <div class="pmn-cards">
-            <div class="card-pdmn">
-              <h4>1. MOTIVATION & INTEGRITY</h4>
-              <p>
-                Memiliki semangat kerja dengan kinerja terbaik dan semangat
-                mengembangkan kompetensi secara mandiri untuk menjadi pribadi
-                yang unggul.
-              </p>
+      </section>
+      <section id="PROSPEKTUS">
+        <h1>Prospektus</h1>
+        <div class="content">
+          <div class="deskripsi"></div>
+          <div class="file">
+            <div class="file-img">
+              <img src="./img/prospektus.png" alt="Prospektus" />
             </div>
-            <div class="card-pdmn">
-              <h4>2. COMMITMENT & PROFESSIONAL</h4>
-              <p>
-                Mendedikasikan diri seutuhnyauntuk tumbuh dan maju bersama
-                perusahaan. Selalu bersikap dan bertindak yang terbaik untuk
-                perusahaan.
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>3. TRUST & TRANSPARENT</h4>
-              <p>
-                Keterbukaan dan ketersediaan informasi yang dibutuhkan.
-                Membangun kepercayaan dan berprasangka baik di antara
-                stakeholders dan seluruh insan perusahaan. Responsif
-              </p>
-            </div>
-            <div class="card-pdmn">
-              <h4>4. RESPONSIF</h4>
-              <p>
-                Memiliki perilaku kerja proaktif, kooperatif, kritis, suportif
-                serta peka terhadap situasi dan kebutuhan lingkungan kerja.
-                Memiliki kemampuan memanfaatkan peluang dan tantangan yang ada
-                untuk pencapaian kinerja terbaik
-              </p>
-            </div>
+            <a
+              href="https://mktr.bayuperkasatrans.com/wp-content/uploads/2023/02/LOCK-Prospektus-MKTR-FINAL.pdf"
+              >Download</a
+            >
           </div>
         </div>
-      </div>
+      </section>
     </div>
     <footer>
       <div class="wrapper">
