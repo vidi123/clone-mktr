@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGIN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Nunito:wght@300;400&family=Roboto&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+      .LOGIN {
+        margin-top: 10%;
+      }
+      .card-login {
+        width: 380px;
+        height: 530px;
+        border: 1px solid #f1f1f1;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        align-self: center;
+      }
+      .top {
+        text-align: center;
+        margin: 10px 0;
+      }
+      .logo {
+        width: 88px;
+        height: 88px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        border: 1px solid #f1f1f1;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .teks-logo {
+        margin: 20px 0;
+      }
+      .loginh1 {
+        text-align: center;
+        margin: 55px 0 10px 0;
+      }
+      .login-body {
+        display: flex;
+        justify-content: center;
+      }
+      .login-form {
+        width: 100%;
+      }
+      form {
+        margin: 20px auto;
+        width: 70%;
+      }
+      .form-input input {
+        width: 100%;
+        height: 40px;
+        margin-top: 3px;
+        margin-bottom: 30px;
+        font-size: 18px;
+        padding: 5px;
+        border: 1px solid #ced6e0;
+        border-radius: 5px;
+        transition: border 0.3s;
+      }
+      .form-input input:hover {
+        border: 1px solid #77ac84;
+      }
+      .form-input input:focus {
+        outline: none;
+        border: 1px solid #77ac84;
+        box-shadow: 1px 2px 10px -4px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 1px 2px 10px -4px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 2px 10px -4px rgba(0, 0, 0, 0.75);
+      }
+      .form-submit {
+        text-align: center;
+      }
+      .btn-submit {
+        background-color: #77ac84;
+        padding: 12px 25px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="LOGIN">
+        <div class="card-login">
+          <div class="top">
+            <div class="logo">
+              <img src="./img/cropped-logo_mktr.png" alt="logo " class="logo-img" />
+            </div>
+            <div class="teks-logo">
+              <h4>PT. Menthobi Karyatama Raya Tbk</h4>
+            </div>
+          </div>
+          <div class="loginh1">
+            <h2>LOGIN ADMIN</h2>
+          </div>
+          <div class="login-body">
+            <div class="login-form">
+              <form action="" method="post">
+                <div class="form-input">
+                  <label for="admin">Username </label>
+                  <input type="text" id="admin" name="admin" />
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" />
+                </div>
+                <div class="form-submit">
+                  <button type="button" class="btn-submit">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
