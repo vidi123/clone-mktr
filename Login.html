@@ -6,7 +6,15 @@
     <title>LOGIN</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Nunito:wght@300;400&family=Roboto&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Nunito:wght@300;400&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./img/cropped-logo_mktr.png"
+      type="image/x-icon"
+    />
     <style>
       * {
         padding: 0;
@@ -17,12 +25,12 @@
       .container {
         display: flex;
         justify-content: center;
+        padding-block: 50px;
       }
       .LOGIN {
-        margin-top: 10%;
       }
       .card-login {
-        width: 380px;
+        width: 100%;
         height: 530px;
         border: 1px solid #f1f1f1;
         border-radius: 8px;
@@ -47,9 +55,13 @@
       .teks-logo {
         margin: 20px 0;
       }
+      .teks-logo {
+        color: #01440a;
+      }
       .loginh1 {
         text-align: center;
         margin: 55px 0 10px 0;
+        color: #01440a;
       }
       .login-body {
         display: flex;
@@ -67,11 +79,14 @@
         height: 40px;
         margin-top: 3px;
         margin-bottom: 30px;
-        font-size: 18px;
-        padding: 5px;
+        font-size: 17px;
+        padding-block: 10px;
+        padding-inline: 17px;
+        box-sizing: border-box;
         border: 1px solid #ced6e0;
         border-radius: 5px;
         transition: border 0.3s;
+        color: #013508;
       }
       .form-input input:hover {
         border: 1px solid #77ac84;
@@ -87,11 +102,30 @@
         text-align: center;
       }
       .btn-submit {
-        background-color: #77ac84;
+        background-color: #01440a;
+        color: #fff;
         padding: 12px 25px;
         border-radius: 5px;
         border: none;
         cursor: pointer;
+      }
+
+      /* Responsif */
+      @media (min-width: 300px) {
+        .LOGIN {
+          width: 90%;
+        }
+      }
+      @media (min-width: 768px) {
+        .LOGIN {
+          width: 65%;
+        }
+      }
+
+      @media (min-width: 1000px) {
+        .LOGIN {
+          width: 32%;
+        }
       }
     </style>
   </head>
@@ -101,7 +135,11 @@
         <div class="card-login">
           <div class="top">
             <div class="logo">
-              <img src="./img/cropped-logo_mktr.png" alt="logo " class="logo-img" />
+              <img
+                src="./img/cropped-logo_mktr.png"
+                alt="logo "
+                class="logo-img"
+              />
             </div>
             <div class="teks-logo">
               <h4>PT. Menthobi Karyatama Raya Tbk</h4>
@@ -112,15 +150,25 @@
           </div>
           <div class="login-body">
             <div class="login-form">
-              <form action="" method="post">
+              <form action="dashboard.html" method="post">
                 <div class="form-input">
                   <label for="admin">Username </label>
-                  <input type="text" id="admin" name="admin" />
+                  <input
+                    type="text"
+                    id="admin"
+                    name="admin"
+                    autocomplete="off"
+                  />
                   <label for="password">Password</label>
-                  <input type="password" id="password" name="password" />
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="off"
+                  />
                 </div>
                 <div class="form-submit">
-                  <button type="button" class="btn-submit">Submit</button>
+                  <button type="submit" class="btn-submit">Masuk</button>
                 </div>
               </form>
             </div>
