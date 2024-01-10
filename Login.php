@@ -1,3 +1,23 @@
+<?php
+  session_start();
+  $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
+
+  if(isset($_POST["submit"])){
+    $username = $_POST["admin"];
+    $password = $_POST["password"];
+    
+    // cek db
+    $sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+    $query = mysqli_query($koneksi_db, $sql);
+    if(mysqli_num_rows($query) > 0){
+      $_SESSION["login"] = true;
+      header("Location: ./dashboard/index.php");
+      die;
+    }
+    
+    $eror = true;
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,24 +26,35 @@
     <title>LOGIN</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Nunito:wght@300;400&family=Roboto&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Nunito:wght@300;400&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./img/cropped-logo_mktr.png"
+      type="image/x-icon"
+    />
     <style>
       * {
         padding: 0;
         margin: 0;
         font-family: "Roboto", sans-serif;
       }
-
+      body {
+        background-color: #01440a;
+      }
       .container {
         display: flex;
         justify-content: center;
+        padding-block: 50px;
       }
       .LOGIN {
-        margin-top: 10%;
       }
       .card-login {
-        width: 380px;
-        height: 530px;
+        width: 100%;
+        height: 535px;
+        background-color: white;
         border: 1px solid #f1f1f1;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -47,9 +78,13 @@
       .teks-logo {
         margin: 20px 0;
       }
+      .teks-logo {
+        color: #01440a;
+      }
       .loginh1 {
         text-align: center;
-        margin: 55px 0 10px 0;
+        margin: 45px 0 10px 0;
+        color: #01440a;
       }
       .login-body {
         display: flex;
@@ -67,11 +102,14 @@
         height: 40px;
         margin-top: 3px;
         margin-bottom: 30px;
-        font-size: 18px;
-        padding: 5px;
+        font-size: 17px;
+        padding-block: 10px;
+        padding-inline: 17px;
+        box-sizing: border-box;
         border: 1px solid #ced6e0;
         border-radius: 5px;
         transition: border 0.3s;
+        color: #013508;
       }
       .form-input input:hover {
         border: 1px solid #77ac84;
@@ -86,12 +124,38 @@
       .form-submit {
         text-align: center;
       }
+      form span{
+        height: 15px;
+        margin-bottom: 21px;
+        display: block;
+        text-align: center;
+        color: red;
+      }
       .btn-submit {
-        background-color: #77ac84;
+        background-color: #01440a;
+        color: #fff;
         padding: 12px 25px;
         border-radius: 5px;
         border: none;
         cursor: pointer;
+      }
+
+      /* Responsif */
+      @media (min-width: 300px) {
+        .LOGIN {
+          width: 90%;
+        }
+      }
+      @media (min-width: 768px) {
+        .LOGIN {
+          width: 65%;
+        }
+      }
+
+      @media (min-width: 1000px) {
+        .LOGIN {
+          width: 32%;
+        }
       }
     </style>
   </head>
@@ -101,7 +165,11 @@
         <div class="card-login">
           <div class="top">
             <div class="logo">
-              <img src="./img/cropped-logo_mktr.png" alt="logo " class="logo-img" />
+              <img
+                src="./img/cropped-logo_mktr.png"
+                alt="logo "
+                class="logo-img"
+              />
             </div>
             <div class="teks-logo">
               <h4>PT. Menthobi Karyatama Raya Tbk</h4>
@@ -112,15 +180,30 @@
           </div>
           <div class="login-body">
             <div class="login-form">
-              <form action="" method="post">
+              <form action="Login.php" method="post">
                 <div class="form-input">
                   <label for="admin">Username </label>
-                  <input type="text" id="admin" name="admin" />
+                  <input
+                    type="text"
+                    id="admin"
+                    name="admin"
+                    autocomplete="off"
+                  />
                   <label for="password">Password</label>
-                  <input type="password" id="password" name="password" />
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="off"
+                  />
                 </div>
+                <span>
+                <?php if(isset($eror)){
+                  echo "Username atau Password salah";
+                }?>
+                </span>
                 <div class="form-submit">
-                  <button type="button" class="btn-submit">Submit</button>
+                  <button type="submit" class="btn-submit" name="submit">Masuk</button>
                 </div>
               </form>
             </div>

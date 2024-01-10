@@ -1,3 +1,10 @@
+<?php
+  $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
+  $sql_rups = "SELECT * FROM rups";
+  $query_rups = mysqli_query($koneksi_db, $sql_rups);
+  $sql_dividen = "SELECT * FROM dividen";
+  $query_dividen = mysqli_query($koneksi_db, $sql_dividen);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -727,6 +734,21 @@
                 <td>Nilai Saham (Rp)</td>
               </tr>
             </thead>
+            <tbody>
+            <?php while($data_dividen = mysqli_fetch_assoc($query_dividen)) :?>
+              <tr>
+                <td>
+                  <?= $data_dividen["jenis"]?>
+                </td>
+                <td>
+                  <?= $data_dividen["distribusi"]?>
+                </td>
+                <td>
+                  <?= $data_dividen["nilai"]?>
+                </td>
+              </tr>
+              <?php endwhile;?>
+            </tbody>
           </table>
         </div>
       </section>
@@ -766,45 +788,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>31 Maret 2023</td>
+              <?php while($data_rups = mysqli_fetch_assoc($query_rups)) : ?>
+                <tr>
+                <td><?= $data_rups["tanggal"] ." ". $data_rups["bulan"] ." ". $data_rups["tahun"]?></td>
                 <td>
-                  SURAT KUASA RAPAT UMUM PEMEGANG SAHAM TAHUNAN PT MENTHOBI
-                  KARYATAMA RAYA Tbk ("Perseroan") Tanggal 12 April 2023
+                  <p class="col-desc"><?= $data_rups["deskripsi"]?></p>
                 </td>
                 <td>
-                  <a
-                    href="https://mktr.co.id/dokumen/35412-April-2023-SURAT-KUASA-RUPST-MKTR.pdf"
-                    ><i class="fa-solid fa-download"></i
+                  <a href="./dashboard/files_pdf/<?= $data_rups["file_pdf"]?>" class="col-file" target="blank"><i class="fa-solid fa-download"></i
                   ></a>
                 </td>
               </tr>
-              <tr>
-                <td>21 Maret 2023</td>
-                <td>
-                  Surat Pemanggilan RUPST Pemegang Saham PT Menthobi Karyatama
-                  Raya Tbk Tahun Buku 2022
-                </td>
-                <td>
-                  <a
-                    href="https://mktr.co.id/dokumen/33420230321-Surat-Pemanggilan-RUPST-to-Pemegang-Saham_final-e-RUPS-Fix..pdf"
-                    ><i class="fa-solid fa-download"></i
-                  ></a>
-                </td>
-              </tr>
-              <tr>
-                <td>06 Maret 2023</td>
-                <td>
-                  Pengumuman Rapat Umum Pemegang Saham Tahunan PT Menthobi
-                  Karyatama Raya Tbk Tahun Buku 2022
-                </td>
-                <td>
-                  <a
-                    href="https://mktr.co.id/dokumen/570Pengumuman-RUPS-MKTR-2023.pdf"
-                    ><i class="fa-solid fa-download"></i
-                  ></a>
-                </td>
-              </tr>
+                <?php endwhile; ?>
             </tbody>
           </table>
         </div>
