@@ -240,7 +240,6 @@
       }
 
       /* container */
-      /* #108206 */
       .container {
         width: 100%;
         display: flex;
@@ -513,13 +512,13 @@
                 <details>
                   <summary class="IP">Informasi Pemegang Saham &#9660;</summary>
                   <ul>
-                    <a href="./informasi-pemegang-saham.html#struktur">
+                    <a href="./informasi-pemegang-saham.php#struktur">
                       <li>Struktur Kepemilikan</li>
                     </a>
-                    <a href="./informasi-pemegang-saham.html#dividen">
+                    <a href="./informasi-pemegang-saham.php#dividen">
                       <li>Dividen</li>
                     </a>
-                    <a href="./informasi-pemegang-saham.html#rups">
+                    <a href="./informasi-pemegang-saham.php#rups">
                       <li>RUPS</li>
                     </a>
                   </ul>
@@ -527,16 +526,16 @@
                 <details>
                   <summary>Informasi Keuangan &#9660;</summary>
                   <ul>
-                    <a href="./informasi-keuangan.html#harga">
+                    <a href="./informasi-keuangan.php#harga">
                       <li>Harga Saham</li>
                     </a>
-                    <a href="./informasi-keuangan.html#LK">
+                    <a href="./informasi-keuangan.php#LK">
                       <li>Laporan Kuartalan</li>
                     </a>
-                    <a href="./informasi-keuangan.html#LT">
+                    <a href="./informasi-keuangan.php#LT">
                       <li>Laporan Tahunan</li>
                     </a>
-                    <a href="./informasi-keuangan.html#PROSPEKTUS">
+                    <a href="./informasi-keuangan.php#PROSPEKTUS">
                       <li>Prospektus</li>
                     </a>
                   </ul>
@@ -637,13 +636,13 @@
             <li>
               <span class="IP">Informasi Pemegang Saham ►</span>
               <ul>
-                <a href="./informasi-pemegang-saham.html#struktur">
+                <a href="./informasi-pemegang-saham.php#struktur">
                   <li>Struktur Kepemilikan</li>
                 </a>
-                <a href="./informasi-pemegang-saham.html#dividen">
+                <a href="./informasi-pemegang-saham.php#dividen">
                   <li>Dividen</li>
                 </a>
-                <a href="./informasi-pemegang-saham.html#rups">
+                <a href="./informasi-pemegang-saham.php#rups">
                   <li>RUPS</li>
                 </a>
               </ul>
@@ -651,16 +650,16 @@
             <li>
               <span>Informasi Keuangan ►</span>
               <ul>
-                <a href="./informasi-keuangan.html#harga">
+                <a href="./informasi-keuangan.php#harga">
                   <li>Harga Saham</li>
                 </a>
-                <a href="./informasi-keuangan.html#LK">
+                <a href="./informasi-keuangan.php#LK">
                   <li>Laporan Kuartalan</li>
                 </a>
-                <a href="./informasi-keuangan.html#LT">
+                <a href="./informasi-keuangan.php#LT">
                   <li>Laporan Tahunan</li>
                 </a>
-                <a href="./informasi-keuangan.html#PROSPEKTUS">
+                <a href="./informasi-keuangan.php#PROSPEKTUS">
                   <li>Prospektus</li>
                 </a>
               </ul>
@@ -814,15 +813,15 @@
             <a href="./informasi-pemegang-saham.html#struktur"
               >Struktur Kepemilikan</a
             >
-            <a href="./informasi-pemegang-saham.html#dividen">Dividen</a>
-            <a href="./informasi-pemegang-saham.html#rups">Rups</a>
-            <a href="./informasi-pemegang-saham.html#">Penunjang Pasar Modal</a>
+            <a href="./informasi-pemegang-saham.php#dividen">Dividen</a>
+            <a href="./informasi-pemegang-saham.php#rups">Rups</a>
+            <a href="./informasi-pemegang-saham.php">Penunjang Pasar Modal</a>
           </li>
           <li>
             <h3>LAPORAN KEUANGAN</h3>
-            <a href="./informasi-keuangan.html#LK">Laporan Kuartalan</a>
-            <a href="./informasi-keuangan.html#LT">Laporan Tahunan</a>
-            <a href="./informasi-keuangan.html#PROSPEKTUS">Prospektus</a>
+            <a href="./informasi-keuangan.php#LK">Laporan Kuartalan</a>
+            <a href="./informasi-keuangan.php#LT">Laporan Tahunan</a>
+            <a href="./informasi-keuangan.php#PROSPEKTUS">Prospektus</a>
           </li>
           <li>
             <h3>BERKELANJUTAN</h3>

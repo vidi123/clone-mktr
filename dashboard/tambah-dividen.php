@@ -2,6 +2,7 @@
   session_start();
   if(!$_SESSION["login"]){
     header("Location: ../index.html");
+    die;
   }
   
   $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
@@ -318,6 +319,7 @@
             </div>
           </div>
           <a href="" class="karir">Karir</a>
+          <a href="./logout.php" class="karir">Logout</a>
         </div>
       </div>
     </div>

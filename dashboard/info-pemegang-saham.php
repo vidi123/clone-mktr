@@ -5,7 +5,7 @@
   }
   
   $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
-  $sql_rups = "SELECT * FROM rups";
+  $sql_rups = "SELECT * FROM rups ORDER BY tahun, bulan, tanggal;";
   $sql_dividen = "SELECT * FROM dividen";
   $query_rups = mysqli_query($koneksi_db, $sql_rups);
   $query_dividen = mysqli_query($koneksi_db, $sql_dividen);
@@ -181,7 +181,7 @@
         width: 100%;
         margin: auto;
         min-height: 100vh;
-        padding-top: 50px;
+        padding-block: 50px;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -259,6 +259,7 @@
         .container .sidebar-wrapper {
           width: 20%;
           position: static;
+          height: auto;
         }
         .container .sidebar {
           display: block;
@@ -316,6 +317,7 @@
               </div>
             </div>
             <a href="" class="karir">Karir</a>
+            <a href="./logout.php" class="karir">Logout</a>
           </div>
         </div>
       </div>

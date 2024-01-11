@@ -322,6 +322,7 @@
             </div>
           </div>
           <a href="" class="karir">Karir</a>
+          <a href="./logout.php" class="karir">Logout</a>
         </div>
       </div>
     </div>

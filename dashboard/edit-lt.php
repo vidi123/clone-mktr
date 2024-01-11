@@ -8,7 +8,7 @@
   $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
   
   $id = $_GET["id"];
-  $sqlGet = "SELECT * FROM rups WHERE id = $id";
+  $sqlGet = "SELECT * FROM lt WHERE id = $id";
   $query = mysqli_query($koneksi_db, $sqlGet);
   $datas = mysqli_fetch_assoc($query);
   if(isset($_POST["submit"])){
@@ -17,10 +17,7 @@
       global $koneksi_db;
       global $id;
       global $datas;
-      $tanggal = htmlspecialchars($_POST["tanggal"]);
-      $bulan = htmlspecialchars($_POST["bulan"]);
       $tahun = htmlspecialchars($_POST["tahun"]);
-      $deskripsi = htmlspecialchars($_POST["deskripsi"]);
       $tmpFile = $_FILES["file"]["tmp_name"];
       $file = $_FILES["file"]["name"];
       $fileLama = $datas["file_pdf"];
@@ -39,22 +36,22 @@
           return false;
         }
       }
-      $sql = "UPDATE rups SET tanggal = '$tanggal', bulan = '$bulan', tahun = '$tahun', deskripsi = '$deskripsi', file_pdf = '$file' WHERE id = $id";
+      $sql = "UPDATE lt SET `tahun` = '$tahun', `file_pdf` = '$file' WHERE id = $id";
       $query = mysqli_query($koneksi_db, $sql);
       if($query){
         move_uploaded_file($tmpFile, "./files_pdf/" . $file);
         echo "<script>
         alert('Data Berhasil Diupdate!');
-        window.location.href = 'info-pemegang-saham.php';
+        window.location.href = 'info-keuangan.php';
         </script>";
       }
     }
     if(!update()){
+        echo "<script>
+        alert('Gagal mengedit Data!');
+        window.location.href = 'edit-lk.php?id=$id';
+        </script>";
     }
-      echo "<script>
-      alert('Gagal mengedit RUPS!');
-      window.location.href = 'edit-rups.php?id=$id';
-      </script>";
     }
 ?>
 <!DOCTYPE html>
@@ -344,10 +341,9 @@
           <div class="menu-wrap">
             <label for="menu-1">Hubungan Investor</label>
             <div class="sub-label sublab-1">
-              <a href="./info-pemegang-saham.php" class="this-page"
-                >Informasi Pemegang Saham
+              <a href="./info-pemegang-saham.php">Informasi Pemegang Saham
               </a>
-              <a href="">Informasi Keuangan </a>
+              <a href="./info-keuangan.php" class="this-page">Informasi Keuangan </a>
             </div>
           </div>
           <div class="menu-wrap">
@@ -363,32 +359,11 @@
       </div>
     </div>
       <div class="content">
-        <h1>Edit Data RUPS</h1>
+        <h1>Edit Data Laporan Tahunan</h1>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="input-wrap">
-            <label for="tanggal">Tanggal</label>
-            <div class="tanggal-wrap">
-              <input type="number" name="tanggal" id="tanggal" min="1" max="31" value="<?= $datas['tanggal']?>">
-              <select name="bulan" id="bulan" value="<?= $datas['bulan']?>">
-                <option class="opsi" value="Januari">Januari</option>
-                <option class="opsi" value="Februari">Februari</option>
-                <option class="opsi" value="Maret">Maret</option>
-                <option class="opsi" value="April">April</option>
-                <option class="opsi" value="Mei">Mei</option>
-                <option class="opsi" value="Juni">Juni</option>
-                <option class="opsi" value="Juli">Juli</option>
-                <option class="opsi" value="Agustus">Agustus</option>
-                <option class="opsi" value="September">September</option>
-                <option class="opsi" value="Oktober">Oktober</option>
-                <option class="opsi" value="November">November</option>
-                <option class="opsi" value="Desember">Desember</option>
-              </select>
+            <label for="tahun">Tahun</label>
               <input type="number" name="tahun" id="tahun" min="2000" max="2099" value="<?= $datas['tahun']?>">
-            </div>
-          </div>
-          <div class="input-wrap">
-            <label for="deskripsi">Deskripsi</label>
-            <input type="text" name="deskripsi" id="deskripsi" autocomplete="off" value="<?= $datas["deskripsi"]?>"/>
           </div>
           <div class="input-wrap">
             <label for="file">File PDF</label>
@@ -407,11 +382,6 @@
       const options = document.querySelectorAll(".opsi");
       const file = document.querySelector("#file");
       const namaFile = document.querySelector(".nama-file");
-      options.forEach((e) => {
-        if(e.value == '<?= $datas['bulan']?>'){
-          e.selected = true;
-        }
-      });
       file.addEventListener("change", (e)=>{
         if(e.target.files.length == 1){
             let pdfFile = e.target.files[0];

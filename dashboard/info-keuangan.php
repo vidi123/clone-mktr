@@ -6,15 +6,12 @@
   }
 
   $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
-  $LK_sql = "SELECT * FROM lk";
+  $LK_sql = "SELECT * FROM lk ORDER BY tahun";
   $LK_query = mysqli_query($koneksi_db, $LK_sql);
-  $LT_sql = "SELECT * FROM lt";
+  $LT_sql = "SELECT * FROM lt ORDER BY tahun";
   $LT_query = mysqli_query($koneksi_db, $LT_sql);
-  // if($query){
-    // $hasil = mysqli_fetch_assoc($query);
-    // $total_data = mysqli_num_rows($query);
-    // var_dump($total_data);
-  // }
+  $prospektus_sql = "SELECT * FROM prospektus";
+  $prospektus_query = mysqli_query($koneksi_db, $prospektus_sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -182,7 +179,7 @@
         width: 100%;
         margin: auto;
         min-height: 100vh;
-        padding-top: 50px;
+        padding-block: 50px;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -260,6 +257,7 @@
         .container .sidebar-wrapper {
           width: 20%;
           position: static;
+          height: auto;
         }
         .container .sidebar {
           display: block;
@@ -317,6 +315,7 @@
               </div>
             </div>
             <a href="" class="karir">Karir</a>
+            <a href="./logout.php" class="karir">Logout</a>
           </div>
         </div>
       </div>
@@ -331,13 +330,13 @@
         <div class="tabel tabel-1">
           <div class="judul">
             <h2>Laporan Kuartalan</h2>
-            <a href="./tambah-rups.php">+ Tambah</a>
+            <a href="./tambah-lk.php">+ Tambah</a>
           </div>
           <table>
             <thead>
               <tr>
                 <td>Tahun</td>
-                <td>Unduh</td>
+                <td>File PDF</td>
                 <td></td>
                 <td></td>
               </tr>
@@ -349,8 +348,8 @@
                 <td>
                   <a href="./files_pdf/<?= $data["file"]?>" class="col-file" target="blank"><?= $data["file"]?></a>
                 </td>
-                <td><a href="./edit.php?id=<?= $data['id']?>">edit</a></td>
-                <td><a href="./delete.php?id=<?= $data['id']?>" onclick="return confirm('Yakin ingin menghapus?')">delete</a></td>
+                <td><a href="./edit-lk.php?id=<?= $data['id']?>">edit</a></td>
+                <td><a href="./delete-lk.php?id=<?= $data['id']?>" onclick="return confirm('Yakin ingin menghapus?')">delete</a></td>
               </tr>
                 <?php endwhile; ?>
             </tbody>
@@ -359,13 +358,13 @@
         <div class="tabel tabel-2">
           <div class="judul">
             <h2>Laporan Tahunan</h2>
-            <a href="./tambah-rups.php">+ Tambah</a>
+            <a href="./tambah-lt.php">+ Tambah</a>
           </div>
           <table>
             <thead>
               <tr>
                 <td>Tahun</td>
-                <td>Unduh</td>
+                <td>File PDF</td>
                 <td></td>
                 <td></td>
               </tr>
@@ -373,12 +372,12 @@
             <tbody>
               <?php while($data_LT = mysqli_fetch_assoc($LT_query)) : ?>
                 <tr>
-                <td><?= $data_LT["judul"] ?></td>
+                <td><?= $data_LT["tahun"] ?></td>
                 <td>
                   <a href="./files_pdf/<?= $data_LT["file_pdf"]?>" class="col-file" target="blank"><?= $data_LT["file_pdf"]?></a>
                 </td>
-                <td><a href="./edit.php?id=<?= $data_LT['id']?>">edit</a></td>
-                <td><a href="./delete.php?id=<?= $data_LT['id']?>" onclick="return confirm('Yakin ingin menghapus?')">delete</a></td>
+                <td><a href="./edit-lt.php?id=<?= $data_LT['id']?>">edit</a></td>
+                <td><a href="./delete-lt.php?id=<?= $data_LT['id']?>" onclick="return confirm('Yakin ingin menghapus?')">delete</a></td>
               </tr>
                 <?php endwhile; ?>
             </tbody>
@@ -387,26 +386,28 @@
         <div class="tabel tabel-3">
           <div class="judul">
             <h2>Prospektus</h2>
-            <a href="./tambah-rups.php">+ Tambah</a>
+            <a href="./tambah-prospektus.php">+ Tambah</a>
           </div>
           <table>
             <thead>
               <tr>
-                <td>Tahun</td>
-                <td>Unduh</td>
+                <td>Gambar</td>
+                <td>File PDF</td>
                 <td></td>
                 <td></td>
               </tr>
             </thead>
             <tbody>
-              <?php while($data = mysqli_fetch_assoc($LK_query)) : ?>
+              <?php while($data_prospektus = mysqli_fetch_assoc($prospektus_query)) : ?>
                 <tr>
-                <td><?= $data["tahun"] ?></td>
                 <td>
-                  <a href="./files_pdf/<?= $data["file"]?>" class="col-file" target="blank"><?= $data["file"]?></a>
+                  <a href="./files_img/<?= $data_prospektus["gambar"]?>" class="col-file" target="blank"><?= $data_prospektus["gambar"]?></a>
                 </td>
-                <td><a href="./edit.php?id=<?= $data['id']?>">edit</a></td>
-                <td><a href="./delete.php?id=<?= $data['id']?>" onclick="return confirm('Yakin ingin menghapus?')">delete</a></td>
+                <td>
+                  <a href="./files_pdf/<?= $data_prospektus["file_pdf"]?>" class="col-file" target="blank"><?= $data_prospektus["file_pdf"]?></a>
+                </td>
+                <td><a href="./edit-prospektus.php?id=<?= $data_prospektus['id']?>">edit</a></td>
+                <td><a href="./delete-prospektus.php?id=<?= $data_prospektus['id']?>" onclick="return confirm('Yakin ingin menghapus?')">delete</a></td>
               </tr>
                 <?php endwhile; ?>
             </tbody>

@@ -333,7 +333,7 @@
               <a href="./info-pemegang-saham.php" class="this-page"
                 >Informasi Pemegang Saham
               </a>
-              <a href="">Informasi Keuangan </a>
+              <a href="./info-keuangan.php">Informasi Keuangan </a>
             </div>
           </div>
           <div class="menu-wrap">
@@ -344,6 +344,7 @@
             </div>
           </div>
           <a href="" class="karir">Karir</a>
+          <a href="./logout.php" class="karir">Logout</a>
         </div>
       </div>
     </div>

@@ -4,65 +4,60 @@
     header("Location: ../index.html");
     die;
   }
-
-  $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
   
-  $id = $_GET["id"];
-  $sqlGet = "SELECT * FROM rups WHERE id = $id";
-  $query = mysqli_query($koneksi_db, $sqlGet);
-  $datas = mysqli_fetch_assoc($query);
+  
   if(isset($_POST["submit"])){
+    // var_dump($_POST);
     
-    function update(){
-      global $koneksi_db;
-      global $id;
-      global $datas;
-      $tanggal = htmlspecialchars($_POST["tanggal"]);
-      $bulan = htmlspecialchars($_POST["bulan"]);
+    function upload(){
+      $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
       $tahun = htmlspecialchars($_POST["tahun"]);
-      $deskripsi = htmlspecialchars($_POST["deskripsi"]);
-      $tmpFile = $_FILES["file"]["tmp_name"];
       $file = $_FILES["file"]["name"];
-      $fileLama = $datas["file_pdf"];
+      $tmpFile = $_FILES["file"]["tmp_name"];
+      $error = $_FILES["file"]["error"];
+      // var_dump($_FILES);
       
       // validasi input
-      if( $_FILES["file"]["error"] === 4){
-        $file = $fileLama;
-      } else{
-        $ekstensiValid = ["pdf"];
-        $ekstensiFile = explode(".", $file);
-        $ekstensiFile = strtolower(end($ekstensiFile));
-        if(!in_array($ekstensiFile, $ekstensiValid)){
-          echo "<script>
-          alert('Format file harus PDF!');
-          </script>";
-          return false;
-        }
-      }
-      $sql = "UPDATE rups SET tanggal = '$tanggal', bulan = '$bulan', tahun = '$tahun', deskripsi = '$deskripsi', file_pdf = '$file' WHERE id = $id";
-      $query = mysqli_query($koneksi_db, $sql);
-      if($query){
-        move_uploaded_file($tmpFile, "./files_pdf/" . $file);
-        echo "<script>
-        alert('Data Berhasil Diupdate!');
-        window.location.href = 'info-pemegang-saham.php';
-        </script>";
-      }
-    }
-    if(!update()){
-    }
+    if($error === 4){
       echo "<script>
-      alert('Gagal mengedit RUPS!');
-      window.location.href = 'edit-rups.php?id=$id';
+      alert('File PDF wajib diisi!');
+        </script>";
+        return false;
+    }
+    
+    $ekstensiValid = ["pdf"];
+    $ekstensiFile = explode(".", $file);
+    $ekstensiFile = strtolower(end($ekstensiFile));
+    if(!in_array($ekstensiFile, $ekstensiValid)){
+      echo "<script>
+      alert('Format file harus PDF!');
+      </script>";
+      return false;
+    }
+    
+    $sql = "INSERT INTO lt VALUES (NULL, '$tahun', '$file')";
+    $query = mysqli_query($koneksi_db, $sql);
+    if($query){
+      move_uploaded_file($tmpFile, "./files_pdf/" . $file);
+      echo "<script>
+      alert('Data Berhasil Ditambah!');
+      window.location.href = 'info-keuangan.php';
       </script>";
     }
+  }
+  if(!upload()){
+    echo "<script>
+    alert('Gagal menambah Data!');
+    </script>";
+  }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Data- MKTR</title>
+    <title>Dashboard - MKTR</title>
     <script
       src="https://kit.fontawesome.com/ba965b16bb.js"
       crossorigin="anonymous"
@@ -250,6 +245,7 @@
         font-size: 21px;
       }
       .container .content form input {
+        width: 100px;
         height: 30px;
         padding-inline: 10px;
         color: #013a08;
@@ -259,21 +255,10 @@
       .container .content form input:focus {
         outline: none;
       }
-      .container .content form .file-upload{
-        display: flex;
-        align-items: center;
-        gap: 10px 
-      }
-      .container .content form .file-upload label {
-        width: 100px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 15px;
-        color: #013a08;
-        border: 1px solid #013a08;
-        border-radius: 7px;
+      .container .content form input#file {
+        width: 300px;
+        height: fit-content;
+        padding-block: 10px;
       }
       .container .content form input#deskripsi {
         height: 50px;
@@ -316,7 +301,7 @@
   </head>
   <body>
     <div class="container">
-    <div class="sidebar-wrapper">
+      <div class="sidebar-wrapper">
        <details>
           <summary>
             <div></div>
@@ -340,14 +325,13 @@
             checked
           />
           <input type="radio" name="menu" class="input-menu" id="menu-2" />
-          <a href="./index.php">Dashboard</a>
+          <a href="./index.html">Dashboard</a>
           <div class="menu-wrap">
             <label for="menu-1">Hubungan Investor</label>
             <div class="sub-label sublab-1">
-              <a href="./info-pemegang-saham.php" class="this-page"
-                >Informasi Pemegang Saham
+              <a href="./info-pemegang-saham.php">Informasi Pemegang Saham
               </a>
-              <a href="">Informasi Keuangan </a>
+              <a href="./info-keuangan.php" class="this-page">Informasi Keuangan </a>
             </div>
           </div>
           <div class="menu-wrap">
@@ -363,63 +347,20 @@
       </div>
     </div>
       <div class="content">
-        <h1>Edit Data RUPS</h1>
+        <h1>Tambah Data Laporan Tahunan</h1>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="input-wrap">
-            <label for="tanggal">Tanggal</label>
-            <div class="tanggal-wrap">
-              <input type="number" name="tanggal" id="tanggal" min="1" max="31" value="<?= $datas['tanggal']?>">
-              <select name="bulan" id="bulan" value="<?= $datas['bulan']?>">
-                <option class="opsi" value="Januari">Januari</option>
-                <option class="opsi" value="Februari">Februari</option>
-                <option class="opsi" value="Maret">Maret</option>
-                <option class="opsi" value="April">April</option>
-                <option class="opsi" value="Mei">Mei</option>
-                <option class="opsi" value="Juni">Juni</option>
-                <option class="opsi" value="Juli">Juli</option>
-                <option class="opsi" value="Agustus">Agustus</option>
-                <option class="opsi" value="September">September</option>
-                <option class="opsi" value="Oktober">Oktober</option>
-                <option class="opsi" value="November">November</option>
-                <option class="opsi" value="Desember">Desember</option>
-              </select>
-              <input type="number" name="tahun" id="tahun" min="2000" max="2099" value="<?= $datas['tahun']?>">
-            </div>
+            <label for="tahun">Tahun</label>
+              <input type="number" name="tahun" id="tahun" min="2000" max="2099" value="2024">
           </div>
           <div class="input-wrap">
-            <label for="deskripsi">Deskripsi</label>
-            <input type="text" name="deskripsi" id="deskripsi" autocomplete="off" value="<?= $datas["deskripsi"]?>"/>
-          </div>
-          <div class="input-wrap">
-            <label for="file">File PDF</label>
+            <label for="file">Upload File</label>
             <span>Format file wajib .pdf</span>
-            <div class="file-upload">
-              <input type="file" name="file" id="file" value="<?= $datas["file_pdf"]?>" hidden/>
-              <label for="file">Pilih File</label>
-              <span class="nama-file"><?= $datas["file_pdf"]?></span>
-            </div>
+            <input type="file" name="file" id="file" />
           </div>
           <button name="submit">Submit</button>
         </form>
       </div>
     </div>
-    <script>
-      const options = document.querySelectorAll(".opsi");
-      const file = document.querySelector("#file");
-      const namaFile = document.querySelector(".nama-file");
-      options.forEach((e) => {
-        if(e.value == '<?= $datas['bulan']?>'){
-          e.selected = true;
-        }
-      });
-      file.addEventListener("change", (e)=>{
-        if(e.target.files.length == 1){
-            let pdfFile = e.target.files[0];
-            namaFile.textContent = pdfFile.name;
-        } else{
-            namaFile.textContent = "<?= $datas["file_pdf"]?>";
-        }
-    });
-    </script>
   </body>
 </html>

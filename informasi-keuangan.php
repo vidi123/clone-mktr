@@ -1,3 +1,12 @@
+<?php
+ $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
+ $sql_lk = "SELECT * FROM lk ORDER BY tahun";
+ $query_lk = mysqli_query($koneksi_db, $sql_lk);
+ $sql_lt = "SELECT * FROM lt ORDER BY tahun";
+ $query_lt = mysqli_query($koneksi_db, $sql_lt);
+ $sql_prospektus = "SELECT * FROM prospektus";
+ $query_prospektus = mysqli_query($koneksi_db, $sql_prospektus)
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -297,7 +306,7 @@
         width: 100%;
       }
       .container section .content .file a > i {
-        font-size: 30px;
+        font-size: 15px;
         color: black;
       }
       .container section#PROSPEKTUS .content .file a {
@@ -430,8 +439,16 @@
         .container section#LT .content .file .file-img {
           width: 10%;
         }
-        .container section#PROSPEKTUS .content .file .file-img {
-          width: 25%;
+        .container section#PROSPEKTUS .content{
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .container section#PROSPEKTUS .content .file{
+          width: 45%;
+        }
+        .container section#PROSPEKTUS .content .file .file-img img{
+          height: 300px;
         }
       }
     </style>
@@ -531,13 +548,13 @@
                 <details>
                   <summary>Informasi Pemegang Saham &#9660;</summary>
                   <ul>
-                    <a href="./informasi-pemegang-saham.html#struktur">
+                    <a href="./informasi-pemegang-saham.php#struktur">
                       <li>Struktur Kepemilikan</li>
                     </a>
-                    <a href="./informasi-pemegang-saham.html#dividen">
+                    <a href="./informasi-pemegang-saham.php#dividen">
                       <li>Dividen</li>
                     </a>
-                    <a href="./informasi-pemegang-saham.html#rups">
+                    <a href="./informasi-pemegang-saham.php#rups">
                       <li>RUPS</li>
                     </a>
                   </ul>
@@ -545,16 +562,16 @@
                 <details>
                   <summary class="IK">Informasi Keuangan &#9660;</summary>
                   <ul>
-                    <a href="./informasi-keuangan.html#harga">
+                    <a href="./informasi-keuangan.php#harga">
                       <li>Harga Saham</li>
                     </a>
-                    <a href="./informasi-keuangan.html#LK">
+                    <a href="./informasi-keuangan.php#LK">
                       <li>Laporan Kuartalan</li>
                     </a>
-                    <a href="./informasi-keuangan.html#LT">
+                    <a href="./informasi-keuangan.php#LT">
                       <li>Laporan Tahunan</li>
                     </a>
-                    <a href="./informasi-keuangan.html#PROSPEKTUS">
+                    <a href="./informasi-keuangan.php#PROSPEKTUS">
                       <li>Prospektus</li>
                     </a>
                   </ul>
@@ -655,13 +672,13 @@
             <li>
               <span>Informasi Pemegang Saham ►</span>
               <ul>
-                <a href="./informasi-pemegang-saham.html#struktur">
+                <a href="./informasi-pemegang-saham.php#struktur">
                   <li>Struktur Kepemilikan</li>
                 </a>
-                <a href="./informasi-pemegang-saham.html#dividen">
+                <a href="./informasi-pemegang-saham.php#dividen">
                   <li>Dividen</li>
                 </a>
-                <a href="./informasi-pemegang-saham.html#rups">
+                <a href="./informasi-pemegang-saham.php#rups">
                   <li>RUPS</li>
                 </a>
               </ul>
@@ -669,16 +686,16 @@
             <li>
               <span class="IK">Informasi Keuangan ►</span>
               <ul>
-                <a href="./informasi-keuangan.html#harga">
+                <a href="./informasi-keuangan.php#harga">
                   <li>Harga Saham</li>
                 </a>
-                <a href="./informasi-keuangan.html#LK">
+                <a href="./informasi-keuangan.php#LK">
                   <li>Laporan Kuartalan</li>
                 </a>
-                <a href="./informasi-keuangan.html#LT">
+                <a href="./informasi-keuangan.php#LT">
                   <li>Laporan Tahunan</li>
                 </a>
-                <a href="./informasi-keuangan.html#PROSPEKTUS">
+                <a href="./informasi-keuangan.php#PROSPEKTUS">
                   <li>Prospektus</li>
                 </a>
               </ul>
@@ -759,15 +776,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>2021</td>
+            <?php while($data_LK = mysqli_fetch_assoc($query_lk)) : ?>
+                <tr>
+                <td><?= $data_LK["tahun"] ?></td>
                 <td>
-                  <a
-                    href="https://mktr.co.id/wp-content/uploads/2023/10/Robi_Navicula.pdf"
-                    ><i class="fa-solid fa-download"></i
-                  ></a>
+                  <a href="dashboard/files_pdf/<?= $data_LK["file"]?>" class="col-file" target="blank"><i class="fa-solid fa-download"></i
+                ></a>
                 </td>
               </tr>
+            <?php endwhile; ?>
             </tbody>
           </table>
         </div>
@@ -791,30 +808,42 @@
             </p>
           </div>
           <div class="file">
-            <div class="file-img">
-              <img src="./img/cropped-logo_mktr.png" alt="logo" />
-            </div>
-            <span>Laporan Keuangan Tahun 2022</span>
-            <a
-              href="https://mktr.co.id/dokumen/Report-PT-Menthobi-Karyatama-Raya-Tbk-dan-Entitas-Anak.pdf"
-              ><i class="fa-solid fa-download"></i
-            ></a>
+          <table>
+            <thead>
+              <tr>
+                <td>Tahun</td>
+                <td>Unduh</td>
+              </tr>
+            </thead>
+            <tbody>
+            <?php while($data_LT = mysqli_fetch_assoc($query_lt)) : ?>
+                <tr>
+                <td><?= $data_LT["tahun"] ?></td>
+                <td>
+                  <a href="dashboard/files_pdf/<?= $data_LT["file_pdf"]?>" class="col-file" target="blank"><i class="fa-solid fa-download"></i
+                ></a>
+                </td>
+              </tr>
+            <?php endwhile; ?>
+            </tbody>
+          </table>
           </div>
         </div>
       </section>
       <section id="PROSPEKTUS">
         <h1>Prospektus</h1>
         <div class="content">
-          <div class="deskripsi"></div>
-          <div class="file">
-            <div class="file-img">
-              <img src="./img/prospektus.png" alt="Prospektus" />
+          <?php while($data_prospektus = mysqli_fetch_assoc($query_prospektus)) : ?>
+            <div class="file">
+              <div class="file-img">
+                <img src="dashboard/files_img/<?= $data_prospektus['gambar']?>" alt="Prospektus" />
+              </div>
+              <a
+                href="dashboard/files_pdf/<?= $data_prospektus['file_pdf']?>" target="blank"
+                >Download</a
+              >
             </div>
-            <a
-              href="https://mktr.bayuperkasatrans.com/wp-content/uploads/2023/02/LOCK-Prospektus-MKTR-FINAL.pdf"
-              >Download</a
-            >
-          </div>
+            <?php endwhile; ?>
         </div>
       </section>
     </div>
@@ -824,18 +853,18 @@
         <ul>
           <li>
             <h3>INFORMASI PEMEGANG SAHAM</h3>
-            <a href="./informasi-pemegang-saham.html#struktur"
+            <a href="./informasi-pemegang-saham.php#struktur"
               >Struktur Kepemilikan</a
             >
-            <a href="./informasi-pemegang-saham.html#dividen">Dividen</a>
-            <a href="./informasi-pemegang-saham.html#rups">Rups</a>
-            <a href="./informasi-pemegang-saham.html#">Penunjang Pasar Modal</a>
+            <a href="./informasi-pemegang-saham.php#dividen">Dividen</a>
+            <a href="./informasi-pemegang-saham.php#rups">Rups</a>
+            <a href="./informasi-pemegang-saham.php#">Penunjang Pasar Modal</a>
           </li>
           <li>
             <h3>LAPORAN KEUANGAN</h3>
-            <a href="./informasi-keuangan.html#LK">Laporan Kuartalan</a>
-            <a href="./informasi-keuangan.html#LT">Laporan Tahunan</a>
-            <a href="./informasi-keuangan.html#PROSPEKTUS">Prospektus</a>
+            <a href="./informasi-keuangan.php#LK">Laporan Kuartalan</a>
+            <a href="./informasi-keuangan.php#LT">Laporan Tahunan</a>
+            <a href="./informasi-keuangan.php#PROSPEKTUS">Prospektus</a>
           </li>
           <li>
             <h3>BERKELANJUTAN</h3>
