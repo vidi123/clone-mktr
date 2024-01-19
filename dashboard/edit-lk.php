@@ -347,10 +347,9 @@
             </div>
           </div>
           <div class="menu-wrap">
-            <label for="menu-2">Berita & Galeri</label>
+            <label for="menu-2">Berita</label>
             <div class="sub-label sublab-2">
-              <a href="">Berita</a>
-              <a href="">Galeri</a>
+              <a href="./berita.php">Berita</a>
             </div>
           </div>
           <a href="" class="karir">Karir</a>

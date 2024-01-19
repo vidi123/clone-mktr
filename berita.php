@@ -1,3 +1,16 @@
+<?php
+  $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
+  $jumlahDataTampil = 6;
+  $sql = "SELECT * FROM berita";
+  $query = mysqli_query($koneksi_db, $sql);
+  $jumlahData = mysqli_num_rows($query);
+  $jumlahHalaman = ceil($jumlahData / $jumlahDataTampil);
+  $page = (isset($_GET["page"])) ? $_GET["page"] : 1;
+  $dataAwal = ($jumlahDataTampil * $page) - $jumlahDataTampil;
+
+  $sqlBerita = "SELECT * FROM berita LIMIT $dataAwal, $jumlahDataTampil";
+  $queryBerita = mysqli_query($koneksi_db, $sqlBerita);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,7 +42,7 @@
         width: 100%;
         height: 50px;
         background-color: #01440a;
-        display: flex;
+        display: none;
         justify-content: flex-end;
       }
       header .header {
@@ -159,6 +172,15 @@
         flex-direction: column;
         gap: 15px;
       }
+      nav .logo .language > div {
+        display: flex;
+      }
+      nav .logo .language > div > a > img {
+        width: 25px;
+        height: fit-content;
+        border-radius: 3px;
+        border: 1px solid #01440a;
+      }
       /* navbar desktop */
       nav .nav-desktop {
         height: 68px;
@@ -167,7 +189,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 10px;
-        margin-left: 80px;
+        margin-left: 40px;
       }
       .nav-desktop a {
         text-decoration: none;
@@ -224,6 +246,19 @@
       nav .saham {
         width: 100px;
         margin-left: 60px;
+      }
+      nav > .language {
+        margin-left: 15px;
+        display: none;
+      }
+      nav > .language > div {
+        display: flex;
+      }
+      nav > .language > div > a > img {
+        width: 25px;
+        height: fit-content;
+        border-radius: 3px;
+        border: 1px solid #01440a;
       }
       .BERITA {
         color: #ffc050;
@@ -289,6 +324,30 @@
         padding-left: 30px;
         padding-block: 15px;
       }
+      .pagination{
+        width: 90%;
+        /* background: #000; */
+        display: flex;
+        justify-content: center;
+        gap: 10px;        
+      }
+      .pagination a{
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        background-color: #01440a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+      }
+      .pagination a.select{
+        background-color: #fff;
+        border: 1px solid #01440a;
+        box-sizing: border-box;
+        color: #01440a;
+      }      
 
       /* footer */
       footer {
@@ -357,7 +416,7 @@
           width: 75%;
         }
         nav .logo {
-          width: 75%;
+          width: 80%;
           justify-content: space-between;
         }
         nav .saham {
@@ -412,8 +471,17 @@
       }
       /* desktop */
       @media (min-width: 1000px) {
+        nav .logo {
+          width: 275px;
+        }
         nav .logo details {
           display: none;
+        }
+        nav .logo .language > div {
+          display: none;
+        }
+        nav > .language {
+          display: flex;
         }
 
         .container .cards {
@@ -522,13 +590,13 @@
                 <details>
                   <summary>Informasi Pemegang Saham &#9660;</summary>
                   <ul>
-                    <a href="./informasi-pemegang-saham.html#struktur">
+                    <a href="./informasi-pemegang-saham.php#struktur">
                       <li>Struktur Kepemilikan</li>
                     </a>
-                    <a href="./informasi-pemegang-saham.html#dividen">
+                    <a href="./informasi-pemegang-saham.php#dividen">
                       <li>Dividen</li>
                     </a>
-                    <a href="./informasi-pemegang-saham.html#rups">
+                    <a href="./informasi-pemegang-saham.php#rups">
                       <li>RUPS</li>
                     </a>
                   </ul>
@@ -536,16 +604,16 @@
                 <details>
                   <summary>Informasi Keuangan &#9660;</summary>
                   <ul>
-                    <a href="./informasi-keuangan.html#harga">
+                    <a href="./informasi-keuangan.php#harga">
                       <li>Harga Saham</li>
                     </a>
-                    <a href="./informasi-keuangan.html#LK">
+                    <a href="./informasi-keuangan.php#LK">
                       <li>Laporan Kuartalan</li>
                     </a>
-                    <a href="./informasi-keuangan.html#LT">
+                    <a href="./informasi-keuangan.php#LT">
                       <li>Laporan Tahunan</li>
                     </a>
-                    <a href="./informasi-keuangan.html#PROSPEKTUS">
+                    <a href="./informasi-keuangan.php#PROSPEKTUS">
                       <li>Prospektus</li>
                     </a>
                   </ul>
@@ -553,7 +621,7 @@
               </ul>
             </details>
             <details>
-              <summary>AKTIFITAS BISNIS &#9660;</summary>
+              <summary class="AB">AKTIFITAS BISNIS &#9660;</summary>
               <ul>
                 <a href="./aktifitas-bisnis.html#MML"
                   ><li>PT Menthobi Makmur Lestari</li></a
@@ -572,7 +640,7 @@
             <details>
               <summary>BERITA & GALLERY &#9660;</summary>
               <ul>
-                <a href="./berita.html"><li class="BERITA">Berita</li></a>
+                <a href="./berita.php"><li>Berita</li></a>
                 <a href="./foto-video-aktifitas.html" class="foto-video"
                   ><li>Foto & Video Aktifitas</li></a
                 >
@@ -581,6 +649,9 @@
             <a href="">KARIR</a>
           </div>
         </details>
+        <div class="language">
+          <div class="gtranslate_wrapper"></div>
+        </div>
       </div>
       <div class="nav-desktop">
         <a href="./index.html" class="beranda">BERANDA</a>
@@ -646,13 +717,13 @@
             <li>
               <span>Informasi Pemegang Saham ►</span>
               <ul>
-                <a href="./informasi-pemegang-saham.html#struktur">
+                <a href="./informasi-pemegang-saham.php#struktur">
                   <li>Struktur Kepemilikan</li>
                 </a>
-                <a href="./informasi-pemegang-saham.html#dividen">
+                <a href="./informasi-pemegang-saham.php#dividen">
                   <li>Dividen</li>
                 </a>
-                <a href="./informasi-pemegang-saham.html#rups">
+                <a href="./informasi-pemegang-saham.php#rups">
                   <li>RUPS</li>
                 </a>
               </ul>
@@ -660,16 +731,16 @@
             <li>
               <span>Informasi Keuangan ►</span>
               <ul>
-                <a href="./informasi-keuangan.html#harga">
+                <a href="./informasi-keuangan.php#harga">
                   <li>Harga Saham</li>
                 </a>
-                <a href="./informasi-keuangan.html#LK">
+                <a href="./informasi-keuangan.php#LK">
                   <li>Laporan Kuartalan</li>
                 </a>
-                <a href="./informasi-keuangan.html#LT">
+                <a href="./informasi-keuangan.php#LT">
                   <li>Laporan Tahunan</li>
                 </a>
-                <a href="./informasi-keuangan.html#PROSPEKTUS">
+                <a href="./informasi-keuangan.php#PROSPEKTUS">
                   <li>Prospektus</li>
                 </a>
               </ul>
@@ -677,7 +748,7 @@
           </ul>
         </div>
         <div class="drop-wrap">
-          <span>AKTIFITAS BISNIS &#9660;</span>
+          <span class="AB">AKTIFITAS BISNIS &#9660;</span>
           <ul>
             <a href="./aktifitas-bisnis.html#MML"
               ><li>PT Menthobi Makmur Lestari</li></a
@@ -696,7 +767,7 @@
         <div class="drop-wrap">
           <span>BERITA & GALLERY &#9660;</span>
           <ul>
-            <a href="./berita.html"><li class="BERITA">Berita</li></a>
+            <a href="./berita.php"><li>Berita</li></a>
             <a href="./foto-video-aktifitas.html"
               ><li>Foto & Video Aktifitas</li></a
             >
@@ -721,82 +792,36 @@
           "
         ></iframe>
       </div>
+      <div class="language">
+        <div class="gtranslate_wrapper"></div>
+      </div>
     </nav>
     <div class="container">
       <h1>BERITA</h1>
       <div class="cards">
-        <a href="./berita-readmore.html" class="card">
-          <img src="./img/berita1.jpeg" alt="berita1" />
-          <div class="deskripsi">
-            <h2>
-              Emiten Kelapa Sawit Menthobi Karyatama (MKTR) Bidik Pendapatan
-              Tembus Rp986,9 Miliar
-            </h2>
-            <span>READ MORE »</span>
-          </div>
-          <div class="tanggal">
-            <span>November 27, 2023 • No Comments</span>
-          </div>
-        </a>
-        <a href="./berita-readmore.html" class="card">
-          <img src="./img/berita2.jpeg" alt="berita2" />
-          <div class="deskripsi">
-            <h2>
-              Ini Alasan MKTR Tbk Optimistis Menjalankan Bisnis Sawit Yang
-              Berkelanjutan
-            </h2>
-            <span>READ MORE »</span>
-          </div>
-          <div class="tanggal">
-            <span>June 7, 2023 • No Comments</span>
-          </div>
-        </a>
-        <a href="./berita-readmore.html" class="card">
-          <img src="./img/berita3.jpeg" alt="berita3" />
-          <div class="deskripsi">
-            <h2>Mendapat Sambutan Hangat Pemodal, Ini Kata Bos MKTR Tb</h2>
-            <span>READ MORE »</span>
-          </div>
-          <div class="tanggal">
-            <span>June 7, 2023 • No Comments</span>
-          </div>
-        </a>
-        <a href="./berita-readmore.html" class="card">
-          <img src="./img/berita2.jpeg" alt="berita1" />
-          <div class="deskripsi">
-            <h2>
-              Emiten Kelapa Sawit Menthobi Karyatama (MKTR) Bidik Pendapatan
-              Tembus Rp986,9 Miliar
-            </h2>
-            <span>READ MORE »</span>
-          </div>
-          <div class="tanggal">
-            <span>November 27, 2023 • No Comments</span>
-          </div>
-        </a>
-        <a href="./berita-readmore.html" class="card">
-          <img src="./img/berita4.jpeg" alt="berita2" />
-          <div class="deskripsi">
-            <h2>
-              Ini Alasan MKTR Tbk Optimistis Menjalankan Bisnis Sawit Yang
-              Berkelanjutan
-            </h2>
-            <span>READ MORE »</span>
-          </div>
-          <div class="tanggal">
-            <span>June 7, 2023 • No Comments</span>
-          </div>
-        </a>
-        <a href="./berita-readmore.html" class="card">
-          <img src="./img/berita5.jpg" alt="berita3" />
-          <div class="deskripsi">
-            <h2>Mendapat Sambutan Hangat Pemodal, Ini Kata Bos MKTR Tb</h2>
-            <span>READ MORE »</span>
-          </div>
-          <div class="tanggal">
-            <span>June 7, 2023 • No Comments</span>
-          </div>
-        </a>
+      <?php while($data = mysqli_fetch_assoc($queryBerita)) : ?>
+              <a href="./berita-single.php?id=<?= $data['id']?>" class="card">
+                <img src="./dashboard/files_img/<?= $data['gambar']?>" alt="berita1" />
+                <div class="deskripsi">
+                  <h2>
+                    <?= $data["judul"]?>
+                  </h2>
+                  <span>READ MORE »</span>
+                </div>
+                <div class="tanggal">
+                  <span><?= $data["tanggal"]?> <?= $data["bulan"]?> <?= $data["tahun"]?></span>
+                </div>
+              </a>
+      <?php endwhile; ?>
+      </div>
+      <div class="pagination">
+        <?php for($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+          <?php if($i == $page) : ?>
+          <a href="?page=<?= $i;?>" class="select"><?= $i;?></a>
+          <?php else : ?>
+          <a href="?page=<?= $i;?>"><?= $i;?></a>
+          <?php endif; ?>
+        <?php endfor;?>
       </div>
     </div>
     <footer>
@@ -805,18 +830,18 @@
         <ul>
           <li>
             <h3>INFORMASI PEMEGANG SAHAM</h3>
-            <a href="./informasi-pemegang-saham.html#struktur"
+            <a href="./informasi-pemegang-saham.php#struktur"
               >Struktur Kepemilikan</a
             >
-            <a href="./informasi-pemegang-saham.html#dividen">Dividen</a>
-            <a href="./informasi-pemegang-saham.html#rups">Rups</a>
-            <a href="./informasi-pemegang-saham.html#">Penunjang Pasar Modal</a>
+            <a href="./informasi-pemegang-saham.php#dividen">Dividen</a>
+            <a href="./informasi-pemegang-saham.php#rups">Rups</a>
+            <a href="./informasi-pemegang-saham.php#">Penunjang Pasar Modal</a>
           </li>
           <li>
             <h3>LAPORAN KEUANGAN</h3>
-            <a href="./informasi-keuangan.html#LK">Laporan Kuartalan</a>
-            <a href="./informasi-keuangan.html#LT">Laporan Tahunan</a>
-            <a href="./informasi-keuangan.html#PROSPEKTUS">Prospektus</a>
+            <a href="./informasi-keuangan.php#LK">Laporan Kuartalan</a>
+            <a href="./informasi-keuangan.php#LT">Laporan Tahunan</a>
+            <a href="./informasi-keuangan.php#PROSPEKTUS">Prospektus</a>
           </li>
           <li>
             <h3>BERKELANJUTAN</h3>
@@ -863,5 +888,16 @@
         >
       </div>
     </footer>
+    <script>
+      window.gtranslateSettings = {
+        default_language: "",
+        languages: ["id", "en"],
+        wrapper_selector: ".gtranslate_wrapper",
+      };
+    </script>
+    <script
+      src="https://cdn.gtranslate.net/widgets/latest/flags.js"
+      defer
+    ></script>
   </body>
 </html>

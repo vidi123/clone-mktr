@@ -304,21 +304,20 @@
             checked
           />
           <input type="radio" name="menu" class="input-menu" id="menu-2" />
-          <a href="./index.html">Dashboard</a>
+          <a href="./index.php">Dashboard</a>
           <div class="menu-wrap">
             <label for="menu-1">Hubungan Investor</label>
             <div class="sub-label sublab-1">
               <a href="./info-pemegang-saham.php" class="this-page"
                 >Informasi Pemegang Saham
               </a>
-              <a href="">Informasi Keuangan </a>
+              <a href="./info-keuangan.php">Informasi Keuangan </a>
             </div>
           </div>
           <div class="menu-wrap">
-            <label for="menu-2">Berita & Galeri</label>
+            <label for="menu-2">Berita</label>
             <div class="sub-label sublab-2">
-              <a href="">Berita</a>
-              <a href="">Galeri</a>
+              <a href="./berita.php">Berita</a>
             </div>
           </div>
           <a href="" class="karir">Karir</a>

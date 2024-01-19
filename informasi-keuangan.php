@@ -41,7 +41,7 @@
         width: 100%;
         height: 50px;
         background-color: #01440a;
-        display: flex;
+        display: none;
         justify-content: flex-end;
       }
       header .header {
@@ -168,6 +168,15 @@
         flex-direction: column;
         gap: 15px;
       }
+      nav .logo .language > div {
+        display: flex;
+      }
+      nav .logo .language > div > a > img {
+        width: 25px;
+        height: fit-content;
+        border-radius: 3px;
+        border: 1px solid #01440a;
+      }
       /* navbar desktop */
       nav .nav-desktop {
         height: 68px;
@@ -176,7 +185,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 10px;
-        margin-left: 80px;
+        margin-left: 40px;
       }
       .nav-desktop a {
         text-decoration: none;
@@ -236,6 +245,19 @@
       nav .saham {
         width: 100px;
         margin-left: 60px;
+      }
+      nav > .language {
+        margin-left: 15px;
+        display: none;
+      }
+      nav > .language > div {
+        display: flex;
+      }
+      nav > .language > div > a > img {
+        width: 25px;
+        height: fit-content;
+        border-radius: 3px;
+        border: 1px solid #01440a;
       }
       .IK {
         color: #ffc050;
@@ -388,7 +410,7 @@
           width: 75%;
         }
         nav .logo {
-          width: 75%;
+          width: 80%;
           justify-content: space-between;
         }
         nav .saham {
@@ -433,8 +455,17 @@
       }
       /* desktop */
       @media (min-width: 1000px) {
+        nav .logo {
+          width: 275px;
+        }
         nav .logo details {
           display: none;
+        }
+        nav .logo .language > div {
+          display: none;
+        }
+        nav > .language {
+          display: flex;
         }
         .container section#LT .content .file .file-img {
           width: 10%;
@@ -598,7 +629,7 @@
             <details>
               <summary>BERITA & GALLERY &#9660;</summary>
               <ul>
-                <a href="./berita.html"><li>Berita</li></a>
+                <a href="./berita.php"><li>Berita</li></a>
                 <a href="./foto-video-aktifitas.html" class="foto-video"
                   ><li>Foto & Video Aktifitas</li></a
                 >
@@ -607,6 +638,9 @@
             <a href="">KARIR</a>
           </div>
         </details>
+        <div class="language">
+          <div class="gtranslate_wrapper"></div>
+        </div>
       </div>
       <div class="nav-desktop">
         <a href="./index.html" class="beranda">BERANDA</a>
@@ -722,7 +756,7 @@
         <div class="drop-wrap">
           <span>BERITA & GALLERY &#9660;</span>
           <ul>
-            <a href="./berita.html"><li>Berita</li></a>
+            <a href="./berita.php"><li>Berita</li></a>
             <a href="./foto-video-aktifitas.html"
               ><li>Foto & Video Aktifitas</li></a
             >
@@ -746,6 +780,9 @@
             width: 100%;
           "
         ></iframe>
+      </div>
+      <div class="language">
+        <div class="gtranslate_wrapper"></div>
       </div>
     </nav>
     <div class="container">
@@ -911,5 +948,16 @@
         >
       </div>
     </footer>
+    <script>
+      window.gtranslateSettings = {
+        default_language: "",
+        languages: ["id", "en"],
+        wrapper_selector: ".gtranslate_wrapper",
+      };
+    </script>
+    <script
+      src="https://cdn.gtranslate.net/widgets/latest/flags.js"
+      defer
+    ></script>
   </body>
 </html>

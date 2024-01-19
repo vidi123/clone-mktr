@@ -13,43 +13,52 @@
       $tanggal = htmlspecialchars($_POST["tanggal"]);
       $bulan = htmlspecialchars($_POST["bulan"]);
       $tahun = htmlspecialchars($_POST["tahun"]);
+      $judul = htmlspecialchars($_POST["judul"]);
       $deskripsi = htmlspecialchars($_POST["deskripsi"]);
-      $file = $_FILES["file"]["name"];
-      $tmpFile = $_FILES["file"]["tmp_name"];
+      $gambar = $_FILES["file"]["name"];
+      $tmpGambar = $_FILES["file"]["tmp_name"];
       $error = $_FILES["file"]["error"];
       // var_dump($_FILES);
       
-      // validasi input
+    // validasi input
+    if(strlen($judul) == 0 || strlen($deskripsi) == 0){
+        echo "<script>
+        alert('Tidak boleh ada data yang kosong!');
+        window.location.href = './tambah-berita.php';
+        </script>";
+        die;        
+    }
     if($error === 4){
       echo "<script>
-      alert('File PDF wajib diisi!');
+      alert('File gambar wajib diisi!');
         </script>";
         return false;
     }
     
-    $ekstensiValid = ["pdf"];
-    $ekstensiFile = explode(".", $file);
-    $ekstensiFile = strtolower(end($ekstensiFile));
-    if(!in_array($ekstensiFile, $ekstensiValid)){
-      echo "<script>
-      alert('Format file harus PDF!');
-      </script>";
-      return false;
+    // cek ekstensi
+    $ekstensiGambarValid = ["jpg", "jpeg", "png"];
+    $ekstensiGambarFile = explode(".", $gambar);
+    $ekstensiGambarFile = strtolower(end($ekstensiGambarFile));
+    if(!in_array($ekstensiGambarFile, $ekstensiGambarValid)){
+        echo "<script>
+        alert('Format file pada bagian Upload Gambar harus diantara .jpg, .jpeg, .png!');
+        </script>";
+        return false;
     }
     
-    $sql = "INSERT INTO rups VALUES (NULL, '$tanggal', '$bulan', '$tahun', '$deskripsi', '$file')";
+    $sql = "INSERT INTO berita VALUES (NULL, '$gambar', '$judul', '$deskripsi', '$tanggal', '$bulan', '$tahun')";
     $query = mysqli_query($koneksi_db, $sql);
     if($query){
-      move_uploaded_file($tmpFile, "./files_pdf/" . $file);
+      move_uploaded_file($tmpGambar, "./files_img/" . $gambar);
       echo "<script>
       alert('Data Berhasil Ditambah!');
-      window.location.href = 'info-pemegang-saham.php';
+      window.location.href = './berita.php';
       </script>";
     }
   }
   if(!upload()){
     echo "<script>
-    alert('Gagal menambah RUPS!');
+    alert('Gagal menambah Berita!');
     </script>";
   }
   }
@@ -253,7 +262,7 @@
         border: 1px solid #013a08;
         border-radius: 7px;
       }
-      .container .content form input:focus {
+      .container .content form input:focus,.container .content form textarea:focus {
         outline: none;
       }
       .container .content form input#file {
@@ -261,8 +270,15 @@
         height: fit-content;
         padding-block: 10px;
       }
-      .container .content form input#deskripsi {
-        height: 50px;
+      .container .content form #deskripsi {
+        padding-inline: 10px;
+        padding-block: 10px;
+        box-sizing: border-box;
+        height: 150px;
+        color: #013a08;
+        border: 1px solid #013a08;
+        border-radius: 7px;
+        resize: none;
       }
       .container .content form select {
         height: 30px;
@@ -323,14 +339,13 @@
             name="menu"
             class="input-menu"
             id="menu-1"
-            checked
           />
-          <input type="radio" name="menu" class="input-menu" id="menu-2" />
+          <input type="radio" name="menu" class="input-menu" id="menu-2" checked/>
           <a href="./index.php">Dashboard</a>
           <div class="menu-wrap">
             <label for="menu-1">Hubungan Investor</label>
             <div class="sub-label sublab-1">
-              <a href="./info-pemegang-saham.php" class="this-page"
+              <a href="./info-pemegang-saham.php"
                 >Informasi Pemegang Saham
               </a>
               <a href="./info-keuangan.php">Informasi Keuangan </a>
@@ -339,7 +354,7 @@
           <div class="menu-wrap">
             <label for="menu-2">Berita</label>
             <div class="sub-label sublab-2">
-              <a href="./berita.php">Berita</a>
+              <a href="./berita.php" class="this-page">Berita</a>
             </div>
           </div>
           <a href="" class="karir">Karir</a>
@@ -348,7 +363,7 @@
       </div>
     </div>
       <div class="content">
-        <h1>Tambah Data RUPS</h1>
+        <h1>Tambah Data Berita</h1>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="input-wrap">
             <label for="tanggal">Tanggal</label>
@@ -372,12 +387,16 @@
             </div>
           </div>
           <div class="input-wrap">
-            <label for="deskripsi">Deskripsi</label>
-            <input type="text" name="deskripsi" id="deskripsi" autocomplete="off"/>
+            <label for="judul">Judul</label>
+            <input type="text" name="judul" id="judul" autocomplete="off"/>
           </div>
           <div class="input-wrap">
-            <label for="file">Upload File</label>
-            <span>Format file wajib .pdf</span>
+            <label for="deskripsi">Deskripsi</label>
+            <textarea name="deskripsi" id="deskripsi"></textarea>
+          </div>
+          <div class="input-wrap">
+            <label for="file">Upload Gambar</label>
+            <span>Format file (.jpg, .jpeg, .png)</span>
             <input type="file" name="file" id="file" />
           </div>
           <button name="submit">Submit</button>

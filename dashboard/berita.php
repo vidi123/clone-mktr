@@ -4,55 +4,9 @@
     header("Location: ../index.html");
   }
   
-  
-  if(isset($_POST["submit"])){
-    // var_dump($_POST);
-    
-    function upload(){
-      $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
-      $tanggal = htmlspecialchars($_POST["tanggal"]);
-      $bulan = htmlspecialchars($_POST["bulan"]);
-      $tahun = htmlspecialchars($_POST["tahun"]);
-      $deskripsi = htmlspecialchars($_POST["deskripsi"]);
-      $file = $_FILES["file"]["name"];
-      $tmpFile = $_FILES["file"]["tmp_name"];
-      $error = $_FILES["file"]["error"];
-      // var_dump($_FILES);
-      
-      // validasi input
-    if($error === 4){
-      echo "<script>
-      alert('File PDF wajib diisi!');
-        </script>";
-        return false;
-    }
-    
-    $ekstensiValid = ["pdf"];
-    $ekstensiFile = explode(".", $file);
-    $ekstensiFile = strtolower(end($ekstensiFile));
-    if(!in_array($ekstensiFile, $ekstensiValid)){
-      echo "<script>
-      alert('Format file harus PDF!');
-      </script>";
-      return false;
-    }
-    
-    $sql = "INSERT INTO rups VALUES (NULL, '$tanggal', '$bulan', '$tahun', '$deskripsi', '$file')";
-    $query = mysqli_query($koneksi_db, $sql);
-    if($query){
-      move_uploaded_file($tmpFile, "./files_pdf/" . $file);
-      echo "<script>
-      alert('Data Berhasil Ditambah!');
-      window.location.href = 'info-pemegang-saham.php';
-      </script>";
-    }
-  }
-  if(!upload()){
-    echo "<script>
-    alert('Gagal menambah RUPS!');
-    </script>";
-  }
-  }
+  $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
+  $sql = "SELECT * FROM berita";
+  $query = mysqli_query($koneksi_db, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +38,6 @@
       .container {
         width: 100%;
         display: flex;
-        position: relative;
       }
       .container .sidebar-wrapper {
         position: absolute;
@@ -221,72 +174,91 @@
         width: 100%;
         margin: auto;
         min-height: 100vh;
-        padding-top: 50px;
+        padding-block: 50px;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 20px;
       }
-      .container .content form {
-        width: 95%;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-      .container .content form .input-wrap {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
-      .container .content form .input-wrap .tanggal-wrap{
-        display: flex;
-        gap: 12px;
-      }
-      .container .content form label {
-        font-size: 21px;
-      }
-      .container .content form input {
-        height: 30px;
-        padding-inline: 10px;
-        color: #013a08;
+      .container .deskripsi {
+        width: 97%;
         border: 1px solid #013a08;
-        border-radius: 7px;
-      }
-      .container .content form input:focus {
-        outline: none;
-      }
-      .container .content form input#file {
-        width: 300px;
-        height: fit-content;
-        padding-block: 10px;
-      }
-      .container .content form input#deskripsi {
-        height: 50px;
-      }
-      .container .content form select {
-        height: 30px;
-        padding-inline: 10px;
+        border-radius: 10px;
         color: #013a08;
-        border: 1px solid #013a08;
-        border-radius: 7px;
+        padding-inline: 15px;
+        padding-block: 7px;
+        box-sizing: border-box;
       }
-      .container .content form button {
+      .container .content .judul {
+        display: flex;
+        justify-content: space-between;
+      }
+      .container .content .judul a {
         width: 150px;
         height: 35px;
-        border-radius: 7px;
+        border-radius: 50px;
         background-color: #01440a;
         color: white;
-        font-size: 16px;
         text-decoration: none;
         display: flex;
         justify-content: center;
         align-items: center;
       }
+      .container .content .tabel {
+        width: 97%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .container .content table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .container .content table thead tr {
+        background-color: #01440a;
+        color: white;
+        border: 1px solid #01440a;
+      }
+      .container .content table tr td {
+        text-align: center;
+        padding: 5px;
+      }
+      .container .content table tbody td {
+        border: 1px solid black;
+        font-size: 14px;
+      }
+      .container .content table tbody td .col-desc,
+      .container .content table tbody td .col-file {
+        width: 73px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .container .content table tbody td a {
+        color: black;
+        text-decoration: none;
+      }
+
+      /* Responsif */
+      @media (min-width: 300px) {
+        .container {
+          position: relative;
+        }
+      }
+      @media (min-width: 768px) {
+        .container .content table tbody td .col-desc,
+      .container .content table tbody td .col-file {
+        width: 100px;
+        margin: auto;
+      }
+      }
       @media (min-width: 1000px) {
         .container .sidebar-wrapper {
           width: 20%;
           position: static;
+          height: auto;
         }
         .container .sidebar {
           display: block;
@@ -297,91 +269,102 @@
         .container .content {
           width: 80%;
         }
+        .container .content table tbody td .col-desc,
+        .container .content table tbody td .col-file {
+          width: 150px;
+        } 
       }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="sidebar-wrapper">
-       <details>
+        <details>
           <summary>
             <div></div>
             <div></div>
             <div></div>
           </summary>
         </details>
-      <div class="sidebar">
-        <div class="logo">
-          <div class="logo-img">
-            <img src="../img/cropped-logo_mktr.png" alt="logo" />
-          </div>
-          <span>PT. Menthobi Karyatama Raya Tbk</span>
-        </div>
-        <div class="menus">
-          <input
-            type="radio"
-            name="menu"
-            class="input-menu"
-            id="menu-1"
-            checked
-          />
-          <input type="radio" name="menu" class="input-menu" id="menu-2" />
-          <a href="./index.php">Dashboard</a>
-          <div class="menu-wrap">
-            <label for="menu-1">Hubungan Investor</label>
-            <div class="sub-label sublab-1">
-              <a href="./info-pemegang-saham.php" class="this-page"
-                >Informasi Pemegang Saham
-              </a>
-              <a href="./info-keuangan.php">Informasi Keuangan </a>
+        <div class="sidebar">
+          <div class="logo">
+            <div class="logo-img">
+              <img src="../img/cropped-logo_mktr.png" alt="logo" />
             </div>
+            <span>PT. Menthobi Karyatama Raya Tbk</span>
           </div>
-          <div class="menu-wrap">
-            <label for="menu-2">Berita</label>
-            <div class="sub-label sublab-2">
-              <a href="./berita.php">Berita</a>
+          <div class="menus">
+            <input
+              type="radio"
+              name="menu"
+              class="input-menu"
+              id="menu-1"
+            />
+            <input type="radio" name="menu" class="input-menu" id="menu-2" checked/>
+            <a href="./index.php">Dashboard</a>
+            <div class="menu-wrap">
+              <label for="menu-1">Hubungan Investor</label>
+              <div class="sub-label sublab-1">
+                <a href="./info-pemegang-saham.php">
+                  Informasi Pemegang Saham
+                </a>
+                <a href="./info-keuangan.php">Informasi Keuangan </a>
+              </div>
             </div>
+            <div class="menu-wrap">
+              <label for="menu-2">Berita</label>
+              <div class="sub-label sublab-2">
+                <a href="./berita.php" class="this-page">Berita</a>
+              </div>
+            </div>
+            <a href="" class="karir">Karir</a>
+            <a href="./logout.php" class="karir">Logout</a>
           </div>
-          <a href="" class="karir">Karir</a>
-          <a href="./logout.php" class="karir">Logout</a>
         </div>
       </div>
-    </div>
       <div class="content">
-        <h1>Tambah Data RUPS</h1>
-        <form action="" method="post" enctype="multipart/form-data">
-          <div class="input-wrap">
-            <label for="tanggal">Tanggal</label>
-            <div class="tanggal-wrap">
-              <input type="number" name="tanggal" id="tanggal" min="1" max="31" value="1">
-              <select name="bulan" id="bulan">
-                <option value="Januari">Januari</option>
-                <option value="Februari">Februari</option>
-                <option value="Maret">Maret</option>
-                <option value="April">April</option>
-                <option value="Mei">Mei</option>
-                <option value="Juni">Juni</option>
-                <option value="Juli">Juli</option>
-                <option value="Agustus">Agustus</option>
-                <option value="September">September</option>
-                <option value="Oktober">Oktober</option>
-                <option value="November">November</option>
-                <option value="Desember">Desember</option>
-              </select>
-              <input type="number" name="tahun" id="tahun" min="2000" max="2099" value="2024">
-            </div>
+        <div class="deskripsi">
+          <h1>Pengaturan Berita</h1>
+          <p>
+            Anda dapat menambah, mengedit, menghapus data Berita pada web MKTR dengan fitur dibawah
+          </p>
+        </div>
+        <div class="tabel tabel-1">
+          <div class="judul">
+            <h2>Berita</h2>
+            <a href="./tambah-berita.php">+ Tambah</a>
           </div>
-          <div class="input-wrap">
-            <label for="deskripsi">Deskripsi</label>
-            <input type="text" name="deskripsi" id="deskripsi" autocomplete="off"/>
-          </div>
-          <div class="input-wrap">
-            <label for="file">Upload File</label>
-            <span>Format file wajib .pdf</span>
-            <input type="file" name="file" id="file" />
-          </div>
-          <button name="submit">Submit</button>
-        </form>
+          <table>
+            <thead>
+              <tr>
+                <td>Tanggal</td>
+                <td>Judul</td>
+                <td>Deskripsi</td>
+                <td>gambar</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              <?php while($data = mysqli_fetch_assoc($query)) : ?>
+                <tr>
+                <td><?= $data['tanggal'] . " " . $data['bulan'] . " " . $data['tahun'] ?></td>
+                <td>
+                  <p class="col-desc"><?= $data["judul"]?></p>
+                </td>
+                <td>
+                  <p class="col-desc"><?= $data["deskripsi"]?></p>
+                </td>
+                <td>
+                  <a href="./files_img/<?= $data["gambar"]?>" class="col-file" target="blank"><?= $data["gambar"]?></a>
+                </td>
+                <td><a href="./edit-berita.php?id=<?= $data['id']?>">edit</a></td>
+                <td><a href="./delete-berita.php?id=<?= $data['id']?>" onclick="return confirm('Yakin ingin menghapus?')">delete</a></td>
+              </tr>
+                <?php endwhile; ?>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </body>

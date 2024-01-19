@@ -1,9 +1,16 @@
+<?php
+ $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
+ $id = $_GET["id"];
+ $sql = "SELECT * FROM berita WHERE id = $id";
+ $query = mysqli_query($koneksi_db, $sql);
+ $data = mysqli_fetch_assoc($query);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Informasi Pemegang Saham - Menthobi Karyatama Raya Tbk</title>
+    <title>Berita - Menthobi Karyatama Raya Tbk</title>
     <script
       src="https://kit.fontawesome.com/ba965b16bb.js"
       crossorigin="anonymous"
@@ -29,7 +36,7 @@
         width: 100%;
         height: 50px;
         background-color: #01440a;
-        display: flex;
+        display: none;
         justify-content: flex-end;
       }
       header .header {
@@ -156,6 +163,15 @@
         flex-direction: column;
         gap: 15px;
       }
+      nav .logo .language > div {
+        display: flex;
+      }
+      nav .logo .language > div > a > img {
+        width: 25px;
+        height: fit-content;
+        border-radius: 3px;
+        border: 1px solid #01440a;
+      }
       /* navbar desktop */
       nav .nav-desktop {
         height: 68px;
@@ -164,7 +180,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 10px;
-        margin-left: 80px;
+        margin-left: 40px;
       }
       .nav-desktop a {
         text-decoration: none;
@@ -220,7 +236,20 @@
       }
       nav .saham {
         width: 100px;
-        margin-left: 60px;
+        margin-left: 50px;
+      }
+      nav > .language {
+        margin-left: 15px;
+        display: none;
+      }
+      nav > .language > div {
+        display: flex;
+      }
+      nav > .language > div > a > img {
+        width: 25px;
+        height: fit-content;
+        border-radius: 3px;
+        border: 1px solid #01440a;
       }
 
       .container {
@@ -313,7 +342,7 @@
           width: 75%;
         }
         nav .logo {
-          width: 75%;
+          width: 80%;
           justify-content: space-between;
         }
         nav .saham {
@@ -361,6 +390,19 @@
       @media (min-width: 1000px) {
         nav .logo details {
           display: none;
+        }
+        
+        nav .logo {
+          width: 275px;
+        }
+        nav .logo details {
+          display: none;
+        }
+        nav .logo .language > div {
+          display: none;
+        }
+        nav > .language {
+          display: flex;
         }
       }
     </style>
@@ -460,13 +502,13 @@
                 <details>
                   <summary>Informasi Pemegang Saham &#9660;</summary>
                   <ul>
-                    <a href="./informasi-pemegang-saham.html#struktur">
+                    <a href="./informasi-pemegang-saham.php#struktur">
                       <li>Struktur Kepemilikan</li>
                     </a>
-                    <a href="./informasi-pemegang-saham.html#dividen">
+                    <a href="./informasi-pemegang-saham.php#dividen">
                       <li>Dividen</li>
                     </a>
-                    <a href="./informasi-pemegang-saham.html#rups">
+                    <a href="./informasi-pemegang-saham.php#rups">
                       <li>RUPS</li>
                     </a>
                   </ul>
@@ -474,16 +516,16 @@
                 <details>
                   <summary>Informasi Keuangan &#9660;</summary>
                   <ul>
-                    <a href="./informasi-keuangan.html#harga">
+                    <a href="./informasi-keuangan.php#harga">
                       <li>Harga Saham</li>
                     </a>
-                    <a href="./informasi-keuangan.html#LK">
+                    <a href="./informasi-keuangan.php#LK">
                       <li>Laporan Kuartalan</li>
                     </a>
-                    <a href="./informasi-keuangan.html#LT">
+                    <a href="./informasi-keuangan.php#LT">
                       <li>Laporan Tahunan</li>
                     </a>
-                    <a href="./informasi-keuangan.html#PROSPEKTUS">
+                    <a href="./informasi-keuangan.php#PROSPEKTUS">
                       <li>Prospektus</li>
                     </a>
                   </ul>
@@ -491,7 +533,7 @@
               </ul>
             </details>
             <details>
-              <summary>AKTIFITAS BISNIS &#9660;</summary>
+              <summary class="AB">AKTIFITAS BISNIS &#9660;</summary>
               <ul>
                 <a href="./aktifitas-bisnis.html#MML"
                   ><li>PT Menthobi Makmur Lestari</li></a
@@ -510,7 +552,7 @@
             <details>
               <summary>BERITA & GALLERY &#9660;</summary>
               <ul>
-                <a href="./berita.html"><li>Berita</li></a>
+                <a href="./berita.php"><li>Berita</li></a>
                 <a href="./foto-video-aktifitas.html" class="foto-video"
                   ><li>Foto & Video Aktifitas</li></a
                 >
@@ -519,6 +561,9 @@
             <a href="">KARIR</a>
           </div>
         </details>
+        <div class="language">
+          <div class="gtranslate_wrapper"></div>
+        </div>
       </div>
       <div class="nav-desktop">
         <a href="./index.html" class="beranda">BERANDA</a>
@@ -584,13 +629,13 @@
             <li>
               <span>Informasi Pemegang Saham ►</span>
               <ul>
-                <a href="./informasi-pemegang-saham.html#struktur">
+                <a href="./informasi-pemegang-saham.php#struktur">
                   <li>Struktur Kepemilikan</li>
                 </a>
-                <a href="./informasi-pemegang-saham.html#dividen">
+                <a href="./informasi-pemegang-saham.php#dividen">
                   <li>Dividen</li>
                 </a>
-                <a href="./informasi-pemegang-saham.html#rups">
+                <a href="./informasi-pemegang-saham.php#rups">
                   <li>RUPS</li>
                 </a>
               </ul>
@@ -598,16 +643,16 @@
             <li>
               <span>Informasi Keuangan ►</span>
               <ul>
-                <a href="./informasi-keuangan.html#harga">
+                <a href="./informasi-keuangan.php#harga">
                   <li>Harga Saham</li>
                 </a>
-                <a href="./informasi-keuangan.html#LK">
+                <a href="./informasi-keuangan.php#LK">
                   <li>Laporan Kuartalan</li>
                 </a>
-                <a href="./informasi-keuangan.html#LT">
+                <a href="./informasi-keuangan.php#LT">
                   <li>Laporan Tahunan</li>
                 </a>
-                <a href="./informasi-keuangan.html#PROSPEKTUS">
+                <a href="./informasi-keuangan.php#PROSPEKTUS">
                   <li>Prospektus</li>
                 </a>
               </ul>
@@ -615,7 +660,7 @@
           </ul>
         </div>
         <div class="drop-wrap">
-          <span>AKTIFITAS BISNIS &#9660;</span>
+          <span class="AB">AKTIFITAS BISNIS &#9660;</span>
           <ul>
             <a href="./aktifitas-bisnis.html#MML"
               ><li>PT Menthobi Makmur Lestari</li></a
@@ -634,7 +679,7 @@
         <div class="drop-wrap">
           <span>BERITA & GALLERY &#9660;</span>
           <ul>
-            <a href="./berita.html"><li>Berita</li></a>
+            <a href="./berita.php"><li>Berita</li></a>
             <a href="./foto-video-aktifitas.html"
               ><li>Foto & Video Aktifitas</li></a
             >
@@ -659,95 +704,25 @@
           "
         ></iframe>
       </div>
+      <div class="language">
+        <div class="gtranslate_wrapper"></div>
+      </div>
     </nav>
 
     <div class="container">
       <div class="foto-berita">
         <img
-          src="./img/berita2.jpeg"
-          alt="Ini Alasan MKTR Tbk Optimistis Menjalankan Bisnis Sawit yang
-        Berkelanjutan
-"
+          src="./dashboard/files_img/<?= $data['gambar']?>"
+          alt="<?= $data['judul']?>"
         />
       </div>
       <h1>
-        Ini Alasan MKTR Tbk Optimistis Menjalankan Bisnis Sawit yang
-        Berkelanjutan
+      <?= $data['judul']?>
       </h1>
       <div class="isi-berita">
         <p>
-          JAKARTA – Perusahaan investasi bidang komoditi PT Menthobi Karyatama
-          Raya Tbk (MKTR) yang baru saja meresmikan pencatatan sahamnya di Bursa
-          Efek Indonesia (BEI) optimis terhadap keberlangsungan bisnis
-          kedepannya.
+        <?= $data['deskripsi']?>
         </p>
-        <p>
-          Direktur Utama MKTR, Harry M. Nadir mengungkapkan, luas lahan yang
-          belum tertanam akan turut mendukung penanaman baru dan pertumbuhan
-          produksi tandan buah segar (TBS) kelapa sawit di masa yang akan
-          datang.
-        </p>
-        <p>
-          Menurutnya, saat ini usia tanaman MKTR berada pada masa produktif dan
-          masih first planting, sehingga potensi untuk replanting masih jauh
-          sekali, mungkin untuk 20 tahun kedepan masih sangat produktif.
-        </p>
-        <p>
-          “Ruang pertumbuhan MKTR masih besar sekali. Ditambah, MKTR masih
-          memiliki lahan yang cukup luas yang belum ditanami,” ujarnya dalam
-          keterangan tertulis, Selasa (8/11/2022).
-        </p>
-        <p>
-          Harry mengungkapkan, IPO ini juga menjadi momen penting bagi MKTR
-          dalam upaya mempercepat pengembangan bisnis dan investasi perusahaan.
-          Sebagai perusahaan publik, MKTR kini memiliki akses keuangan dan
-          jejaring bisnis yang terbuka lebar, sehingga perusahaan dapat
-          mengoptimalkan peluang pasar untuk bertumbuh semakin besar.
-        </p>
-        <p>
-          “Kami telah menyiapkan strategi yang matang dan terintegrasi baik
-          jangka pendek, menengah dan panjang. Melalui pengembangan bisnis yang
-          terukur, prudent, disiplin dalam eksekusi atas semua strategi kami,
-          MKTR menyiapkan diri untuk menjadi perusahaan investasi bidang
-          komoditi terdepan dengan konsep yang ramah lingkungan dan
-          berkesinambungan,” ungkapnya.
-        </p>
-        <p>
-          Adapun langkah IPO dilakukan dalam rangka meningkatkan kapasitas
-          sebagai perusahaan investasi di bidang agrobisnis dengan tata kelola
-          yang berorientasi pada prinsip berkelanjutan (sustainability) sehingga
-          bisa memberikan nilai tambah kepada para pemegang saham.
-        </p>
-        <p>
-          Menurut Harry, peningkatan pendapatan MKTR kedepan akan ditopang oleh
-          pertumbuhan produksi yang didukung oleh profil tanaman yang masih muda
-          yang dimiliki perusahaan.
-        </p>
-        <p>
-          Sementara Vice President Investment Banking PT Danatama Makmur
-          Sekuritas, Denny Saliman, selaku Penjamin Pelaksana Emisi Efek (Lead
-          Underwriter) IPO MKTR mengatakan, IPO merupakan keputusan strategis
-          yang dilakukan MKTR dalam melakukan pengembangan dan ekspansi bisnis.
-          Terlebih, kondisi industri di sektor ini tengah positif, dimana
-          permintaan komoditas CPO di dalam negeri dan global terus meningkat.
-          Menurut Denny, ada beberapa faktor yang membuat antusiasme investor
-          terhadap saham MKTR cukup tinggi pada masa IPO. Pertama yaitu secara
-          kinerja dan rekam jejak perusahaan yang sangat solid. Didukung para
-          professional di industri perkebunan dengan pengalaman rata-rata lebih
-          dari 20 tahun. Kedua, positioning MKTR di bidang komoditas yang memang
-          menjadi sektor unggulan dikarenakan Indonesia merupakan salah satu
-          penghasil sawit terbesar dunia. Dan yang ketiga, dilihat dari rencana
-          bisnis MKTR yang sangat baik, sehingga potensi pertumbuhan usaha di
-          masa mendatang sangat terbuka. “Di industri ini MKTR memiliki bisnis
-          yang cukup lengkap dan saling terintegrasi, diharapkan ekosistem ini
-          dapat menjadi lebih solid lagi kedepannya,” pungkasnya.
-        </p>
-        <p>Source:</p>
-        <a
-          href="https://www.cnbcindonesia.com/market/20221108124657-17-386026/menthobi-mktr-pede-umur-panjang-alasannya-simple"
-        >
-          menthobi-mktr-pede-umur-panjang-alasannya-simple
-        </a>
       </div>
     </div>
 
@@ -815,5 +790,16 @@
         >
       </div>
     </footer>
+    <script>
+      window.gtranslateSettings = {
+        default_language: "",
+        languages: ["id", "en"],
+        wrapper_selector: ".gtranslate_wrapper",
+      };
+    </script>
+    <script
+      src="https://cdn.gtranslate.net/widgets/latest/flags.js"
+      defer
+    ></script>
   </body>
 </html>

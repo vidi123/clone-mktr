@@ -2,64 +2,67 @@
   session_start();
   if(!$_SESSION["login"]){
     header("Location: ../index.html");
+    die;
   }
+
+  $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
   
-  
+  $id = $_GET["id"];
+  $sqlGet = "SELECT * FROM berita WHERE id = $id";
+  $query = mysqli_query($koneksi_db, $sqlGet);
+  $datas = mysqli_fetch_assoc($query);
   if(isset($_POST["submit"])){
-    // var_dump($_POST);
-    
-    function upload(){
-      $koneksi_db = mysqli_connect("localhost", "root", "", "mktr_db");
+    function update(){
+      global $koneksi_db;
+      global $id;
+      global $datas;
       $tanggal = htmlspecialchars($_POST["tanggal"]);
       $bulan = htmlspecialchars($_POST["bulan"]);
       $tahun = htmlspecialchars($_POST["tahun"]);
+      $judul = htmlspecialchars($_POST["judul"]);
       $deskripsi = htmlspecialchars($_POST["deskripsi"]);
-      $file = $_FILES["file"]["name"];
-      $tmpFile = $_FILES["file"]["tmp_name"];
-      $error = $_FILES["file"]["error"];
-      // var_dump($_FILES);
+      $tmpGambar = $_FILES["file-gambar"]["tmp_name"];
+      $gambar = $_FILES["file-gambar"]["name"];
+      $gambarLama = $datas["gambar"];
       
-      // validasi input
-    if($error === 4){
-      echo "<script>
-      alert('File PDF wajib diisi!');
+       // validasi input
+       if( $_FILES["file-gambar"]["error"] === 4 ){
+        $gambar = $gambarLama;
+      } else{
+        $ekstensiGambarValid = ["jpg", "jpeg", "png"];
+        $ekstensiGambarFile = explode(".", $gambar);
+        $ekstensiGambarFile = strtolower(end($ekstensiGambarFile));
+        if(!in_array($ekstensiGambarFile, $ekstensiGambarValid)){
+            echo "<script>
+            alert('Format file pada bagian Upload Gambar harus diantara .jpg, .jpeg, .png!');
+            </script>";
+            return false;
+        }
+      }
+      $sql = "UPDATE berita SET gambar = '$gambar', judul = '$judul', deskripsi = '$deskripsi', tanggal = '$tanggal', bulan = '$bulan', tahun = '$tahun' WHERE id = $id";
+      $query = mysqli_query($koneksi_db, $sql);
+      if($query){
+        move_uploaded_file($tmpGambar, "./files_img/" . $gambar);
+        echo "<script>
+        alert('Data Berhasil Diupdate!');
+        window.location.href = './berita.php';
         </script>";
-        return false;
+      }
     }
-    
-    $ekstensiValid = ["pdf"];
-    $ekstensiFile = explode(".", $file);
-    $ekstensiFile = strtolower(end($ekstensiFile));
-    if(!in_array($ekstensiFile, $ekstensiValid)){
-      echo "<script>
-      alert('Format file harus PDF!');
-      </script>";
-      return false;
+    if(!update()){
     }
-    
-    $sql = "INSERT INTO rups VALUES (NULL, '$tanggal', '$bulan', '$tahun', '$deskripsi', '$file')";
-    $query = mysqli_query($koneksi_db, $sql);
-    if($query){
-      move_uploaded_file($tmpFile, "./files_pdf/" . $file);
       echo "<script>
-      alert('Data Berhasil Ditambah!');
-      window.location.href = 'info-pemegang-saham.php';
+      alert('Gagal mengedit RUPS!');
+      window.location.href = './edit-berita.php?id=$id';
       </script>";
     }
-  }
-  if(!upload()){
-    echo "<script>
-    alert('Gagal menambah RUPS!');
-    </script>";
-  }
-  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - MKTR</title>
+    <title>Edit Data- MKTR</title>
     <script
       src="https://kit.fontawesome.com/ba965b16bb.js"
       crossorigin="anonymous"
@@ -253,7 +256,7 @@
         border: 1px solid #013a08;
         border-radius: 7px;
       }
-      .container .content form input:focus {
+      .container .content form input:focus,.container .content form textarea:focus {
         outline: none;
       }
       .container .content form input#file {
@@ -261,8 +264,31 @@
         height: fit-content;
         padding-block: 10px;
       }
-      .container .content form input#deskripsi {
-        height: 50px;
+      .container .content form #deskripsi {
+        padding-inline: 10px;
+        padding-block: 10px;
+        box-sizing: border-box;
+        height: 150px;
+        color: #013a08;
+        border: 1px solid #013a08;
+        border-radius: 7px;
+        resize: none;
+      }
+      .container .content form .file-upload{
+        display: flex;
+        align-items: center;
+        gap: 10px 
+      }
+      .container .content form .file-upload label {
+        width: 100px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        color: #013a08;
+        border: 1px solid #013a08;
+        border-radius: 7px;
       }
       .container .content form select {
         height: 30px;
@@ -302,7 +328,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="sidebar-wrapper">
+    <div class="sidebar-wrapper">
        <details>
           <summary>
             <div></div>
@@ -323,23 +349,22 @@
             name="menu"
             class="input-menu"
             id="menu-1"
-            checked
           />
-          <input type="radio" name="menu" class="input-menu" id="menu-2" />
+          <input type="radio" name="menu" class="input-menu" id="menu-2" checked/>
           <a href="./index.php">Dashboard</a>
           <div class="menu-wrap">
             <label for="menu-1">Hubungan Investor</label>
             <div class="sub-label sublab-1">
-              <a href="./info-pemegang-saham.php" class="this-page"
+              <a href="./info-pemegang-saham.php"
                 >Informasi Pemegang Saham
               </a>
-              <a href="./info-keuangan.php">Informasi Keuangan </a>
+              <a href="./info-keuanga.php">Informasi Keuangan </a>
             </div>
           </div>
           <div class="menu-wrap">
             <label for="menu-2">Berita</label>
             <div class="sub-label sublab-2">
-              <a href="./berita.php">Berita</a>
+              <a href="./berita.php" class="this-page">Berita</a>
             </div>
           </div>
           <a href="" class="karir">Karir</a>
@@ -348,41 +373,62 @@
       </div>
     </div>
       <div class="content">
-        <h1>Tambah Data RUPS</h1>
+        <h1>Edit Data RUPS</h1>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="input-wrap">
             <label for="tanggal">Tanggal</label>
             <div class="tanggal-wrap">
-              <input type="number" name="tanggal" id="tanggal" min="1" max="31" value="1">
-              <select name="bulan" id="bulan">
-                <option value="Januari">Januari</option>
-                <option value="Februari">Februari</option>
-                <option value="Maret">Maret</option>
-                <option value="April">April</option>
-                <option value="Mei">Mei</option>
-                <option value="Juni">Juni</option>
-                <option value="Juli">Juli</option>
-                <option value="Agustus">Agustus</option>
-                <option value="September">September</option>
-                <option value="Oktober">Oktober</option>
-                <option value="November">November</option>
-                <option value="Desember">Desember</option>
+              <input type="number" name="tanggal" id="tanggal" min="1" max="31" value="<?= $datas['tanggal']?>">
+              <select name="bulan" id="bulan" value="<?= $datas['bulan']?>">
+                <option class="opsi" value="Januari">Januari</option>
+                <option class="opsi" value="Februari">Februari</option>
+                <option class="opsi" value="Maret">Maret</option>
+                <option class="opsi" value="April">April</option>
+                <option class="opsi" value="Mei">Mei</option>
+                <option class="opsi" value="Juni">Juni</option>
+                <option class="opsi" value="Juli">Juli</option>
+                <option class="opsi" value="Agustus">Agustus</option>
+                <option class="opsi" value="September">September</option>
+                <option class="opsi" value="Oktober">Oktober</option>
+                <option class="opsi" value="November">November</option>
+                <option class="opsi" value="Desember">Desember</option>
               </select>
-              <input type="number" name="tahun" id="tahun" min="2000" max="2099" value="2024">
+              <input type="number" name="tahun" id="tahun" min="2000" max="2099" value="<?= $datas['tahun']?>">
             </div>
           </div>
           <div class="input-wrap">
-            <label for="deskripsi">Deskripsi</label>
-            <input type="text" name="deskripsi" id="deskripsi" autocomplete="off"/>
+            <label for="judul">Judul</label>
+            <input type="text" name="judul" id="judul" autocomplete="off" value="<?= $datas['judul']?>"/>
           </div>
           <div class="input-wrap">
-            <label for="file">Upload File</label>
-            <span>Format file wajib .pdf</span>
-            <input type="file" name="file" id="file" />
+            <label for="deskripsi">Deskripsi</label>
+            <textarea name="deskripsi" id="deskripsi"><?= $datas['deskripsi']?></textarea>
+          </div>
+          <div class="input-wrap">
+            <label for="file-gambar">Upload File PDF</label>
+            <span>Format file (.jpg, .jpeg, .png)</span>
+            <div class="file-upload">
+                <input type="file" name="file-gambar" id="file-gambar" value="<?= $datas["gambar"]?>" hidden/>
+                <label for="file-gambar">Pilih File</label>
+                <span class="nama-gambar"><?= $datas["gambar"]?></span>
+            </div>
           </div>
           <button name="submit">Submit</button>
         </form>
       </div>
     </div>
+    <script>
+      const options = document.querySelectorAll(".opsi");
+      const file = document.querySelector("#file-gambar");
+      const namaGambar = document.querySelector(".nama-gambar");
+      file.addEventListener("change", (e)=>{
+        if(e.target.files.length == 1){
+            let gambarFile = e.target.files[0];
+            namaGambar.textContent = gambarFile.name;
+        } else{
+            namaGambar.textContent = "<?= $datas["gambar"]?>";
+        }
+    });
+    </script>
   </body>
 </html>
